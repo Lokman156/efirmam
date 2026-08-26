@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Tüm Kategoriler - e-Firmam</title>
+    <meta name="description" content="e-Firmam'da tüm kategorileri keşfedin. 70+ kategoride binlerce firma. Elektronik, restoran, otel, market ve daha fazlası.">
+    <meta name="keywords" content="firma kategorileri, işletme kategorileri, e-Firmam, elektronik, restoran, otel, market">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="e-Firmam">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tüm Kategoriler - e-Firmam">
+    <meta property="og:description" content="70+ kategoride binlerce firma e-Firmam'da.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://efirmam.com/kategoriler.html">
+    <meta property="og:site_name" content="e-Firmam">
+    <meta property="og:image" content="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://efirmam.com/kategoriler.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ana-renk: #0f172a;
+            --ana-renk-2: #1e293b;
+            --vurgu-renk: #f97316;
+            --vurgu-renk-2: #ea580c;
+            --acik-renk: #f8fafc;
+            --beyaz: #ffffff;
+            --koyu: #1e293b;
+            --gri: #64748b;
+            --acik-gri: #e2e8f0;
+            --gradient: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--acik-renk);
+            color: var(--koyu);
+            line-height: 1.6;
+        }
+
+        /* ÜST MENÜ */
+        .ust-menu {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--vurgu-renk);
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        .logo-yazi {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-ad {
+            color: var(--beyaz);
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-ad span {
+            color: var(--vurgu-renk);
+        }
+
+        .logo-slogan {
+            color: rgba(255,255,255,0.6);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-linkler {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .menu-linkler a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu-linkler a:hover {
+            color: var(--beyaz);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .menu-linkler a.aktif {
+            color: var(--vurgu-renk);
+            background: rgba(249,115,22,0.1);
+        }
+
+        .firma-ekle-btn {
+            background: var(--gradient);
+            color: var(--beyaz) !important;
+            padding: 10px 20px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(249,115,22,0.3);
+        }
+
+        .firma-ekle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249,115,22,0.5);
+        }
+
+        .mobil-menu-btn {
+            display: none;
+            color: var(--beyaz);
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* SAYFA BAŞLIĞI */
+        .sayfa-baslik {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sayfa-baslik h1 {
+            color: var(--beyaz);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sayfa-baslik p {
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* KATEGORİLER */
+        .kategori-bolumu {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kategori-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .kategori-kart {
+            background: var(--beyaz);
+            border: 2px solid var(--acik-gri);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--koyu);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kategori-kart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .kategori-kart:hover::before {
+            transform: scaleX(1);
+        }
+
+        .kategori-kart:hover {
+            border-color: var(--vurgu-renk);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .kategori-kart i {
+            font-size: 45px;
+            color: var(--vurgu-renk);
+            margin-bottom: 15px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .kategori-kart:hover i {
+            transform: scale(1.2);
+        }
+
+        .kategori-kart span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .kategori-sayi {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--gri);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--acik-gri);
+            border-top: 5px solid var(--vurgu-renk);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bolum h3 {
+            color: var(--vurgu-renk);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-bolum a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-bolum a:hover {
+            color: var(--vurgu-renk);
+        }
+
+        .footer-alt {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .mobil-menu-btn {
+                display: block;
+            }
+
+            .menu-linkler {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--ana-renk);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+                box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            }
+
+            .menu-linkler.acik {
+                display: flex;
+            }
+
+            .sayfa-baslik h1 {
+                font-size: 32px;
+            }
+
+            .kategori-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST MENÜ -->
+    <nav class="ust-menu">
+        <div class="menu-icerik">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
+                <div class="logo-yazi">
+                    <span class="logo-ad">e-<span>Firmam</span></span>
+                    <span class="logo-slogan">Firma Rehberi</span>
+                </div>
+            </a>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-linkler" id="menuLinkler">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html" class="aktif">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html" class="firma-ekle-btn">
+                    <i class="fas fa-plus"></i> Firmanı Ekle
+                </a>
+                <a href="firma-giris.html">Firma Girişi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SAYFA BAŞLIĞI -->
+    <section class="sayfa-baslik">
+        <h1>Tüm Kategoriler</h1>
+        <p>70+ kategoride binlerce firmayı keşfedin</p>
+    </section>
+
+    <!-- KATEGORİLER -->
+    <section class="kategori-bolumu">
+        <div class="kategori-grid" id="kategoriGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Kategoriler yükleniyor...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-icerik">
+            <div class="footer-bolum">
+                <h3>e-Firmam</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi. İşletmenizi ekleyin, müşterilerinize ulaşın.</p>
+            </div>
+            <div class="footer-bolum">
+                <h3>Hızlı Linkler</h3>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html">Firma Ekle</a>
+            </div>
+            <div class="footer-bolum">
+                <h3>Firma</h3>
+                <a href="firma-giris.html">Firma Girişi</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <div class="footer-alt">
+            <p>© 2026 e-Firmam.com - Tüm hakları saklıdır.</p>
+            <p style="margin-top: 10px;">Lokman Başboğa | Lokman Medya</p>
+        </div>
+    </footer>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
+            authDomain: "efirmam-45ddf.firebaseapp.com",
+            projectId: "efirmam-45ddf",
+            storageBucket: "efirmam-45ddf.firebasestorage.app",
+            messagingSenderId: "206457982134",
+            appId: "1:206457982134:web:a6b244b3f1aae10129aa17",
+            measurementId: "G-NCVWRTP072"
+        };
+
+        // Firebase Başlat
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Mobil Menü
+        function menuAcKapat() {
+            const menu = document.getElementById('menuLinkler');
+            menu.classList.toggle('acik');
+        }
+
+      // Kategorileri Yükle (HIZLI VERSİYON)
+async function kategorileriYukle() {
+    const kategoriGrid = document.getElementById('kategoriGrid');
+    
+    try {
+        // Kategorileri al
+        const kategoriSnapshot = await db.collection('kategoriler')
+            .orderBy('siralama', 'asc')
+            .get();
+
+        if (kategoriSnapshot.empty) {
+            kategoriGrid.innerHTML = '<p style="text-align: center; color: var(--gri); grid-column: 1/-1;">Henüz kategori eklenmemiş.</p>';
+            return;
+        }
+
+        // Tüm firmaları al
+        const firmaSnapshot = await db.collection('firmalar').get();
+        
+        // Kategori sayılarını hesapla
+        const kategoriSayilari = {};
+        firmaSnapshot.forEach(doc => {
+            const data = doc.data();
+            const kategori = data.kategori;
+            if (kategori) {
+                kategoriSayilari[kategori] = (kategoriSayilari[kategori] || 0) + 1;
+            }
+        });
+
+        kategoriGrid.innerHTML = '';
+        
+        kategoriSnapshot.forEach(doc => {
+            const data = doc.data();
+            const firmaSayisi = kategoriSayilari[data.kategori_adi] || 0;
+            
+            const kategoriKart = document.createElement('a');
+            kategoriKart.href = 'arama.html?kategori=' + encodeURIComponent(data.kategori_adi);
+            kategoriKart.className = 'kategori-kart';
+            kategoriKart.innerHTML = `
+                <i class="${data.ikon || 'fas fa-store'}"></i>
+                <span>${data.kategori_adi}</span>
+                <span class="kategori-sayi">${firmaSayisi} firma</span>
+            `;
+            kategoriGrid.appendChild(kategoriKart);
+        });
+    } catch (error) {
+        console.error('Kategori yükleme hatası:', error);
+        kategoriGrid.innerHTML = '<p style="text-align: center; color: red; grid-column: 1/-1;">Kategoriler yüklenirken hata oluştu.</p>';
+    }
+}
+
+        // Sayfa Yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            kategorileriYukle();
+        });
+    </script>
+</body>
+</html>

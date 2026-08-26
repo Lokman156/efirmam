@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri (JavaScript ile dinamik güncellenecek) -->
+    <title>Firma Detay - e-Firmam</title>
+    <meta name="description" content="Firma detayları, iletişim bilgileri, adres, çalışma saatleri ve müşteri yorumları e-Firmam'da.">
+    <meta name="keywords" content="firma detay, işletme bilgileri, e-Firmam">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="e-Firmam">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Firma Detay - e-Firmam">
+    <meta property="og:description" content="Firma bilgileri e-Firmam'da.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="e-Firmam">
+    <meta property="og:image" content="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://efirmam.com/firma.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ana-renk: #0f172a;
+            --ana-renk-2: #1e293b;
+            --vurgu-renk: #f97316;
+            --vurgu-renk-2: #ea580c;
+            --acik-renk: #f8fafc;
+            --beyaz: #ffffff;
+            --koyu: #1e293b;
+            --gri: #64748b;
+            --acik-gri: #e2e8f0;
+            --gradient: linear-gradient(135deg, #f97316, #ea580c);
+            --yesil: #10b981;
+            --kirmizi: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--acik-renk);
+            color: var(--koyu);
+            line-height: 1.6;
+        }
+
+        /* ÜST MENÜ */
+        .ust-menu {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--vurgu-renk);
+        }
+
+        .logo-yazi {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-ad {
+            color: var(--beyaz);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo-ad span {
+            color: var(--vurgu-renk);
+        }
+
+        .logo-slogan {
+            color: rgba(255,255,255,0.6);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-linkler {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .menu-linkler a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu-linkler a:hover {
+            color: var(--beyaz);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .firma-ekle-btn {
+            background: var(--gradient);
+            color: var(--beyaz) !important;
+            padding: 10px 20px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+
+        .mobil-menu-btn {
+            display: none;
+            color: var(--beyaz);
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* FİRMA BAŞLIK */
+        .firma-baslik {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .firma-logo-buyuk {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--beyaz);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--vurgu-renk);
+        }
+
+        .firma-logo-buyuk img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .firma-baslik h1 {
+            color: var(--beyaz);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .firma-baslik .kategori-badge {
+            display: inline-block;
+            background: rgba(249,115,22,0.2);
+            color: var(--vurgu-renk);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* İÇERİK */
+        .icerik-bolumu {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bilgi-kart {
+            background: var(--beyaz);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .bilgi-kart h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ana-renk);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bilgi-kart h3 i {
+            color: var(--vurgu-renk);
+        }
+
+        .bilgi-satir {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--acik-gri);
+        }
+
+        .bilgi-satir:last-child {
+            border-bottom: none;
+        }
+
+        .bilgi-ikon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(249,115,22,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--vurgu-renk);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .bilgi-icerik {
+            flex: 1;
+        }
+
+        .bilgi-etiket {
+            font-size: 12px;
+            color: var(--gri);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bilgi-deger {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--koyu);
+            word-break: break-word;
+        }
+
+        .bilgi-deger a {
+            color: var(--vurgu-renk);
+            text-decoration: none;
+        }
+
+        /* SOSYAL MEDYA */
+        .sosyal-linkler {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .sosyal-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--beyaz);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sosyal-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .sosyal-facebook { background: #1877f2; }
+        .sosyal-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .sosyal-twitter { background: #000000; }
+        .sosyal-youtube { background: #ff0000; }
+        .sosyal-linkedin { background: #0a66c2; }
+        .sosyal-tiktok { background: #000000; }
+        .sosyal-whatsapp { background: #25d366; }
+        .sosyal-telegram { background: #0088cc; }
+
+        /* ÇALIŞMA SAATLERİ */
+        .saat-tablo {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .saat-tablo th, .saat-tablo td {
+            padding: 10px 15px;
+            text-align: left;
+            font-size: 14px;
+            border-bottom: 1px solid var(--acik-gri);
+        }
+
+        .saat-tablo th {
+            font-weight: 600;
+            color: var(--ana-renk);
+            background: var(--acik-renk);
+        }
+
+        .saat-acik {
+            color: var(--yesil);
+            font-weight: 600;
+        }
+
+        .saat-kapali {
+            color: var(--kirmizi);
+            font-weight: 600;
+        }
+
+        /* HARİTA */
+        .harita-konteyner {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .harita-konteyner iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+
+        /* YORUMLAR */
+        .yorum-kart {
+            background: var(--acik-renk);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .yorum-ust {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .yorum-yazar {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--ana-renk);
+        }
+
+        .yorum-tarih {
+            font-size: 12px;
+            color: var(--gri);
+        }
+
+        .yorum-puan {
+            color: #f59e0b;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .yorum-metin {
+            font-size: 14px;
+            color: var(--koyu);
+        }
+
+        /* YORUM FORMU */
+        .yorum-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .yorum-form input,
+        .yorum-form textarea,
+        .yorum-form select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--acik-gri);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .yorum-form input:focus,
+        .yorum-form textarea:focus {
+            border-color: var(--vurgu-renk);
+        }
+
+        .yorum-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .puan-secim {
+            display: flex;
+            gap: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .puan-secim i {
+            color: var(--acik-gri);
+            transition: color 0.3s;
+        }
+
+        .puan-secim i.secili {
+            color: #f59e0b;
+        }
+
+        .yorum-btn {
+            background: var(--gradient);
+            color: var(--beyaz);
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* BİLDİRİM */
+        .bildirim {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 2000;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .bildirim.hata {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+            display: block;
+        }
+
+        .bildirim.basarili {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+            display: block;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--acik-gri);
+            border-top: 5px solid var(--vurgu-renk);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bolum h3 {
+            color: var(--vurgu-renk);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-bolum a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .footer-alt {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .mobil-menu-btn {
+                display: block;
+            }
+
+            .menu-linkler {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--ana-renk);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .menu-linkler.acik {
+                display: flex;
+            }
+
+            .firma-baslik h1 {
+                font-size: 24px;
+            }
+
+            .firma-logo-buyuk {
+                width: 80px;
+                height: 80px;
+                font-size: 30px;
+            }
+
+            .bilgi-kart {
+                padding: 20px;
+            }
+
+            .harita-konteyner iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST MENÜ -->
+    <nav class="ust-menu">
+        <div class="menu-icerik">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
+                <div class="logo-yazi">
+                    <span class="logo-ad">e-<span>Firmam</span></span>
+                    <span class="logo-slogan">Firma Rehberi</span>
+                </div>
+            </a>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-linkler" id="menuLinkler">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html" class="firma-ekle-btn">
+                    <i class="fas fa-plus"></i> Firmanı Ekle
+                </a>
+                <a href="firma-giris.html">Firma Girişi</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="bildirim" class="bildirim"></div>
+
+    <!-- FİRMA İÇERİK -->
+    <div id="firmaIcerik">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Firma bilgileri yükleniyor...</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-icerik">
+            <div class="footer-bolum">
+                <h3>e-Firmam</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi.</p>
+            </div>
+            <div class="footer-bolum">
+                <h3>Hızlı Linkler</h3>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html">Firma Ekle</a>
+            </div>
+            <div class="footer-bolum">
+                <h3>Firma</h3>
+                <a href="firma-giris.html">Firma Girişi</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <div class="footer-alt">
+            <p>© 2026 e-Firmam.com - Tüm hakları saklıdır.</p>
+            <p style="margin-top: 10px;">Lokman Başboğa | Lokman Medya</p>
+        </div>
+    </footer>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
+            authDomain: "efirmam-45ddf.firebaseapp.com",
+            projectId: "efirmam-45ddf",
+            storageBucket: "efirmam-45ddf.firebasestorage.app",
+            messagingSenderId: "206457982134",
+            appId: "1:206457982134:web:a6b244b3f1aae10129aa17",
+            measurementId: "G-NCVWRTP072"
+        };
+
+        // Firebase Başlat
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let firmaId = '';
+        let firmaData = null;
+        let secilenPuan = 0;
+
+        // Mobil Menü
+        function menuAcKapat() {
+            const menu = document.getElementById('menuLinkler');
+            menu.classList.toggle('acik');
+        }
+
+        // URL'den Firma ID Al
+        function getFirmaId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id') || '';
+        }
+
+        // Bildirim Göster
+        function bildirimGoster(mesaj, tip) {
+            const bildirim = document.getElementById('bildirim');
+            bildirim.textContent = mesaj;
+            bildirim.className = 'bildirim ' + tip;
+            setTimeout(() => {
+                bildirim.className = 'bildirim';
+            }, 5000);
+        }
+
+        // Puan Seçme
+        function puanSec(puan) {
+            secilenPuan = puan;
+            const yildizlar = document.querySelectorAll('.puan-secim i');
+            yildizlar.forEach((yildiz, index) => {
+                if (index < puan) {
+                    yildiz.classList.add('secili');
+                } else {
+                    yildiz.classList.remove('secili');
+                }
+            });
+        }
+
+        // Firma Detayını Yükle
+        async function firmaYukle() {
+            const firmaIcerik = document.getElementById('firmaIcerik');
+            firmaId = getFirmaId();
+            
+            if (!firmaId) {
+                firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px;">Firma bulunamadı.</p>';
+                return;
+            }
+            
+            try {
+                const doc = await db.collection('firmalar').doc(firmaId).get();
+                
+                if (!doc.exists) {
+                    firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px;">Firma bulunamadı.</p>';
+                    return;
+                }
+                
+                firmaData = doc.data();
+                firmaData.id = doc.id;
+                
+                // SEO Güncelle
+                seoGuncelle(firmaData);
+                
+                // Görüntülenme artır
+                await db.collection('firmalar').doc(firmaId).update({
+                    goruntulenme: firebase.firestore.FieldValue.increment(1)
+                });
+                
+                firmaIcerik.innerHTML = firmaHTMLOlustur(firmaData);
+                
+                // Yorumları yükle
+                yorumlariYukle();
+                
+            } catch (error) {
+                console.error('Firma yükleme hatası:', error);
+                firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px; color: red;">Firma yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        // SEO Güncelle
+        function seoGuncelle(data) {
+            const firmaAdi = data.firma_adi || 'Firma';
+            const il = data.il || '';
+            const ilce = data.ilce || '';
+            const kategori = data.kategori || '';
+            
+            document.title = firmaAdi + ' - Telefon, Adres, Yorumlar | e-Firmam';
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            metaDescription.content = firmaAdi + ' ' + il + ' ' + ilce + ' adresinde. ' + kategori + '. İletişim bilgileri, çalışma saatleri ve müşteri yorumları e-Firmam\'da.';
+            
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+            metaKeywords.content = firmaAdi + ', ' + kategori + ', ' + il + ', ' + ilce + ', firma rehberi, e-Firmam';
+            
+            document.querySelector('meta[property="og:title"]').content = firmaAdi + ' - e-Firmam';
+            document.querySelector('meta[property="og:description"]').content = firmaAdi + ' ' + il + ' ' + ilce + ' adresinde. İletişim ve yorumlar e-Firmam\'da.';
+        }
+
+        // Firma HTML Oluştur
+        function firmaHTMLOlustur(data) {
+            const logoHtml = data.logo_url 
+                ? `<img src="${data.logo_url}" alt="${data.firma_adi}">` 
+                : data.firma_adi.charAt(0).toUpperCase();
+            
+            // Sosyal medya linkleri
+            let sosyalLinkler = '';
+            const sm = data.sosyal_medya || {};
+            
+            if (sm.facebook) sosyalLinkler += `<a href="${sm.facebook}" target="_blank" class="sosyal-link sosyal-facebook"><i class="fab fa-facebook-f"></i></a>`;
+            if (sm.instagram) sosyalLinkler += `<a href="${sm.instagram}" target="_blank" class="sosyal-link sosyal-instagram"><i class="fab fa-instagram"></i></a>`;
+            if (sm.twitter) sosyalLinkler += `<a href="${sm.twitter}" target="_blank" class="sosyal-link sosyal-twitter"><i class="fab fa-x-twitter"></i></a>`;
+            if (sm.youtube) sosyalLinkler += `<a href="${sm.youtube}" target="_blank" class="sosyal-link sosyal-youtube"><i class="fab fa-youtube"></i></a>`;
+            if (sm.linkedin) sosyalLinkler += `<a href="${sm.linkedin}" target="_blank" class="sosyal-link sosyal-linkedin"><i class="fab fa-linkedin-in"></i></a>`;
+            if (sm.tiktok) sosyalLinkler += `<a href="${sm.tiktok}" target="_blank" class="sosyal-link sosyal-tiktok"><i class="fab fa-tiktok"></i></a>`;
+            if (sm.whatsapp) sosyalLinkler += `<a href="https://wa.me/${sm.whatsapp.replace(/\D/g, '')}" target="_blank" class="sosyal-link sosyal-whatsapp"><i class="fab fa-whatsapp"></i></a>`;
+            if (sm.telegram) sosyalLinkler += `<a href="${sm.telegram}" target="_blank" class="sosyal-link sosyal-telegram"><i class="fab fa-telegram-plane"></i></a>`;
+            
+            // Harita
+            const adres = data.adres || '';
+            const il = data.il || '';
+            const ilce = data.ilce || '';
+            const haritaAdres = [adres, ilce, il].filter(Boolean).join(', ');
+            const haritaURL = 'https://www.google.com/maps?q=' + encodeURIComponent(haritaAdres) + '&output=embed';
+            
+            // Çalışma saatleri
+            let saatHTML = '';
+            if (data.calisma_saatleri) {
+                const saatler = data.calisma_saatleri;
+                const gunler = [
+                    { ad: 'Pazartesi', veri: saatler.pazartesi },
+                    { ad: 'Salı', veri: saatler.sali },
+                    { ad: 'Çarşamba', veri: saatler.carsamba },
+                    { ad: 'Perşembe', veri: saatler.persembe },
+                    { ad: 'Cuma', veri: saatler.cuma },
+                    { ad: 'Cumartesi', veri: saatler.cumartesi },
+                    { ad: 'Pazar', veri: saatler.pazar }
+                ];
+                
+                saatHTML = '<table class="saat-tablo"><tr><th>Gün</th><th>Saatler</th></tr>';
+                
+                gunler.forEach(gun => {
+                    if (gun.veri && gun.veri.kapali) {
+                        saatHTML += `<tr><td>${gun.ad}</td><td class="saat-kapali">Kapalı</td></tr>`;
+                    } else if (gun.veri && gun.veri.acilis && gun.veri.kapanis) {
+                        saatHTML += `<tr><td>${gun.ad}</td><td class="saat-acik">${gun.veri.acilis} - ${gun.veri.kapanis}</td></tr>`;
+                    } else {
+                        saatHTML += `<tr><td>${gun.ad}</td><td>Belirtilmemiş</td></tr>`;
+                    }
+                });
+                
+                saatHTML += '</table>';
+            } else {
+                saatHTML = '<p style="color: var(--gri);">Çalışma saatleri belirtilmemiş.</p>';
+            }
+            
+            return `
+                <section class="firma-baslik">
+                    <div class="firma-logo-buyuk">${logoHtml}</div>
+                    <h1>${data.firma_adi}</h1>
+                    <span class="kategori-badge">${data.kategori || 'Kategori yok'}</span>
+                </section>
+                
+                <section class="icerik-bolumu">
+                    ${data.aciklama ? `
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-info-circle"></i> Hakkında</h3>
+                        <p style="font-size: 14px; color: var(--gri);">${data.aciklama}</p>
+                    </div>` : ''}
+                    
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-address-card"></i> İletişim Bilgileri</h3>
+                        
+                        ${!data.gizli_telefon && data.telefon ? `
+                        <div class="bilgi-satir">
+                            <div class="bilgi-ikon"><i class="fas fa-phone"></i></div>
+                            <div class="bilgi-icerik">
+                                <div class="bilgi-etiket">Telefon</div>
+                                <div class="bilgi-deger"><a href="tel:${data.telefon}">${data.telefon}</a></div>
+                            </div>
+                        </div>` : ''}
+                        
+                        ${!data.gizli_email && data.email ? `
+                        <div class="bilgi-satir">
+                            <div class="bilgi-ikon"><i class="fas fa-envelope"></i></div>
+                            <div class="bilgi-icerik">
+                                <div class="bilgi-etiket">E-posta</div>
+                                <div class="bilgi-deger"><a href="mailto:${data.email}">${data.email}</a></div>
+                            </div>
+                        </div>` : ''}
+                        
+                        ${!data.gizli_adres && (data.adres || data.il) ? `
+                        <div class="bilgi-satir">
+                            <div class="bilgi-ikon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="bilgi-icerik">
+                                <div class="bilgi-etiket">Adres</div>
+                                <div class="bilgi-deger">${[data.adres, data.ilce, data.il].filter(Boolean).join(', ')}</div>
+                            </div>
+                        </div>` : ''}
+                        
+                        ${data.web_sitesi ? `
+                        <div class="bilgi-satir">
+                            <div class="bilgi-ikon"><i class="fas fa-globe"></i></div>
+                            <div class="bilgi-icerik">
+                                <div class="bilgi-etiket">Web Sitesi</div>
+                                <div class="bilgi-deger"><a href="${data.web_sitesi}" target="_blank">${data.web_sitesi}</a></div>
+                            </div>
+                        </div>` : ''}
+                        
+                        ${sosyalLinkler ? `
+                        <div class="bilgi-satir">
+                            <div class="bilgi-ikon"><i class="fas fa-share-alt"></i></div>
+                            <div class="bilgi-icerik">
+                                <div class="bilgi-etiket">Sosyal Medya</div>
+                                <div class="sosyal-linkler">${sosyalLinkler}</div>
+                            </div>
+                        </div>` : ''}
+                    </div>
+                    
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-clock"></i> Çalışma Saatleri</h3>
+                        ${saatHTML}
+                    </div>
+                    
+                    ${haritaAdres ? `
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-map"></i> Konum</h3>
+                        <div class="harita-konteyner">
+                            <iframe src="${haritaURL}" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <button onclick="adresiKopyala()" style="margin-top: 15px; padding: 10px 20px; background: var(--gradient); color: white; border: none; border-radius: 10px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;">
+                            <i class="fas fa-copy"></i> Adresi Kopyala
+                        </button>
+                    </div>` : ''}
+                    
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-comments"></i> Yorumlar</h3>
+                        <div id="yorumlarListesi">
+                            <div class="loading"><div class="spinner"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bilgi-kart">
+                        <h3><i class="fas fa-pen"></i> Yorum Yaz</h3>
+                        <div class="yorum-form">
+                            <input type="text" id="yorumAd" placeholder="Adınız">
+                            <div class="puan-secim" id="puanSecim">
+                                <i class="fas fa-star" onclick="puanSec(1)"></i>
+                                <i class="fas fa-star" onclick="puanSec(2)"></i>
+                                <i class="fas fa-star" onclick="puanSec(3)"></i>
+                                <i class="fas fa-star" onclick="puanSec(4)"></i>
+                                <i class="fas fa-star" onclick="puanSec(5)"></i>
+                            </div>
+                            <textarea id="yorumMetin" placeholder="Yorumunuzu yazın..."></textarea>
+                            <button class="yorum-btn" onclick="yorumYap()">
+                                <i class="fas fa-paper-plane"></i> Yorumu Gönder
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Adresi Kopyala
+        function adresiKopyala() {
+            const adres = firmaData ? [firmaData.adres, firmaData.ilce, firmaData.il].filter(Boolean).join(', ') : '';
+            
+            if (adres) {
+                navigator.clipboard.writeText(adres).then(() => {
+                    bildirimGoster('Adres kopyalandı: ' + adres, 'basarili');
+                }).catch(() => {
+                    bildirimGoster('Adres kopyalanamadı.', 'hata');
+                });
+            }
+        }
+
+        // Yorumları Yükle
+async function yorumlariYukle() {
+    const yorumlarListesi = document.getElementById('yorumlarListesi');
+    
+    try {
+        const snapshot = await db.collection('yorumlar')
+            .where('firma_id', '==', firmaId)
+            .get();
+        
+        if (snapshot.empty) {
+            yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış. İlk yorumu siz yazın!</p>';
+            return;
+        }
+        
+        // Yorumları diziye al
+        const yorumlar = [];
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            if (data.durum === 'aktif') {
+                yorumlar.push({
+                    id: doc.id,
+                    data: data
+                });
+            }
+        });
+        
+        // Tarihe göre sırala
+        yorumlar.sort((a, b) => {
+            const aTarih = a.data.tarih ? a.data.tarih.toDate() : new Date(0);
+            const bTarih = b.data.tarih ? b.data.tarih.toDate() : new Date(0);
+            return bTarih - aTarih;
+        });
+        
+        if (yorumlar.length === 0) {
+            yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış. İlk yorumu siz yazın!</p>';
+            return;
+        }
+        
+        yorumlarListesi.innerHTML = '';
+        
+        yorumlar.forEach(yorum => {
+            const data = yorum.data;
+            
+            const yorumKart = document.createElement('div');
+            yorumKart.className = 'yorum-kart';
+            
+            let yildizlar = '';
+            for (let i = 0; i < 5; i++) {
+                yildizlar += i < (data.puan || 0) ? '★' : '☆';
+            }
+            
+            const tarih = data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : '';
+            
+            yorumKart.innerHTML = `
+                <div class="yorum-ust">
+                    <span class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</span>
+                    <span class="yorum-tarih">${tarih}</span>
+                </div>
+                <div class="yorum-puan">${yildizlar}</div>
+                <div class="yorum-metin">${data.yorum}</div>
+            `;
+            
+            yorumlarListesi.appendChild(yorumKart);
+        });
+    } catch (error) {
+        console.error('Yorum yükleme hatası:', error);
+        yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış.</p>';
+    }
+}
+
+        // Yorum Yap
+        async function yorumYap() {
+            const yorumAd = document.getElementById('yorumAd').value.trim();
+            const yorumMetin = document.getElementById('yorumMetin').value.trim();
+            
+            if (!yorumMetin) {
+                bildirimGoster('Lütfen yorum yazın.', 'hata');
+                return;
+            }
+            
+            if (secilenPuan === 0) {
+                bildirimGoster('Lütfen yıldız puanı seçin.', 'hata');
+                return;
+            }
+            
+            try {
+                await db.collection('yorumlar').add({
+                    firma_id: firmaId,
+                    yorumcu_adi: yorumAd || 'Anonim',
+                    yorum: yorumMetin,
+                    puan: secilenPuan,
+                    durum: 'aktif',
+                    tarih: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+               // Yorum sayısını güncelle
+const yorumSayisi = await db.collection('yorumlar')
+    .where('firma_id', '==', firmaId)
+    .get();
+
+let toplamYorum = 0;
+yorumSayisi.forEach(doc => {
+    if (doc.data().durum === 'aktif') {
+        toplamYorum++;
+    }
+});
+
+await db.collection('firmalar').doc(firmaId).update({
+    yorum_sayisi: toplamYorum
+});
+                
+                // Formu temizle
+                document.getElementById('yorumAd').value = '';
+                document.getElementById('yorumMetin').value = '';
+                secilenPuan = 0;
+                document.querySelectorAll('.puan-secim i').forEach(y => y.classList.remove('secili'));
+                
+                yorumlariYukle();
+                
+            } catch (error) {
+                console.error('Yorum hatası:', error);
+                bildirimGoster('Yorum eklenirken hata oluştu.', 'hata');
+            }
+        }
+
+        // Sayfa Yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            firmaYukle();
+        });
+    </script>
+</body>
+</html>
