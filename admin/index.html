@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Admin Paneli - e-Firmam</title>
+    <meta name="description" content="e-Firmam admin paneli. Firma, yorum ve itiraz yönetimi.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="e-Firmam">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ana-renk: #0f172a;
+            --ana-renk-2: #1e293b;
+            --vurgu-renk: #f97316;
+            --vurgu-renk-2: #ea580c;
+            --acik-renk: #f8fafc;
+            --beyaz: #ffffff;
+            --koyu: #1e293b;
+            --gri: #64748b;
+            --acik-gri: #e2e8f0;
+            --gradient: linear-gradient(135deg, #f97316, #ea580c);
+            --yesil: #10b981;
+            --kirmizi: #ef4444;
+            --sari: #f59e0b;
+            --mor: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--acik-renk);
+            color: var(--koyu);
+            line-height: 1.6;
+        }
+
+        /* ÜST MENÜ */
+        .ust-menu {
+            background: rgba(15, 23, 42, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--vurgu-renk);
+        }
+
+        .logo-yazi {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-ad {
+            color: var(--beyaz);
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-ad span {
+            color: var(--vurgu-renk);
+        }
+
+        .cikis-btn {
+            background: rgba(239,68,68,0.2);
+            color: #fca5a5 !important;
+            border: 1px solid rgba(239,68,68,0.3);
+            padding: 8px 16px !important;
+            border-radius: 8px !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* PANEL LAYOUT */
+        .panel-konteyner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .panel-baslik {
+            margin-bottom: 30px;
+        }
+
+        .panel-baslik h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--ana-renk);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* SEKMELER */
+        .sekmeler {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: var(--beyaz);
+            border-radius: 15px;
+            padding: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .sekme-btn {
+            padding: 12px 25px;
+            border: none;
+            background: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gri);
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .sekme-btn:hover {
+            background: var(--acik-renk);
+            color: var(--ana-renk);
+        }
+
+        .sekme-btn.aktif {
+            background: var(--gradient);
+            color: var(--beyaz);
+            box-shadow: 0 5px 15px rgba(249,115,22,0.3);
+        }
+
+        .sekme-icerik {
+            display: none;
+            background: var(--beyaz);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .sekme-icerik.aktif {
+            display: block;
+        }
+
+        /* İSTATİSTİK KARTLARI */
+        .istatistik-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .istatistik-kart {
+            background: var(--acik-renk);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .istatistik-ikon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 22px;
+        }
+
+        .istatistik-sayi {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--ana-renk);
+        }
+
+        .istatistik-etiket {
+            font-size: 13px;
+            color: var(--gri);
+            margin-top: 5px;
+        }
+
+        .ikon-turuncu { background: rgba(249,115,22,0.15); color: var(--vurgu-renk); }
+        .ikon-yesil { background: rgba(16,185,129,0.15); color: var(--yesil); }
+        .ikon-mavi { background: rgba(59,130,246,0.15); color: #3b82f6; }
+        .ikon-kirmizi { background: rgba(239,68,68,0.15); color: var(--kirmizi); }
+        .ikon-mor { background: rgba(139,92,246,0.15); color: var(--mor); }
+
+        /* TABLO */
+        .tablo-konteyner {
+            overflow-x: auto;
+        }
+
+        .tablo {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .tablo th {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .tablo td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--acik-gri);
+            font-size: 14px;
+        }
+
+        .tablo tr:hover td {
+            background: var(--acik-renk);
+        }
+
+        /* BUTONLAR */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin: 2px;
+        }
+
+        .btn-onayla {
+            background: rgba(16,185,129,0.1);
+            color: #065f46;
+            border: 1px solid rgba(16,185,129,0.3);
+        }
+
+        .btn-onayla:hover {
+            background: var(--yesil);
+            color: var(--beyaz);
+        }
+
+        .btn-reddet {
+            background: rgba(239,68,68,0.1);
+            color: #991b1b;
+            border: 1px solid rgba(239,68,68,0.3);
+        }
+
+        .btn-reddet:hover {
+            background: var(--kirmizi);
+            color: var(--beyaz);
+        }
+
+        .btn-sil {
+            background: rgba(239,68,68,0.1);
+            color: #991b1b;
+            border: 1px solid rgba(239,68,68,0.3);
+        }
+
+        .btn-sil:hover {
+            background: var(--kirmizi);
+            color: var(--beyaz);
+        }
+
+        .btn-gor {
+            background: rgba(59,130,246,0.1);
+            color: #1e40af;
+            border: 1px solid rgba(59,130,246,0.3);
+        }
+
+        .btn-gor:hover {
+            background: #3b82f6;
+            color: var(--beyaz);
+        }
+
+        /* DURUM BADGE */
+        .durum-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .durum-aktif {
+            background: rgba(16,185,129,0.15);
+            color: #065f46;
+        }
+
+        .durum-beklemede {
+            background: rgba(245,158,11,0.15);
+            color: #d97706;
+        }
+
+        .durum-onaylandi {
+            background: rgba(16,185,129,0.15);
+            color: #065f46;
+        }
+
+        .durum-reddedildi {
+            background: rgba(239,68,68,0.15);
+            color: #991b1b;
+        }
+
+        .durum-kaldirildi {
+            background: rgba(107,114,128,0.15);
+            color: #374151;
+        }
+
+        /* FORM */
+        .form-grup {
+            margin-bottom: 20px;
+        }
+
+        .form-grup label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-grup input,
+        .form-grup select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--acik-gri);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-satir {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ekle-btn {
+            background: var(--gradient);
+            color: var(--beyaz);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* BİLDİRİM */
+        .bildirim {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .bildirim.hata {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+            display: block;
+        }
+
+        .bildirim.basarili {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+            display: block;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--acik-gri);
+            border-top: 5px solid var(--vurgu-renk);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .sekmeler {
+                gap: 5px;
+            }
+
+            .sekme-btn {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
+            .sekme-icerik {
+                padding: 20px;
+            }
+
+            .form-satir {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-baslik h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST MENÜ -->
+    <nav class="ust-menu">
+        <div class="menu-icerik">
+            <a href="../index.html" class="logo">
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
+                <div class="logo-yazi">
+                    <span class="logo-ad">e-<span>Firmam</span> Admin</span>
+                </div>
+            </a>
+            <button class="cikis-btn" onclick="cikisYap()">
+                <i class="fas fa-sign-out-alt"></i> Çıkış
+            </button>
+        </div>
+    </nav>
+
+    <!-- PANEL -->
+    <div class="panel-konteyner">
+        <div id="bildirim" class="bildirim"></div>
+
+        <div class="panel-baslik">
+            <h1><i class="fas fa-shield-alt" style="color: var(--vurgu-renk);"></i> Admin Paneli</h1>
+        </div>
+
+        <!-- SEKMELER -->
+        <div class="sekmeler">
+            <button class="sekme-btn aktif" onclick="sekmeDegistir('genel')">
+                <i class="fas fa-chart-pie"></i> Genel Bakış
+            </button>
+            <button class="sekme-btn" onclick="sekmeDegistir('firmalar')">
+                <i class="fas fa-building"></i> Firmalar
+            </button>
+            <button class="sekme-btn" onclick="sekmeDegistir('yorumlar')">
+                <i class="fas fa-comments"></i> Yorumlar
+            </button>
+            <button class="sekme-btn" onclick="sekmeDegistir('itirazlar')">
+                <i class="fas fa-flag"></i> İtirazlar
+            </button>
+            <button class="sekme-btn" onclick="sekmeDegistir('kategoriler')">
+                <i class="fas fa-tags"></i> Kategoriler
+            </button>
+        </div>
+
+        <!-- GENEL BAKIŞ -->
+        <div class="sekme-icerik aktif" id="sekme-genel">
+            <div class="istatistik-grid" id="genelIstatistik">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- FİRMALAR -->
+        <div class="sekme-icerik" id="sekme-firmalar">
+            <h3 style="margin-bottom: 20px; color: var(--ana-renk);">
+                <i class="fas fa-building" style="color: var(--vurgu-renk);"></i> Tüm Firmalar
+            </h3>
+            <div class="tablo-konteyner" id="firmaListesi">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- YORUMLAR -->
+        <div class="sekme-icerik" id="sekme-yorumlar">
+            <h3 style="margin-bottom: 20px; color: var(--ana-renk);">
+                <i class="fas fa-comments" style="color: var(--vurgu-renk);"></i> Tüm Yorumlar
+            </h3>
+            <div class="tablo-konteyner" id="yorumListesi">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- İTİRAZLAR -->
+        <div class="sekme-icerik" id="sekme-itirazlar">
+            <h3 style="margin-bottom: 20px; color: var(--ana-renk);">
+                <i class="fas fa-flag" style="color: var(--vurgu-renk);"></i> İtiraz Yönetimi
+            </h3>
+            <div id="itirazListesi">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- KATEGORİLER -->
+        <div class="sekme-icerik" id="sekme-kategoriler">
+            <h3 style="margin-bottom: 20px; color: var(--ana-renk);">
+                <i class="fas fa-tags" style="color: var(--vurgu-renk);"></i> Kategori Yönetimi
+            </h3>
+            
+            <div style="margin-bottom: 30px;">
+                <h4 style="margin-bottom: 15px;">Yeni Kategori Ekle</h4>
+                <div class="form-satir">
+                    <div class="form-grup">
+                        <label>Kategori Adı</label>
+                        <input type="text" id="yeniKategoriAdi" placeholder="Örn: Elektronik Mağazası">
+                    </div>
+                    <div class="form-grup">
+                        <label>İkon (Font Awesome)</label>
+                        <input type="text" id="yeniKategoriIkon" placeholder="fas fa-store" value="fas fa-store">
+                    </div>
+                </div>
+                <button class="ekle-btn" onclick="kategoriEkle()">
+                    <i class="fas fa-plus"></i> Kategori Ekle
+                </button>
+            </div>
+            
+            <div class="tablo-konteyner" id="kategoriListesi">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
+            authDomain: "efirmam-45ddf.firebaseapp.com",
+            projectId: "efirmam-45ddf",
+            storageBucket: "efirmam-45ddf.firebasestorage.app",
+            messagingSenderId: "206457982134",
+            appId: "1:206457982134:web:a6b244b3f1aae10129aa17",
+            measurementId: "G-NCVWRTP072"
+        };
+
+        // Firebase Başlat
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+
+        let mevcutKullanici = null;
+
+        // Sekme Değiştir
+        function sekmeDegistir(sekme) {
+            document.querySelectorAll('.sekme-btn').forEach(btn => btn.classList.remove('aktif'));
+            document.querySelectorAll('.sekme-icerik').forEach(icerik => icerik.classList.remove('aktif'));
+            
+            document.getElementById('sekme-' + sekme).classList.add('aktif');
+            event.target.classList.add('aktif');
+            
+            if (sekme === 'firmalar') firmalariYukle();
+            if (sekme === 'yorumlar') yorumlariYukle();
+            if (sekme === 'itirazlar') itirazlariYukle();
+            if (sekme === 'kategoriler') kategorileriYukle();
+        }
+
+        // Bildirim
+        function bildirimGoster(mesaj, tip) {
+            const bildirim = document.getElementById('bildirim');
+            bildirim.textContent = mesaj;
+            bildirim.className = 'bildirim ' + tip;
+            setTimeout(() => bildirim.className = 'bildirim', 5000);
+        }
+
+        // Çıkış
+        function cikisYap() {
+            auth.signOut().then(() => {
+                window.location.href = '../index.html';
+            });
+        }
+
+        // Genel Bakış Yükle
+        async function genelBakisiYukle() {
+            const genelIstatistik = document.getElementById('genelIstatistik');
+            
+            try {
+                const firmaSnapshot = await db.collection('firmalar').get();
+                const yorumSnapshot = await db.collection('yorumlar').get();
+                const itirazSnapshot = await db.collection('itirazlar').get();
+                const kategoriSnapshot = await db.collection('kategoriler').get();
+                
+                const bekleyenItiraz = itirazSnapshot.docs.filter(doc => doc.data().durum === 'beklemede').length;
+                
+                genelIstatistik.innerHTML = `
+                    <div class="istatistik-kart">
+                        <div class="istatistik-ikon ikon-turuncu"><i class="fas fa-building"></i></div>
+                        <div class="istatistik-sayi">${firmaSnapshot.size}</div>
+                        <div class="istatistik-etiket">Toplam Firma</div>
+                    </div>
+                    <div class="istatistik-kart">
+                        <div class="istatistik-ikon ikon-yesil"><i class="fas fa-comments"></i></div>
+                        <div class="istatistik-sayi">${yorumSnapshot.size}</div>
+                        <div class="istatistik-etiket">Toplam Yorum</div>
+                    </div>
+                    <div class="istatistik-kart">
+                        <div class="istatistik-ikon ikon-kirmizi"><i class="fas fa-flag"></i></div>
+                        <div class="istatistik-sayi">${bekleyenItiraz}</div>
+                        <div class="istatistik-etiket">Bekleyen İtiraz</div>
+                    </div>
+                    <div class="istatistik-kart">
+                        <div class="istatistik-ikon ikon-mor"><i class="fas fa-tags"></i></div>
+                        <div class="istatistik-sayi">${kategoriSnapshot.size}</div>
+                        <div class="istatistik-etiket">Kategori</div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Genel bakış hatası:', error);
+            }
+        }
+
+        // Firmaları Yükle
+        async function firmalariYukle() {
+            const firmaListesi = document.getElementById('firmaListesi');
+            
+            try {
+                const snapshot = await db.collection('firmalar').orderBy('eklenme_tarihi', 'desc').get();
+                
+                if (snapshot.empty) {
+                    firmaListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Firma bulunamadı.</p>';
+                    return;
+                }
+                
+                let tablo = `
+                    <table class="tablo">
+                        <tr>
+                            <th>Firma</th>
+                            <th>Kategori</th>
+                            <th>Telefon</th>
+                            <th>İl</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                `;
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    tablo += `
+                        <tr>
+                            <td><strong>${data.firma_adi}</strong></td>
+                            <td>${data.kategori || '-'}</td>
+                            <td>${data.gizli_telefon ? 'Gizli' : (data.telefon || '-')}</td>
+                            <td>${data.il || '-'}</td>
+                            <td>${data.onayli ? '<span class="durum-badge durum-aktif">Aktif</span>' : '<span class="durum-badge durum-beklemede">Beklemede</span>'}</td>
+                            <td>
+                                <button class="btn btn-gor" onclick="firmaGor('${doc.id}')"><i class="fas fa-eye"></i> Gör</button>
+                                <button class="btn btn-sil" onclick="firmaSil('${doc.id}')"><i class="fas fa-trash"></i> Sil</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tablo += '</table>';
+                firmaListesi.innerHTML = tablo;
+            } catch (error) {
+                console.error('Firma listeleme hatası:', error);
+                firmaListesi.innerHTML = '<p style="color: red;">Firmalar yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        // Firma Gör
+        function firmaGor(id) {
+            window.open('../firma.html?id=' + id, '_blank');
+        }
+
+        // Firma Sil
+        async function firmaSil(id) {
+            if (confirm('Bu firmayı silmek istediğinize emin misiniz?')) {
+                try {
+                    await db.collection('firmalar').doc(id).delete();
+                    bildirimGoster('Firma silindi.', 'basarili');
+                    firmalariYukle();
+                } catch (error) {
+                    console.error('Firma silme hatası:', error);
+                    bildirimGoster('Firma silinirken hata oluştu.', 'hata');
+                }
+            }
+        }
+
+        // Yorumları Yükle
+        async function yorumlariYukle() {
+            const yorumListesi = document.getElementById('yorumListesi');
+            
+            try {
+                const snapshot = await db.collection('yorumlar').orderBy('tarih', 'desc').get();
+                
+                if (snapshot.empty) {
+                    yorumListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Yorum bulunamadı.</p>';
+                    return;
+                }
+                
+                let tablo = `
+                    <table class="tablo">
+                        <tr>
+                            <th>Yazar</th>
+                            <th>Yorum</th>
+                            <th>Puan</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                `;
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    
+                    let durumBadge = '';
+                    if (data.durum === 'aktif') durumBadge = '<span class="durum-badge durum-aktif">Aktif</span>';
+                    else if (data.durum === 'kaldirildi') durumBadge = '<span class="durum-badge durum-kaldirildi">Kaldırıldı</span>';
+                    
+                    tablo += `
+                        <tr>
+                            <td>${data.yorumcu_adi || 'Anonim'}</td>
+                            <td>${data.yorum.substring(0, 50)}${data.yorum.length > 50 ? '...' : ''}</td>
+                            <td>${'★'.repeat(data.puan || 0)}</td>
+                            <td>${durumBadge}</td>
+                            <td>
+                                <button class="btn btn-sil" onclick="yorumSil('${doc.id}')"><i class="fas fa-trash"></i> Sil</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tablo += '</table>';
+                yorumListesi.innerHTML = tablo;
+            } catch (error) {
+                console.error('Yorum listeleme hatası:', error);
+                yorumListesi.innerHTML = '<p style="color: red;">Yorumlar yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        // Yorum Sil
+        async function yorumSil(id) {
+            if (confirm('Bu yorumu silmek istediğinize emin misiniz?')) {
+                try {
+                    await db.collection('yorumlar').doc(id).update({
+                        durum: 'kaldirildi'
+                    });
+                    bildirimGoster('Yorum kaldırıldı.', 'basarili');
+                    yorumlariYukle();
+                } catch (error) {
+                    console.error('Yorum silme hatası:', error);
+                    bildirimGoster('Yorum silinirken hata oluştu.', 'hata');
+                }
+            }
+        }
+
+        // İtirazları Yükle
+        async function itirazlariYukle() {
+            const itirazListesi = document.getElementById('itirazListesi');
+            
+            try {
+                const snapshot = await db.collection('itirazlar').orderBy('tarih', 'desc').get();
+                
+                if (snapshot.empty) {
+                    itirazListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">İtiraz bulunamadı.</p>';
+                    return;
+                }
+                
+                itirazListesi.innerHTML = '';
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    
+                    let durumBadge = '';
+                    if (data.durum === 'beklemede') durumBadge = '<span class="durum-badge durum-beklemede">Beklemede</span>';
+                    else if (data.durum === 'onaylandi') durumBadge = '<span class="durum-badge durum-onaylandi">Onaylandı</span>';
+                    else if (data.durum === 'reddedildi') durumBadge = '<span class="durum-badge durum-reddedildi">Reddedildi</span>';
+                    
+                    const itirazItem = document.createElement('div');
+                    itirazItem.style.cssText = 'background: var(--acik-renk); border-radius: 15px; padding: 20px; margin-bottom: 15px;';
+                    itirazItem.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <strong>${data.itiraz_sebebi || 'İtiraz'}</strong>
+                            ${durumBadge}
+                        </div>
+                        ${data.aciklama ? `<p style="font-size: 14px; color: var(--gri); margin-bottom: 10px;">${data.aciklama}</p>` : ''}
+                        <small style="color: var(--gri);">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</small>
+                        ${data.durum === 'beklemede' ? `
+                        <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button class="btn btn-onayla" onclick="itirazOnayla('${doc.id}', '${data.yorum_id}')">
+                                <i class="fas fa-check"></i> Onayla - Yorumu Kaldır
+                            </button>
+                            <button class="btn btn-reddet" onclick="itirazReddet('${doc.id}')">
+                                <i class="fas fa-times"></i> Reddet - Yorum Kalsın
+                            </button>
+                        </div>` : ''}
+                    `;
+                    
+                    itirazListesi.appendChild(itirazItem);
+                });
+            } catch (error) {
+                console.error('İtiraz listeleme hatası:', error);
+                itirazListesi.innerHTML = '<p style="color: red;">İtirazlar yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        // İtiraz Onayla (Yorumu Kaldır)
+        async function itirazOnayla(itirazId, yorumId) {
+            try {
+                await db.collection('itirazlar').doc(itirazId).update({
+                    durum: 'onaylandi'
+                });
+                
+                if (yorumId) {
+                    await db.collection('yorumlar').doc(yorumId).update({
+                        durum: 'kaldirildi'
+                    });
+                }
+                
+                bildirimGoster('İtiraz onaylandı, yorum kaldırıldı.', 'basarili');
+                itirazlariYukle();
+            } catch (error) {
+                console.error('İtiraz onaylama hatası:', error);
+                bildirimGoster('İşlem sırasında hata oluştu.', 'hata');
+            }
+        }
+
+        // İtiraz Reddet
+        async function itirazReddet(itirazId) {
+            try {
+                await db.collection('itirazlar').doc(itirazId).update({
+                    durum: 'reddedildi'
+                });
+                
+                bildirimGoster('İtiraz reddedildi, yorum kaldı.', 'basarili');
+                itirazlariYukle();
+            } catch (error) {
+                console.error('İtiraz reddetme hatası:', error);
+                bildirimGoster('İşlem sırasında hata oluştu.', 'hata');
+            }
+        }
+
+        // Kategorileri Yükle
+        async function kategorileriYukle() {
+            const kategoriListesi = document.getElementById('kategoriListesi');
+            
+            try {
+                const snapshot = await db.collection('kategoriler').orderBy('siralama', 'asc').get();
+                
+                if (snapshot.empty) {
+                    kategoriListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Kategori bulunamadı.</p>';
+                    return;
+                }
+                
+                let tablo = `
+                    <table class="tablo">
+                        <tr>
+                            <th>İkon</th>
+                            <th>Kategori</th>
+                            <th>Sıralama</th>
+                            <th>İşlemler</th>
+                        </tr>
+                `;
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    tablo += `
+                        <tr>
+                            <td><i class="${data.ikon || 'fas fa-store'}" style="font-size: 20px; color: var(--vurgu-renk);"></i></td>
+                            <td>${data.kategori_adi}</td>
+                            <td>${data.siralama || 0}</td>
+                            <td>
+                                <button class="btn btn-sil" onclick="kategoriSil('${doc.id}')"><i class="fas fa-trash"></i> Sil</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                tablo += '</table>';
+                kategoriListesi.innerHTML = tablo;
+            } catch (error) {
+                console.error('Kategori listeleme hatası:', error);
+                kategoriListesi.innerHTML = '<p style="color: red;">Kategoriler yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        // Kategori Ekle
+        async function kategoriEkle() {
+            const ad = document.getElementById('yeniKategoriAdi').value.trim();
+            const ikon = document.getElementById('yeniKategoriIkon').value.trim() || 'fas fa-store';
+            
+            if (!ad) {
+                bildirimGoster('Kategori adı girin.', 'hata');
+                return;
+            }
+            
+            try {
+                const snapshot = await db.collection('kategoriler').get();
+                const siralama = snapshot.size + 1;
+                
+                await db.collection('kategoriler').add({
+                    kategori_adi: ad,
+                    ikon: ikon,
+                    siralama: siralama
+                });
+                
+                bildirimGoster('Kategori eklendi!', 'basarili');
+                document.getElementById('yeniKategoriAdi').value = '';
+                kategorileriYukle();
+            } catch (error) {
+                console.error('Kategori ekleme hatası:', error);
+                bildirimGoster('Kategori eklenirken hata oluştu.', 'hata');
+            }
+        }
+
+        // Kategori Sil
+        async function kategoriSil(id) {
+            if (confirm('Bu kategoriyi silmek istediğinize emin misiniz?')) {
+                try {
+                    await db.collection('kategoriler').doc(id).delete();
+                    bildirimGoster('Kategori silindi.', 'basarili');
+                    kategorileriYukle();
+                } catch (error) {
+                    console.error('Kategori silme hatası:', error);
+                    bildirimGoster('Kategori silinirken hata oluştu.', 'hata');
+                }
+            }
+        }
+
+       // Sayfa Yüklendiğinde
+auth.onAuthStateChanged(async user => {
+    if (user) {
+        mevcutKullanici = user;
+        
+        // Admin rolünü kontrol et
+        try {
+            const userDoc = await db.collection('kullanicilar').doc(user.uid).get();
+            
+            if (userDoc.exists && userDoc.data().rol === 'admin') {
+                genelBakisiYukle();
+            } else {
+                alert('Bu sayfaya erişim yetkiniz yok!');
+                window.location.href = '../panel/index.html';
+            }
+        } catch (error) {
+            console.error('Rol kontrol hatası:', error);
+            window.location.href = '../firma-giris.html';
+        }
+    } else {
+        window.location.href = '../firma-giris.html';
+    }
+});
+    </script>
+</body>
+</html>
