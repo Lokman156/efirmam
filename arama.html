@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Firma Ara - e-Firmam</title>
+    <meta name="description" content="e-Firmam'da firma arayın. İsim, kategori, şehir ile arama yapın. Binlerce firma arasından kolayca bulun.">
+    <meta name="keywords" content="firma ara, işletme ara, e-Firmam, firma bul">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="e-Firmam">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Firma Ara - e-Firmam">
+    <meta property="og:description" content="Binlerce firma arasından kolayca arama yapın.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://efirmam.com/arama.html">
+    <meta property="og:site_name" content="e-Firmam">
+    <meta property="og:image" content="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://efirmam.com/arama.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ana-renk: #0f172a;
+            --ana-renk-2: #1e293b;
+            --vurgu-renk: #f97316;
+            --vurgu-renk-2: #ea580c;
+            --acik-renk: #f8fafc;
+            --beyaz: #ffffff;
+            --koyu: #1e293b;
+            --gri: #64748b;
+            --acik-gri: #e2e8f0;
+            --gradient: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--acik-renk);
+            color: var(--koyu);
+            line-height: 1.6;
+        }
+
+        /* ÜST MENÜ */
+        .ust-menu {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--vurgu-renk);
+        }
+
+        .logo-yazi {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-ad {
+            color: var(--beyaz);
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-ad span {
+            color: var(--vurgu-renk);
+        }
+
+        .logo-slogan {
+            color: rgba(255,255,255,0.6);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-linkler {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .menu-linkler a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu-linkler a:hover {
+            color: var(--beyaz);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .menu-linkler a.aktif {
+            color: var(--vurgu-renk);
+            background: rgba(249,115,22,0.1);
+        }
+
+        .firma-ekle-btn {
+            background: var(--gradient);
+            color: var(--beyaz) !important;
+            padding: 10px 20px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(249,115,22,0.3);
+        }
+
+        .mobil-menu-btn {
+            display: none;
+            color: var(--beyaz);
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ARAMA BÖLÜMÜ */
+        .arama-bolumu {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            padding: 40px 20px;
+        }
+
+        .arama-icerik {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .arama-kutusu {
+            background: var(--beyaz);
+            border-radius: 60px;
+            padding: 8px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .arama-kutusu input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+        }
+
+        .arama-kutusu button {
+            background: var(--gradient);
+            border: none;
+            color: var(--beyaz);
+            padding: 15px 35px;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filtre-bolumu {
+            max-width: 800px;
+            margin: 20px auto 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filtre-select {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: var(--beyaz);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filtre-select option {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+        }
+
+        /* SONUÇLAR */
+        .sonuc-bolumu {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sonuc-baslik {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sonuc-baslik h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--ana-renk);
+        }
+
+        .sonuc-baslik p {
+            color: var(--gri);
+            font-size: 15px;
+        }
+
+        .firma-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .firma-kart {
+            background: var(--beyaz);
+            border: 1px solid var(--acik-gri);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--koyu);
+            display: block;
+        }
+
+        .firma-kart:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .firma-kart-ust {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .firma-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--beyaz);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .firma-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .firma-bilgi h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ana-renk);
+            margin-bottom: 5px;
+        }
+
+        .firma-kategori {
+            font-size: 13px;
+            color: var(--vurgu-renk);
+            font-weight: 500;
+        }
+
+        .firma-puan {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .yildizlar {
+            color: #f59e0b;
+            font-size: 16px;
+        }
+
+        .puan-sayi {
+            font-size: 14px;
+            color: var(--gri);
+        }
+
+        .firma-adres {
+            font-size: 14px;
+            color: var(--gri);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .firma-telefon {
+            font-size: 14px;
+            color: var(--ana-renk);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bos-sonuc {
+            text-align: center;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+
+        .bos-sonuc i {
+            font-size: 60px;
+            color: var(--acik-gri);
+            margin-bottom: 20px;
+        }
+
+        .bos-sonuc h3 {
+            font-size: 20px;
+            color: var(--ana-renk);
+            margin-bottom: 10px;
+        }
+
+        .bos-sonuc p {
+            color: var(--gri);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--acik-gri);
+            border-top: 5px solid var(--vurgu-renk);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bolum h3 {
+            color: var(--vurgu-renk);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-bolum a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-bolum a:hover {
+            color: var(--vurgu-renk);
+        }
+
+        .footer-alt {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .mobil-menu-btn {
+                display: block;
+            }
+
+            .menu-linkler {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--ana-renk);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+                box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            }
+
+            .menu-linkler.acik {
+                display: flex;
+            }
+
+            .arama-kutusu {
+                flex-direction: column;
+                border-radius: 25px;
+                padding: 10px;
+            }
+
+            .arama-kutusu input {
+                border-radius: 25px;
+                margin-bottom: 10px;
+            }
+
+            .arama-kutusu button {
+                border-radius: 25px;
+                justify-content: center;
+            }
+
+            .firma-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sonuc-baslik h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST MENÜ -->
+    <nav class="ust-menu">
+        <div class="menu-icerik">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
+                <div class="logo-yazi">
+                    <span class="logo-ad">e-<span>Firmam</span></span>
+                    <span class="logo-slogan">Firma Rehberi</span>
+                </div>
+            </a>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-linkler" id="menuLinkler">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html" class="aktif">Firma Ara</a>
+                <a href="firma-ekle.html" class="firma-ekle-btn">
+                    <i class="fas fa-plus"></i> Firmanı Ekle
+                </a>
+                <a href="firma-giris.html">Firma Girişi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ARAMA BÖLÜMÜ -->
+    <section class="arama-bolumu">
+        <div class="arama-icerik">
+            <div class="arama-kutusu">
+                <input type="text" id="aramaInput" placeholder="Firma adı veya kategori ara..." onkeypress="enterIleAra(event)">
+                <button onclick="firmaAra()">
+                    <i class="fas fa-search"></i> Ara
+                </button>
+            </div>
+            <div class="filtre-bolumu">
+                <select class="filtre-select" id="ilFilter" onchange="filtreUygula()">
+                    <option value="">Tüm İller</option>
+                </select>
+                <select class="filtre-select" id="siralamaFilter" onchange="filtreUygula()">
+                    <option value="en-yeni">En Yeni</option>
+                    <option value="en-cok-yorum">En Çok Yorum</option>
+                    <option value="en-yuksek-puan">En Yüksek Puan</option>
+                    <option value="a-z">A-Z</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- SONUÇLAR -->
+    <section class="sonuc-bolumu">
+        <div class="sonuc-baslik">
+            <h2 id="sonucBaslik">Firma Sonuçları</h2>
+            <p id="sonucSayisi"></p>
+        </div>
+        <div class="firma-grid" id="firmaGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Firmalar yükleniyor...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-icerik">
+            <div class="footer-bolum">
+                <h3>e-Firmam</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi. İşletmenizi ekleyin, müşterilerinize ulaşın.</p>
+            </div>
+            <div class="footer-bolum">
+                <h3>Hızlı Linkler</h3>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html">Firma Ekle</a>
+            </div>
+            <div class="footer-bolum">
+                <h3>Firma</h3>
+                <a href="firma-giris.html">Firma Girişi</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <div class="footer-alt">
+            <p>© 2026 e-Firmam.com - Tüm hakları saklıdır.</p>
+            <p style="margin-top: 10px;">Lokman Başboğa | Lokman Medya</p>
+        </div>
+    </footer>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
+            authDomain: "efirmam-45ddf.firebaseapp.com",
+            projectId: "efirmam-45ddf",
+            storageBucket: "efirmam-45ddf.firebasestorage.app",
+            messagingSenderId: "206457982134",
+            appId: "1:206457982134:web:a6b244b3f1aae10129aa17",
+            measurementId: "G-NCVWRTP072"
+        };
+
+        // Firebase Başlat
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let aramaTerimi = '';
+        let kategoriTerimi = '';
+
+        // Mobil Menü
+        function menuAcKapat() {
+            const menu = document.getElementById('menuLinkler');
+            menu.classList.toggle('acik');
+        }
+
+        // URL Parametrelerini Al
+        function getParametre(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
+        }
+
+        // Arama
+        function firmaAra() {
+            const arama = document.getElementById('aramaInput').value.trim();
+            if (arama) {
+                window.location.href = 'arama.html?q=' + encodeURIComponent(arama);
+            }
+        }
+
+        function enterIleAra(event) {
+            if (event.key === 'Enter') {
+                firmaAra();
+            }
+        }
+
+        // İlleri Yükle
+        async function illeriYukle() {
+            const ilFilter = document.getElementById('ilFilter');
+            
+            try {
+                const snapshot = await db.collection('iller').orderBy('ad').get();
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const option = document.createElement('option');
+                    option.value = data.ad;
+                    option.textContent = data.ad;
+                    ilFilter.appendChild(option);
+                });
+            } catch (error) {
+                console.error('İl yükleme hatası:', error);
+            }
+        }
+
+       // Firmaları Ara
+async function firmalariAra() {
+    const firmaGrid = document.getElementById('firmaGrid');
+    const sonucBaslik = document.getElementById('sonucBaslik');
+    const sonucSayisi = document.getElementById('sonucSayisi');
+    
+    firmaGrid.innerHTML = '<div class="loading"><div class="spinner"></div><p>Firmalar yükleniyor...</p></div>';
+    
+    try {
+        // Tüm firmaları al
+        const snapshot = await db.collection('firmalar').get();
+        
+        let firmalar = [];
+        
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            
+            // Filtrele
+            let eslesir = true;
+            
+            if (aramaTerimi) {
+                const firmaAdi = (data.firma_adi || '').toLowerCase();
+                const kategori = (data.kategori || '').toLowerCase();
+                const arama = aramaTerimi.toLowerCase();
+                
+                if (!firmaAdi.includes(arama) && !kategori.includes(arama)) {
+                    eslesir = false;
+                }
+            }
+            
+            if (kategoriTerimi && data.kategori !== kategoriTerimi) {
+                eslesir = false;
+            }
+            
+            const ilFilter = document.getElementById('ilFilter').value;
+            if (ilFilter && data.il !== ilFilter) {
+                eslesir = false;
+            }
+            
+            if (eslesir) {
+                firmalar.push({
+                    id: doc.id,
+                    data: data
+                });
+            }
+        });
+        
+        // Sıralama
+        const siralama = document.getElementById('siralamaFilter').value;
+        
+        switch(siralama) {
+            case 'en-yeni':
+                firmalar.sort((a, b) => {
+                    const aTarih = a.data.eklenme_tarihi ? a.data.eklenme_tarihi.toDate() : new Date(0);
+                    const bTarih = b.data.eklenme_tarihi ? b.data.eklenme_tarihi.toDate() : new Date(0);
+                    return bTarih - aTarih;
+                });
+                break;
+            case 'en-cok-yorum':
+                firmalar.sort((a, b) => (b.data.yorum_sayisi || 0) - (a.data.yorum_sayisi || 0));
+                break;
+            case 'en-yuksek-puan':
+                firmalar.sort((a, b) => (b.data.ortalama_puan || 0) - (a.data.ortalama_puan || 0));
+                break;
+            case 'a-z':
+                firmalar.sort((a, b) => (a.data.firma_adi || '').localeCompare(b.data.firma_adi || ''));
+                break;
+        }
+
+        if (firmalar.length === 0) {
+            firmaGrid.innerHTML = `
+                <div class="bos-sonuc">
+                    <i class="fas fa-search"></i>
+                    <h3>Firma Bulunamadı</h3>
+                    <p>Arama teriminizi değiştirin veya filtreleri kaldırın.</p>
+                </div>
+            `;
+            sonucBaslik.textContent = 'Sonuç Yok';
+            sonucSayisi.textContent = '';
+            return;
+        }
+
+        sonucBaslik.textContent = aramaTerimi ? `"${aramaTerimi}" için Sonuçlar` : (kategoriTerimi ? kategoriTerimi : 'Tüm Firmalar');
+        sonucSayisi.textContent = firmalar.length + ' firma bulundu';
+
+        firmaGrid.innerHTML = '';
+        
+        firmalar.forEach(firma => {
+            firmaGrid.appendChild(firmaKartiOlustur(firma.id, firma.data));
+        });
+        
+    } catch (error) {
+        console.error('Firma arama hatası:', error);
+        firmaGrid.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz firma eklenmemiş.</p>';
+    }
+}
+        // Firma Kartı Oluştur
+        function firmaKartiOlustur(id, data) {
+            const kart = document.createElement('a');
+            kart.href = 'firma.html?id=' + id;
+            kart.className = 'firma-kart';
+
+            const puan = data.ortalama_puan || 0;
+            const yildizSayisi = Math.round(puan);
+            let yildizlar = '';
+            for (let i = 0; i < 5; i++) {
+                yildizlar += i < yildizSayisi ? '★' : '☆';
+            }
+
+            const logoHtml = data.logo_url 
+                ? `<img src="${data.logo_url}" alt="${data.firma_adi}">` 
+                : data.firma_adi.charAt(0).toUpperCase();
+
+            const telefonGizli = data.gizli_telefon ? 'Gizli' : (data.telefon || 'Telefon yok');
+
+            kart.innerHTML = `
+                <div class="firma-kart-ust">
+                    <div class="firma-logo">${logoHtml}</div>
+                    <div class="firma-bilgi">
+                        <h3>${data.firma_adi}</h3>
+                        <span class="firma-kategori">${data.kategori || 'Kategori yok'}</span>
+                    </div>
+                </div>
+                <div class="firma-puan">
+                    <span class="yildizlar">${yildizlar}</span>
+                    <span class="puan-sayi">(${data.yorum_sayisi || 0} yorum)</span>
+                </div>
+                ${data.adres && !data.gizli_adres ? `
+                <div class="firma-adres">
+                    <i class="fas fa-map-marker-alt"></i> ${data.adres.substring(0, 50)}${data.adres.length > 50 ? '...' : ''}
+                </div>` : ''}
+                <div class="firma-telefon">
+                    <i class="fas fa-phone"></i> ${telefonGizli}
+                </div>
+            `;
+
+            return kart;
+        }
+
+        // Sayfa Yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            aramaTerimi = getParametre('q');
+            kategoriTerimi = getParametre('kategori');
+            
+            if (aramaTerimi) {
+                document.getElementById('aramaInput').value = aramaTerimi;
+            }
+            
+            illeriYukle();
+            firmalariAra();
+        });
+    </script>
+</body>
+</html>
