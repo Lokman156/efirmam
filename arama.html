@@ -58,7 +58,6 @@
             line-height: 1.6;
         }
 
-        /* ÜST MENÜ */
         .ust-menu {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
@@ -101,7 +100,6 @@
             color: var(--beyaz);
             font-size: 24px;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
 
         .logo-ad span {
@@ -147,7 +145,6 @@
             padding: 10px 20px !important;
             border-radius: 50px !important;
             font-weight: 600 !important;
-            box-shadow: 0 4px 15px rgba(249,115,22,0.3);
         }
 
         .mobil-menu-btn {
@@ -159,7 +156,6 @@
             border: none;
         }
 
-        /* ARAMA BÖLÜMÜ */
         .arama-bolumu {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             padding: 40px 20px;
@@ -229,7 +225,6 @@
             color: var(--beyaz);
         }
 
-        /* SONUÇLAR */
         .sonuc-bolumu {
             padding: 40px 20px;
             max-width: 1200px;
@@ -393,7 +388,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* FOOTER */
         .footer {
             background: var(--ana-renk);
             color: var(--beyaz);
@@ -421,11 +415,6 @@
             display: block;
             margin-bottom: 12px;
             font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer-bolum a:hover {
-            color: var(--vurgu-renk);
         }
 
         .footer-alt {
@@ -451,7 +440,6 @@
                 flex-direction: column;
                 padding: 20px;
                 gap: 10px;
-                box-shadow: 0 20px 30px rgba(0,0,0,0.3);
             }
 
             .menu-linkler.acik {
@@ -477,16 +465,11 @@
             .firma-grid {
                 grid-template-columns: 1fr;
             }
-
-            .sonuc-baslik h2 {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ÜST MENÜ -->
     <nav class="ust-menu">
         <div class="menu-icerik">
             <a href="index.html" class="logo">
@@ -496,29 +479,22 @@
                     <span class="logo-slogan">Firma Rehberi</span>
                 </div>
             </a>
-            <button class="mobil-menu-btn" onclick="menuAcKapat()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()"><i class="fas fa-bars"></i></button>
             <div class="menu-linkler" id="menuLinkler">
                 <a href="index.html">Ana Sayfa</a>
                 <a href="kategoriler.html">Kategoriler</a>
                 <a href="arama.html" class="aktif">Firma Ara</a>
-                <a href="firma-ekle.html" class="firma-ekle-btn">
-                    <i class="fas fa-plus"></i> Firmanı Ekle
-                </a>
+                <a href="firma-ekle.html" class="firma-ekle-btn"><i class="fas fa-plus"></i> Firmanı Ekle</a>
                 <a href="firma-giris.html">Firma Girişi</a>
             </div>
         </div>
     </nav>
 
-    <!-- ARAMA BÖLÜMÜ -->
     <section class="arama-bolumu">
         <div class="arama-icerik">
             <div class="arama-kutusu">
                 <input type="text" id="aramaInput" placeholder="Firma adı veya kategori ara..." onkeypress="enterIleAra(event)">
-                <button onclick="firmaAra()">
-                    <i class="fas fa-search"></i> Ara
-                </button>
+                <button onclick="firmaAra()"><i class="fas fa-search"></i> Ara</button>
             </div>
             <div class="filtre-bolumu">
                 <select class="filtre-select" id="ilFilter" onchange="filtreUygula()">
@@ -534,26 +510,21 @@
         </div>
     </section>
 
-    <!-- SONUÇLAR -->
     <section class="sonuc-bolumu">
         <div class="sonuc-baslik">
             <h2 id="sonucBaslik">Firma Sonuçları</h2>
             <p id="sonucSayisi"></p>
         </div>
         <div class="firma-grid" id="firmaGrid">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Firmalar yükleniyor...</p>
-            </div>
+            <div class="loading"><div class="spinner"></div><p>Firmalar yükleniyor...</p></div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-icerik">
             <div class="footer-bolum">
                 <h3>e-Firmam</h3>
-                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi. İşletmenizi ekleyin, müşterilerinize ulaşın.</p>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi.</p>
             </div>
             <div class="footer-bolum">
                 <h3>Hızlı Linkler</h3>
@@ -574,12 +545,10 @@
         </div>
     </footer>
 
-    <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
     <script>
-        // Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
             authDomain: "efirmam-45ddf.firebaseapp.com",
@@ -590,26 +559,20 @@
             measurementId: "G-NCVWRTP072"
         };
 
-        // Firebase Başlat
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
         let aramaTerimi = '';
         let kategoriTerimi = '';
 
-        // Mobil Menü
         function menuAcKapat() {
-            const menu = document.getElementById('menuLinkler');
-            menu.classList.toggle('acik');
+            document.getElementById('menuLinkler').classList.toggle('acik');
         }
 
-        // URL Parametrelerini Al
         function getParametre(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param) || '';
+            return new URLSearchParams(window.location.search).get(param) || '';
         }
 
-        // Arama
         function firmaAra() {
             const arama = document.getElementById('aramaInput').value.trim();
             if (arama) {
@@ -618,23 +581,24 @@
         }
 
         function enterIleAra(event) {
-            if (event.key === 'Enter') {
-                firmaAra();
-            }
+            if (event.key === 'Enter') firmaAra();
         }
 
-        // İlleri Yükle
+        function filtreUygula() {
+            firmalariAra();
+        }
+
         async function illeriYukle() {
             const ilFilter = document.getElementById('ilFilter');
-            
             try {
-                const snapshot = await db.collection('iller').orderBy('ad').get();
-                
-                snapshot.forEach(doc => {
-                    const data = doc.data();
+                const snapshot = await db.collection('iller').get();
+                const iller = [];
+                snapshot.forEach(doc => iller.push(doc.data().ad));
+                iller.sort();
+                iller.forEach(il => {
                     const option = document.createElement('option');
-                    option.value = data.ad;
-                    option.textContent = data.ad;
+                    option.value = il;
+                    option.textContent = il;
                     ilFilter.appendChild(option);
                 });
             } catch (error) {
@@ -642,109 +606,104 @@
             }
         }
 
-       // Firmaları Ara
-async function firmalariAra() {
-    const firmaGrid = document.getElementById('firmaGrid');
-    const sonucBaslik = document.getElementById('sonucBaslik');
-    const sonucSayisi = document.getElementById('sonucSayisi');
-    
-    firmaGrid.innerHTML = '<div class="loading"><div class="spinner"></div><p>Firmalar yükleniyor...</p></div>';
-    
-    try {
-        // Tüm firmaları al
-        const snapshot = await db.collection('firmalar').get();
-        
-        let firmalar = [];
-        
-        snapshot.forEach(doc => {
-            const data = doc.data();
+        async function firmalariAra() {
+            const firmaGrid = document.getElementById('firmaGrid');
+            const sonucBaslik = document.getElementById('sonucBaslik');
+            const sonucSayisi = document.getElementById('sonucSayisi');
             
-            // Filtrele
-            let eslesir = true;
+            firmaGrid.innerHTML = '<div class="loading"><div class="spinner"></div><p>Firmalar yükleniyor...</p></div>';
             
-            if (aramaTerimi) {
-                const firmaAdi = (data.firma_adi || '').toLowerCase();
-                const kategori = (data.kategori || '').toLowerCase();
-                const arama = aramaTerimi.toLowerCase();
+            try {
+                const snapshot = await db.collection('firmalar').get();
+                let firmalar = [];
                 
-                if (!firmaAdi.includes(arama) && !kategori.includes(arama)) {
-                    eslesir = false;
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    let eslesir = true;
+                    
+                    if (aramaTerimi) {
+                        const firmaAdi = (data.firma_adi || '').toLowerCase();
+                        const kategori = (data.kategori || '').toLowerCase();
+                        const arama = aramaTerimi.toLowerCase();
+                        if (!firmaAdi.includes(arama) && !kategori.includes(arama)) eslesir = false;
+                    }
+                    
+                    if (kategoriTerimi && data.kategori !== kategoriTerimi) eslesir = false;
+                    
+                    const ilFilter = document.getElementById('ilFilter').value;
+                    if (ilFilter && data.il !== ilFilter) eslesir = false;
+                    
+                    if (eslesir) firmalar.push({ id: doc.id, data: data });
+                });
+                
+                const siralama = document.getElementById('siralamaFilter').value;
+                
+                switch(siralama) {
+                    case 'en-yeni':
+                        firmalar.sort((a, b) => {
+                            const aTarih = a.data.eklenme_tarihi ? a.data.eklenme_tarihi.toDate() : new Date(0);
+                            const bTarih = b.data.eklenme_tarihi ? b.data.eklenme_tarihi.toDate() : new Date(0);
+                            return bTarih - aTarih;
+                        });
+                        break;
+                    case 'en-cok-yorum':
+                        firmalar.sort((a, b) => (b.data.yorum_sayisi || 0) - (a.data.yorum_sayisi || 0));
+                        break;
+                    case 'en-yuksek-puan':
+                        firmalar.sort((a, b) => (b.data.ortalama_puan || 0) - (a.data.ortalama_puan || 0));
+                        break;
+                    case 'a-z':
+                        firmalar.sort((a, b) => (a.data.firma_adi || '').localeCompare(b.data.firma_adi || ''));
+                        break;
                 }
+
+                if (firmalar.length === 0) {
+                    firmaGrid.innerHTML = '<div class="bos-sonuc"><i class="fas fa-search"></i><h3>Firma Bulunamadı</h3><p>Arama teriminizi değiştirin veya filtreleri kaldırın.</p></div>';
+                    sonucBaslik.textContent = 'Sonuç Yok';
+                    sonucSayisi.textContent = '';
+                    return;
+                }
+
+                sonucBaslik.textContent = aramaTerimi ? `"${aramaTerimi}" için Sonuçlar` : (kategoriTerimi ? kategoriTerimi : 'Tüm Firmalar');
+                sonucSayisi.textContent = firmalar.length + ' firma bulundu';
+
+                firmaGrid.innerHTML = '';
+                
+                for (const firma of firmalar) {
+                    const kart = await firmaKartiOlustur(firma.id, firma.data);
+                    firmaGrid.appendChild(kart);
+                }
+                
+            } catch (error) {
+                console.error('Firma arama hatası:', error);
+                firmaGrid.innerHTML = '<p style="text-align: center; color: var(--gri); grid-column: 1/-1;">Henüz firma eklenmemiş.</p>';
             }
-            
-            if (kategoriTerimi && data.kategori !== kategoriTerimi) {
-                eslesir = false;
-            }
-            
-            const ilFilter = document.getElementById('ilFilter').value;
-            if (ilFilter && data.il !== ilFilter) {
-                eslesir = false;
-            }
-            
-            if (eslesir) {
-                firmalar.push({
-                    id: doc.id,
-                    data: data
-                });
-            }
-        });
-        
-        // Sıralama
-        const siralama = document.getElementById('siralamaFilter').value;
-        
-        switch(siralama) {
-            case 'en-yeni':
-                firmalar.sort((a, b) => {
-                    const aTarih = a.data.eklenme_tarihi ? a.data.eklenme_tarihi.toDate() : new Date(0);
-                    const bTarih = b.data.eklenme_tarihi ? b.data.eklenme_tarihi.toDate() : new Date(0);
-                    return bTarih - aTarih;
-                });
-                break;
-            case 'en-cok-yorum':
-                firmalar.sort((a, b) => (b.data.yorum_sayisi || 0) - (a.data.yorum_sayisi || 0));
-                break;
-            case 'en-yuksek-puan':
-                firmalar.sort((a, b) => (b.data.ortalama_puan || 0) - (a.data.ortalama_puan || 0));
-                break;
-            case 'a-z':
-                firmalar.sort((a, b) => (a.data.firma_adi || '').localeCompare(b.data.firma_adi || ''));
-                break;
         }
 
-        if (firmalar.length === 0) {
-            firmaGrid.innerHTML = `
-                <div class="bos-sonuc">
-                    <i class="fas fa-search"></i>
-                    <h3>Firma Bulunamadı</h3>
-                    <p>Arama teriminizi değiştirin veya filtreleri kaldırın.</p>
-                </div>
-            `;
-            sonucBaslik.textContent = 'Sonuç Yok';
-            sonucSayisi.textContent = '';
-            return;
-        }
-
-        sonucBaslik.textContent = aramaTerimi ? `"${aramaTerimi}" için Sonuçlar` : (kategoriTerimi ? kategoriTerimi : 'Tüm Firmalar');
-        sonucSayisi.textContent = firmalar.length + ' firma bulundu';
-
-        firmaGrid.innerHTML = '';
-        
-        firmalar.forEach(firma => {
-            firmaGrid.appendChild(firmaKartiOlustur(firma.id, firma.data));
-        });
-        
-    } catch (error) {
-        console.error('Firma arama hatası:', error);
-        firmaGrid.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz firma eklenmemiş.</p>';
-    }
-}
-        // Firma Kartı Oluştur
-        function firmaKartiOlustur(id, data) {
+        async function firmaKartiOlustur(id, data) {
             const kart = document.createElement('a');
             kart.href = 'firma.html?id=' + id;
             kart.className = 'firma-kart';
 
-            const puan = data.ortalama_puan || 0;
+            let yorumSayisi = 0;
+            let toplamPuan = 0;
+
+            try {
+                const yorumSnapshot = await db.collection('yorumlar')
+                    .where('firma_id', '==', id)
+                    .where('durum', '==', 'aktif')
+                    .get();
+                
+                yorumSayisi = yorumSnapshot.size;
+                yorumSnapshot.forEach(doc => {
+                    toplamPuan += doc.data().puan || 0;
+                });
+            } catch (error) {
+                yorumSayisi = 0;
+                toplamPuan = 0;
+            }
+
+            const puan = yorumSayisi > 0 ? (toplamPuan / yorumSayisi) : 0;
             const yildizSayisi = Math.round(puan);
             let yildizlar = '';
             for (let i = 0; i < 5; i++) {
@@ -767,7 +726,7 @@ async function firmalariAra() {
                 </div>
                 <div class="firma-puan">
                     <span class="yildizlar">${yildizlar}</span>
-                    <span class="puan-sayi">(${data.yorum_sayisi || 0} yorum)</span>
+                    <span class="puan-sayi">(${yorumSayisi} yorum)</span>
                 </div>
                 ${data.adres && !data.gizli_adres ? `
                 <div class="firma-adres">
@@ -781,15 +740,10 @@ async function firmalariAra() {
             return kart;
         }
 
-        // Sayfa Yüklendiğinde
         document.addEventListener('DOMContentLoaded', () => {
             aramaTerimi = getParametre('q');
             kategoriTerimi = getParametre('kategori');
-            
-            if (aramaTerimi) {
-                document.getElementById('aramaInput').value = aramaTerimi;
-            }
-            
+            if (aramaTerimi) document.getElementById('aramaInput').value = aramaTerimi;
             illeriYukle();
             firmalariAra();
         });
