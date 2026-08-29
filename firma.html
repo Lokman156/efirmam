@@ -33,9 +33,7 @@
     <style>
         :root {
             --ana-renk: #0f172a;
-            --ana-renk-2: #1e293b;
             --vurgu-renk: #f97316;
-            --vurgu-renk-2: #ea580c;
             --acik-renk: #f8fafc;
             --beyaz: #ffffff;
             --koyu: #1e293b;
@@ -44,13 +42,10 @@
             --gradient: linear-gradient(135deg, #f97316, #ea580c);
             --yesil: #10b981;
             --kirmizi: #ef4444;
+            --sari: #f59e0b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -59,10 +54,8 @@
             line-height: 1.6;
         }
 
-        /* ÜST MENÜ */
         .ust-menu {
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -89,13 +82,7 @@
             width: 45px;
             height: 45px;
             border-radius: 12px;
-            object-fit: cover;
             border: 2px solid var(--vurgu-renk);
-        }
-
-        .logo-yazi {
-            display: flex;
-            flex-direction: column;
         }
 
         .logo-ad {
@@ -104,16 +91,7 @@
             font-weight: 800;
         }
 
-        .logo-ad span {
-            color: var(--vurgu-renk);
-        }
-
-        .logo-slogan {
-            color: rgba(255,255,255,0.6);
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .logo-ad span { color: var(--vurgu-renk); }
 
         .menu-linkler {
             display: flex;
@@ -126,20 +104,16 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: all 0.3s;
             padding: 8px 16px;
             border-radius: 8px;
+            transition: all 0.3s;
         }
 
-        .menu-linkler a:hover {
-            color: var(--beyaz);
-            background: rgba(255,255,255,0.1);
-        }
+        .menu-linkler a:hover { background: rgba(255,255,255,0.1); color: var(--beyaz); }
 
         .firma-ekle-btn {
             background: var(--gradient);
             color: var(--beyaz) !important;
-            padding: 10px 20px !important;
             border-radius: 50px !important;
             font-weight: 600 !important;
         }
@@ -153,7 +127,6 @@
             border: none;
         }
 
-        /* FİRMA BAŞLIK */
         .firma-baslik {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             padding: 40px 20px;
@@ -189,7 +162,7 @@
             margin-bottom: 10px;
         }
 
-        .firma-baslik .kategori-badge {
+        .kategori-badge {
             display: inline-block;
             background: rgba(249,115,22,0.2);
             color: var(--vurgu-renk);
@@ -197,9 +170,57 @@
             border-radius: 50px;
             font-size: 13px;
             font-weight: 600;
+            margin-bottom: 15px;
         }
 
-        /* İÇERİK */
+        /* AÇIK/KAPALI ROZETİ */
+        .durum-rozet {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .durum-acik {
+            background: rgba(16,185,129,0.2);
+            color: #065f46;
+            border: 1px solid rgba(16,185,129,0.4);
+        }
+
+        .durum-kapali {
+            background: rgba(239,68,68,0.2);
+            color: #991b1b;
+            border: 1px solid rgba(239,68,68,0.4);
+        }
+
+        /* ETİKETLER */
+        .etiketler {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .etiket {
+            background: rgba(249,115,22,0.1);
+            color: var(--vurgu-renk);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .etiket:hover {
+            background: var(--vurgu-renk);
+            color: var(--beyaz);
+        }
+
         .icerik-bolumu {
             padding: 40px 20px;
             max-width: 1000px;
@@ -224,9 +245,7 @@
             gap: 10px;
         }
 
-        .bilgi-kart h3 i {
-            color: var(--vurgu-renk);
-        }
+        .bilgi-kart h3 i { color: var(--vurgu-renk); }
 
         .bilgi-satir {
             display: flex;
@@ -236,9 +255,7 @@
             border-bottom: 1px solid var(--acik-gri);
         }
 
-        .bilgi-satir:last-child {
-            border-bottom: none;
-        }
+        .bilgi-satir:last-child { border-bottom: none; }
 
         .bilgi-ikon {
             width: 40px;
@@ -253,105 +270,91 @@
             flex-shrink: 0;
         }
 
-        .bilgi-icerik {
-            flex: 1;
-        }
-
         .bilgi-etiket {
             font-size: 12px;
             color: var(--gri);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .bilgi-deger {
             font-size: 15px;
             font-weight: 500;
-            color: var(--koyu);
             word-break: break-word;
         }
 
-        .bilgi-deger a {
-            color: var(--vurgu-renk);
-            text-decoration: none;
+        .bilgi-deger a { color: var(--vurgu-renk); text-decoration: none; }
+
+        /* FOTOĞRAF GALERİSİ */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
         }
 
-        /* SOSYAL MEDYA */
-        .sosyal-linkler {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 15px;
+        .galeri-item {
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
         }
 
-        .sosyal-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: var(--beyaz);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .sosyal-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .sosyal-facebook { background: #1877f2; }
-        .sosyal-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-        .sosyal-twitter { background: #000000; }
-        .sosyal-youtube { background: #ff0000; }
-        .sosyal-linkedin { background: #0a66c2; }
-        .sosyal-tiktok { background: #000000; }
-        .sosyal-whatsapp { background: #25d366; }
-        .sosyal-telegram { background: #0088cc; }
-
-        /* ÇALIŞMA SAATLERİ */
-        .saat-tablo {
+        .galeri-item img {
             width: 100%;
-            border-collapse: collapse;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
         }
 
-        .saat-tablo th, .saat-tablo td {
-            padding: 10px 15px;
-            text-align: left;
+        .galeri-item:hover img { transform: scale(1.1); }
+
+        /* KAMPANYA KUTUSU */
+        .kampanya-kutu {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: var(--beyaz);
+            margin-bottom: 15px;
+        }
+
+        .kampanya-kutu h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .kampanya-kutu p {
             font-size: 14px;
-            border-bottom: 1px solid var(--acik-gri);
+            opacity: 0.9;
         }
 
-        .saat-tablo th {
+        /* SSS */
+        .sss-item {
+            border: 1px solid var(--acik-gri);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .sss-soru {
+            padding: 15px 20px;
+            cursor: pointer;
             font-weight: 600;
-            color: var(--ana-renk);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background: var(--acik-renk);
         }
 
-        .saat-acik {
-            color: var(--yesil);
-            font-weight: 600;
+        .sss-cevap {
+            padding: 15px 20px;
+            display: none;
+            font-size: 14px;
+            color: var(--gri);
+            border-top: 1px solid var(--acik-gri);
         }
 
-        .saat-kapali {
-            color: var(--kirmizi);
-            font-weight: 600;
-        }
-
-        /* HARİTA */
-        .harita-konteyner {
-            border-radius: 15px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
-        .harita-konteyner iframe {
-            width: 100%;
-            height: 350px;
-            border: none;
-        }
+        .sss-item.acik .sss-cevap { display: block; }
+        .sss-item.acik .sss-soru i { transform: rotate(180deg); }
 
         /* YORUMLAR */
         .yorum-kart {
@@ -368,37 +371,32 @@
             margin-bottom: 10px;
         }
 
-        .yorum-yazar {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--ana-renk);
-        }
+        .yorum-yazar { font-weight: 600; font-size: 14px; color: var(--ana-renk); }
+        .yorum-tarih { font-size: 12px; color: var(--gri); }
 
-        .yorum-tarih {
+        .yorum-puan { color: var(--sari); font-size: 14px; margin-bottom: 10px; }
+        .yorum-metin { font-size: 14px; }
+
+        .begeni-btn {
+            background: none;
+            border: 1px solid var(--acik-gri);
+            border-radius: 50px;
+            padding: 5px 15px;
+            cursor: pointer;
             font-size: 12px;
             color: var(--gri);
+            transition: all 0.3s;
+            margin-top: 10px;
         }
 
-        .yorum-puan {
-            color: #f59e0b;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .yorum-metin {
-            font-size: 14px;
-            color: var(--koyu);
-        }
+        .begeni-btn:hover { background: var(--acik-renk); }
+        .begeni-btn.begenildi { color: #3b82f6; border-color: #3b82f6; }
 
         /* YORUM FORMU */
-        .yorum-form {
-            display: grid;
-            gap: 15px;
-        }
+        .yorum-form { display: grid; gap: 15px; }
 
         .yorum-form input,
-        .yorum-form textarea,
-        .yorum-form select {
+        .yorum-form textarea {
             width: 100%;
             padding: 12px 16px;
             border: 2px solid var(--acik-gri);
@@ -408,16 +406,6 @@
             outline: none;
         }
 
-        .yorum-form input:focus,
-        .yorum-form textarea:focus {
-            border-color: var(--vurgu-renk);
-        }
-
-        .yorum-form textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
         .puan-secim {
             display: flex;
             gap: 10px;
@@ -425,14 +413,8 @@
             cursor: pointer;
         }
 
-        .puan-secim i {
-            color: var(--acik-gri);
-            transition: color 0.3s;
-        }
-
-        .puan-secim i.secili {
-            color: #f59e0b;
-        }
+        .puan-secim i { color: var(--acik-gri); transition: color 0.3s; }
+        .puan-secim i.secili { color: var(--sari); }
 
         .yorum-btn {
             background: var(--gradient);
@@ -446,7 +428,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* BİLDİRİM */
         .bildirim {
             padding: 15px 20px;
             border-radius: 10px;
@@ -461,24 +442,10 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .bildirim.hata {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #fca5a5;
-            display: block;
-        }
+        .bildirim.hata { background: #fee2e2; color: #991b1b; display: block; }
+        .bildirim.basarili { background: #d1fae5; color: #065f46; display: block; }
 
-        .bildirim.basarili {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid #6ee7b7;
-            display: block;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 50px;
-        }
+        .loading { text-align: center; padding: 50px; }
 
         .spinner {
             width: 50px;
@@ -495,48 +462,176 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* FOOTER */
-        .footer {
-            background: var(--ana-renk);
-            color: var(--beyaz);
-            padding: 60px 20px 20px;
-        }
+       /* ============ FOOTER ============ */
+.footer {
+    background: #0f172a;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
 
-        .footer-icerik {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f97316, #ea580c, #f97316);
+}
 
-        .footer-bolum h3 {
-            color: var(--vurgu-renk);
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+.footer-ust {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
 
-        .footer-bolum a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
+.footer-bolum h3 {
+    color: #f97316;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
 
-        .footer-alt {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-            color: rgba(255,255,255,0.6);
-        }
+.footer-bolum h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #f97316;
+    border-radius: 3px;
+}
 
+.footer-bolum p {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.footer-bolum a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.footer-bolum a:hover {
+    color: #f97316;
+    padding-left: 5px;
+}
+
+.footer-bolum a i {
+    font-size: 10px;
+    color: #f97316;
+}
+
+/* Sosyal Medya Butonları */
+.footer-sosyal {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-sosyal a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.footer-sosyal a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.footer-sosyal-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.footer-sosyal-youtube {
+    background: #ff0000;
+}
+
+.footer-sosyal-tiktok {
+    background: #000000;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.footer-sosyal-linkedin {
+    background: #0a66c2;
+}
+
+.footer-sosyal-mail {
+    background: #f97316;
+}
+
+/* İletişim Bilgi Kutuları */
+.footer-iletisim-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+}
+
+.footer-iletisim-item i {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: rgba(249,115,22,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f97316;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+/* Alt Bar */
+.footer-alt {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-alt p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 5px;
+}
+
+.footer-alt strong {
+    color: #f97316;
+}
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+    .footer-ust {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 20px 20px;
+    }
+}
         @media (max-width: 768px) {
-            .mobil-menu-btn {
-                display: block;
-            }
+            .mobil-menu-btn { display: block; }
 
             .menu-linkler {
                 display: none;
@@ -550,99 +645,125 @@
                 gap: 10px;
             }
 
-            .menu-linkler.acik {
-                display: flex;
-            }
+            .menu-linkler.acik { display: flex; }
 
-            .firma-baslik h1 {
-                font-size: 24px;
-            }
-
-            .firma-logo-buyuk {
-                width: 80px;
-                height: 80px;
-                font-size: 30px;
-            }
-
-            .bilgi-kart {
-                padding: 20px;
-            }
-
-            .harita-konteyner iframe {
-                height: 250px;
-            }
+            .firma-baslik h1 { font-size: 24px; }
+            .bilgi-kart { padding: 20px; }
+            .galeri-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
         }
     </style>
 </head>
 <body>
 
-    <!-- ÜST MENÜ -->
     <nav class="ust-menu">
         <div class="menu-icerik">
             <a href="index.html" class="logo">
-                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
-                <div class="logo-yazi">
-                    <span class="logo-ad">e-<span>Firmam</span></span>
-                    <span class="logo-slogan">Firma Rehberi</span>
-                </div>
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam">
+                <span class="logo-ad">e-<span>Firmam</span></span>
             </a>
-            <button class="mobil-menu-btn" onclick="menuAcKapat()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()"><i class="fas fa-bars"></i></button>
             <div class="menu-linkler" id="menuLinkler">
                 <a href="index.html">Ana Sayfa</a>
                 <a href="kategoriler.html">Kategoriler</a>
                 <a href="arama.html">Firma Ara</a>
-                <a href="firma-ekle.html" class="firma-ekle-btn">
-                    <i class="fas fa-plus"></i> Firmanı Ekle
-                </a>
+                <a href="firma-ekle.html" class="firma-ekle-btn"><i class="fas fa-plus"></i> Firmanı Ekle</a>
                 <a href="firma-giris.html">Firma Girişi</a>
             </div>
         </div>
     </nav>
 
     <div id="bildirim" class="bildirim"></div>
-
-    <!-- FİRMA İÇERİK -->
     <div id="firmaIcerik">
-        <div class="loading">
-            <div class="spinner"></div>
-            <p>Firma bilgileri yükleniyor...</p>
+        <div class="loading"><div class="spinner"></div><p>Firma bilgileri yükleniyor...</p></div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-ust">
+        
+        <!-- BÖLÜM 1: Hakkında + Sosyal Medya -->
+        <div class="footer-bolum">
+            <h3>e-Firmam</h3>
+            <p>Türkiye'nin ücretsiz firma rehberi platformu. İşletmenizi ekleyin, müşterilerinize ulaşın. Binlerce firma tek platformda.</p>
+            <div class="footer-sosyal">
+                <a href="https://www.instagram.com/efirmamcom/" target="_blank" class="footer-sosyal-instagram" title="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="footer-sosyal-youtube" title="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="footer-sosyal-tiktok" title="TikTok">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="footer-sosyal-linkedin" title="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:infoefirmam@gmail.com" class="footer-sosyal-mail" title="E-posta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path d="M1.5 4h21a1.5 1.5 0 0 1 1.5 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 0 18.5v-13A1.5 1.5 0 0 1 1.5 4zm20.25 1.5H2.25v1.19l9.75 5.85 9.75-5.85V5.5zm0 2.94l-8.85 5.31a1.5 1.5 0 0 1-1.8 0L2.25 8.44V18.5h19.5V8.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- BÖLÜM 2: Hızlı Linkler -->
+        <div class="footer-bolum">
+            <h3>Hızlı Linkler</h3>
+            <a href="index.html"><i class="fas fa-chevron-right"></i> Ana Sayfa</a>
+            <a href="kategoriler.html"><i class="fas fa-chevron-right"></i> Kategoriler</a>
+            <a href="arama.html"><i class="fas fa-chevron-right"></i> Firma Ara</a>
+            <a href="firma-ekle.html"><i class="fas fa-chevron-right"></i> Firmanı Ekle</a>
+            <a href="firma-giris.html"><i class="fas fa-chevron-right"></i> Firma Girişi</a>
+        </div>
+
+        <!-- BÖLÜM 3: Kurumsal -->
+        <div class="footer-bolum">
+            <h3>Kurumsal</h3>
+            <a href="hakkimizda.html"><i class="fas fa-chevron-right"></i> Hakkımızda</a>
+            <a href="sss.html"><i class="fas fa-chevron-right"></i> Sık Sorulan Sorular</a>
+            <a href="lokman-basboga.html"><i class="fas fa-chevron-right"></i> Lokman Başboğa</a>
+            <a href="iletisim.html"><i class="fas fa-chevron-right"></i> İletişim</a>
+        </div>
+
+        <!-- BÖLÜM 4: İletişim -->
+        <div class="footer-bolum">
+            <h3>İletişim</h3>
+            <div class="footer-iletisim-item">
+                <i class="fas fa-envelope"></i>
+                <span>infoefirmam@gmail.com</span>
+            </div>
+            <div class="footer-iletisim-item">
+                <i class="fab fa-instagram"></i>
+                <span>@efirmamcom</span>
+            </div>
+            <div class="footer-iletisim-item">
+                <i class="fas fa-building"></i>
+                <span>Lokman Medya</span>
+            </div>
+            <div class="footer-iletisim-item">
+                <i class="fas fa-user"></i>
+                <span>Lokman Başboğa</span>
+            </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-icerik">
-            <div class="footer-bolum">
-                <h3>e-Firmam</h3>
-                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Türkiye'nin ücretsiz firma rehberi.</p>
-            </div>
-            <div class="footer-bolum">
-                <h3>Hızlı Linkler</h3>
-                <a href="index.html">Ana Sayfa</a>
-                <a href="kategoriler.html">Kategoriler</a>
-                <a href="arama.html">Firma Ara</a>
-                <a href="firma-ekle.html">Firma Ekle</a>
-            </div>
-            <div class="footer-bolum">
-                <h3>Firma</h3>
-                <a href="firma-giris.html">Firma Girişi</a>
-                <a href="iletisim.html">İletişim</a>
-            </div>
-        </div>
-        <div class="footer-alt">
-            <p>© 2026 e-Firmam.com - Tüm hakları saklıdır.</p>
-            <p style="margin-top: 10px;">Lokman Başboğa | Lokman Medya</p>
-        </div>
-    </footer>
+    <div class="footer-alt">
+        <p>© 2026 <strong>e-Firmam.com</strong> - Tüm hakları saklıdır.</p>
+        <p><strong>Lokman Başboğa</strong> | <strong>Lokman Medya</strong></p>
+    </div>
+</footer>
 
-    <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
     <script>
-        // Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyDjFIiPpycaCru8qh6hbUudVswkr1dkLOI",
             authDomain: "efirmam-45ddf.firebaseapp.com",
@@ -653,7 +774,6 @@
             measurementId: "G-NCVWRTP072"
         };
 
-        // Firebase Başlat
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
@@ -661,128 +781,140 @@
         let firmaData = null;
         let secilenPuan = 0;
 
-        // Mobil Menü
-        function menuAcKapat() {
-            const menu = document.getElementById('menuLinkler');
-            menu.classList.toggle('acik');
-        }
+        function menuAcKapat() { document.getElementById('menuLinkler').classList.toggle('acik'); }
 
-        // URL'den Firma ID Al
-        function getFirmaId() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('id') || '';
-        }
+        function getFirmaId() { return new URLSearchParams(window.location.search).get('id') || ''; }
 
-        // Bildirim Göster
         function bildirimGoster(mesaj, tip) {
             const bildirim = document.getElementById('bildirim');
             bildirim.textContent = mesaj;
             bildirim.className = 'bildirim ' + tip;
-            setTimeout(() => {
-                bildirim.className = 'bildirim';
-            }, 5000);
+            setTimeout(() => bildirim.className = 'bildirim', 5000);
         }
 
-        // Puan Seçme
         function puanSec(puan) {
             secilenPuan = puan;
-            const yildizlar = document.querySelectorAll('.puan-secim i');
-            yildizlar.forEach((yildiz, index) => {
-                if (index < puan) {
-                    yildiz.classList.add('secili');
-                } else {
-                    yildiz.classList.remove('secili');
-                }
+            document.querySelectorAll('.puan-secim i').forEach((yildiz, index) => {
+                yildiz.classList.toggle('secili', index < puan);
             });
         }
 
-        // Firma Detayını Yükle
-        async function firmaYukle() {
-            const firmaIcerik = document.getElementById('firmaIcerik');
-            firmaId = getFirmaId();
+        function seoGuncelle(data) {
+            document.title = data.firma_adi + ' - Telefon, Adres, Yorumlar | e-Firmam';
+            document.querySelector('meta[name="description"]').content = data.firma_adi + ' ' + (data.il || '') + ' ' + (data.ilce || '') + ' adresinde. İletişim ve yorumlar e-Firmam\'da.';
+        }
+
+        function acikKapaliDurumu(saatler) {
+            const now = new Date();
+            const gun = now.getDay(); // 0=Pazar, 1=Pazartesi...
+            const saat = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
             
+            const gunler = ['pazar', 'pazartesi', 'sali', 'carsamba', 'persembe', 'cuma', 'cumartesi'];
+            const gunVerisi = saatler ? saatler[gunler[gun]] : null;
+            
+            if (!gunVerisi || gunVerisi.kapali) return { acik: false, mesaj: 'Şu an kapalı' };
+            if (!gunVerisi.acilis || !gunVerisi.kapanis) return { acik: true, mesaj: 'Açık' };
+            
+            if (saat >= gunVerisi.acilis && saat <= gunVerisi.kapanis) {
+                return { acik: true, mesaj: 'Şu an açık · ' + gunVerisi.acilis + ' - ' + gunVerisi.kapanis };
+            }
+            return { acik: false, mesaj: 'Şu an kapalı · Açılış: ' + gunVerisi.acilis };
+        }
+
+        function sssToggle(index) {
+            document.querySelectorAll('.sss-item')[index].classList.toggle('acik');
+        }
+
+        async function yorumBegen(yorumId, button) {
+            const yorumRef = db.collection('yorumlar').doc(yorumId);
+            
+            try {
+                await db.collection('yorumlar').doc(yorumId).update({
+                    begeni_sayisi: firebase.firestore.FieldValue.increment(1)
+                });
+                button.classList.add('begenildi');
+                button.innerHTML = '👍 ' + (parseInt(button.dataset.begeni) + 1) + ' Beğeni';
+                button.dataset.begeni = parseInt(button.dataset.begeni) + 1;
+            } catch (error) {
+                console.error('Beğeni hatası:', error);
+            }
+        }
+
+        async function firmaYukle() {
+            firmaId = getFirmaId();
             if (!firmaId) {
-                firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px;">Firma bulunamadı.</p>';
+                document.getElementById('firmaIcerik').innerHTML = '<p style="text-align:center;padding:50px;">Firma bulunamadı.</p>';
                 return;
             }
             
             try {
                 const doc = await db.collection('firmalar').doc(firmaId).get();
-                
                 if (!doc.exists) {
-                    firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px;">Firma bulunamadı.</p>';
+                    document.getElementById('firmaIcerik').innerHTML = '<p style="text-align:center;padding:50px;">Firma bulunamadı.</p>';
                     return;
                 }
                 
                 firmaData = doc.data();
                 firmaData.id = doc.id;
-                
-                // SEO Güncelle
                 seoGuncelle(firmaData);
                 
-                // Görüntülenme artır
                 await db.collection('firmalar').doc(firmaId).update({
                     goruntulenme: firebase.firestore.FieldValue.increment(1)
                 });
                 
-                firmaIcerik.innerHTML = firmaHTMLOlustur(firmaData);
-                
-                // Yorumları yükle
+                document.getElementById('firmaIcerik').innerHTML = firmaHTMLOlustur(firmaData);
                 yorumlariYukle();
+                kampanyalariYukle();
+                sssYukle();
                 
             } catch (error) {
                 console.error('Firma yükleme hatası:', error);
-                firmaIcerik.innerHTML = '<p style="text-align: center; padding: 50px; color: red;">Firma yüklenirken hata oluştu.</p>';
+                document.getElementById('firmaIcerik').innerHTML = '<p style="text-align:center;padding:50px;color:red;">Firma yüklenirken hata oluştu.</p>';
             }
         }
 
-        // SEO Güncelle
-        function seoGuncelle(data) {
-            const firmaAdi = data.firma_adi || 'Firma';
-            const il = data.il || '';
-            const ilce = data.ilce || '';
-            const kategori = data.kategori || '';
-            
-            document.title = firmaAdi + ' - Telefon, Adres, Yorumlar | e-Firmam';
-            
-            const metaDescription = document.querySelector('meta[name="description"]');
-            metaDescription.content = firmaAdi + ' ' + il + ' ' + ilce + ' adresinde. ' + kategori + '. İletişim bilgileri, çalışma saatleri ve müşteri yorumları e-Firmam\'da.';
-            
-            const metaKeywords = document.querySelector('meta[name="keywords"]');
-            metaKeywords.content = firmaAdi + ', ' + kategori + ', ' + il + ', ' + ilce + ', firma rehberi, e-Firmam';
-            
-            document.querySelector('meta[property="og:title"]').content = firmaAdi + ' - e-Firmam';
-            document.querySelector('meta[property="og:description"]').content = firmaAdi + ' ' + il + ' ' + ilce + ' adresinde. İletişim ve yorumlar e-Firmam\'da.';
-        }
-
-        // Firma HTML Oluştur
         function firmaHTMLOlustur(data) {
-            const logoHtml = data.logo_url 
-                ? `<img src="${data.logo_url}" alt="${data.firma_adi}">` 
-                : data.firma_adi.charAt(0).toUpperCase();
+            const logoHtml = data.logo_url ? `<img src="${data.logo_url}" alt="${data.firma_adi}">` : data.firma_adi.charAt(0).toUpperCase();
             
-            // Sosyal medya linkleri
+            // Açık/Kapalı
+            const durum = acikKapaliDurumu(data.calisma_saatleri);
+            const durumRozet = durum.acik ? 'durum-acik' : 'durum-kapali';
+            const durumIkon = durum.acik ? '🟢' : '🔴';
+            
+            // Etiketler
+            let etiketlerHtml = '';
+            if (data.etiketler && data.etiketler.length > 0) {
+                etiketlerHtml = '<div class="etiketler">';
+                data.etiketler.forEach(etiket => {
+                    etiketlerHtml += `<a href="arama.html?q=${encodeURIComponent('#' + etiket)}" class="etiket">#${etiket}</a>`;
+                });
+                etiketlerHtml += '</div>';
+            }
+            
+            // Fotoğraf galerisi
+            let galeriHtml = '';
+            if (data.fotograflar && data.fotograflar.length > 0) {
+                galeriHtml = '<div class="galeri-grid">';
+                data.fotograflar.forEach(foto => {
+                    galeriHtml += `<div class="galeri-item"><img src="${foto}" alt="Firma fotoğrafı" onclick="window.open('${foto}', '_blank')"></div>`;
+                });
+                galeriHtml += '</div>';
+            }
+            
+            // Sosyal medya
             let sosyalLinkler = '';
             const sm = data.sosyal_medya || {};
-            
-            if (sm.facebook) sosyalLinkler += `<a href="${sm.facebook}" target="_blank" class="sosyal-link sosyal-facebook"><i class="fab fa-facebook-f"></i></a>`;
-            if (sm.instagram) sosyalLinkler += `<a href="${sm.instagram}" target="_blank" class="sosyal-link sosyal-instagram"><i class="fab fa-instagram"></i></a>`;
-            if (sm.twitter) sosyalLinkler += `<a href="${sm.twitter}" target="_blank" class="sosyal-link sosyal-twitter"><i class="fab fa-x-twitter"></i></a>`;
-            if (sm.youtube) sosyalLinkler += `<a href="${sm.youtube}" target="_blank" class="sosyal-link sosyal-youtube"><i class="fab fa-youtube"></i></a>`;
-            if (sm.linkedin) sosyalLinkler += `<a href="${sm.linkedin}" target="_blank" class="sosyal-link sosyal-linkedin"><i class="fab fa-linkedin-in"></i></a>`;
-            if (sm.tiktok) sosyalLinkler += `<a href="${sm.tiktok}" target="_blank" class="sosyal-link sosyal-tiktok"><i class="fab fa-tiktok"></i></a>`;
-            if (sm.whatsapp) sosyalLinkler += `<a href="https://wa.me/${sm.whatsapp.replace(/\D/g, '')}" target="_blank" class="sosyal-link sosyal-whatsapp"><i class="fab fa-whatsapp"></i></a>`;
-            if (sm.telegram) sosyalLinkler += `<a href="${sm.telegram}" target="_blank" class="sosyal-link sosyal-telegram"><i class="fab fa-telegram-plane"></i></a>`;
+            if (sm.facebook) sosyalLinkler += `<a href="${sm.facebook}" target="_blank" style="margin-right:10px;"><i class="fab fa-facebook" style="font-size:24px;color:#1877f2;"></i></a>`;
+            if (sm.instagram) sosyalLinkler += `<a href="${sm.instagram}" target="_blank" style="margin-right:10px;"><i class="fab fa-instagram" style="font-size:24px;color:#e4405f;"></i></a>`;
+            if (sm.youtube) sosyalLinkler += `<a href="${sm.youtube}" target="_blank" style="margin-right:10px;"><i class="fab fa-youtube" style="font-size:24px;color:#ff0000;"></i></a>`;
+            if (sm.whatsapp) sosyalLinkler += `<a href="https://wa.me/${sm.whatsapp.replace(/\D/g,'')}" target="_blank" style="margin-right:10px;"><i class="fab fa-whatsapp" style="font-size:24px;color:#25d366;"></i></a>`;
             
             // Harita
-            const adres = data.adres || '';
-            const il = data.il || '';
-            const ilce = data.ilce || '';
-            const haritaAdres = [adres, ilce, il].filter(Boolean).join(', ');
-            const haritaURL = 'https://www.google.com/maps?q=' + encodeURIComponent(haritaAdres) + '&output=embed';
+            const haritaAdres = [data.adres, data.ilce, data.il].filter(Boolean).join(', ');
+            const haritaURL = haritaAdres ? 'https://www.google.com/maps?q=' + encodeURIComponent(haritaAdres) + '&output=embed' : '';
             
             // Çalışma saatleri
-            let saatHTML = '';
+            let saatHTML = '<p style="color: var(--gri);">Çalışma saatleri belirtilmemiş.</p>';
             if (data.calisma_saatleri) {
                 const saatler = data.calisma_saatleri;
                 const gunler = [
@@ -795,107 +927,62 @@
                     { ad: 'Pazar', veri: saatler.pazar }
                 ];
                 
-                saatHTML = '<table class="saat-tablo"><tr><th>Gün</th><th>Saatler</th></tr>';
-                
+                saatHTML = '<table style="width:100%;">';
                 gunler.forEach(gun => {
                     if (gun.veri && gun.veri.kapali) {
-                        saatHTML += `<tr><td>${gun.ad}</td><td class="saat-kapali">Kapalı</td></tr>`;
-                    } else if (gun.veri && gun.veri.acilis && gun.veri.kapanis) {
-                        saatHTML += `<tr><td>${gun.ad}</td><td class="saat-acik">${gun.veri.acilis} - ${gun.veri.kapanis}</td></tr>`;
+                        saatHTML += `<tr><td style="padding:8px 0;">${gun.ad}</td><td style="color:var(--kirmizi);font-weight:600;">Kapalı</td></tr>`;
+                    } else if (gun.veri && gun.veri.acilis) {
+                        saatHTML += `<tr><td style="padding:8px 0;">${gun.ad}</td><td style="color:var(--yesil);font-weight:600;">${gun.veri.acilis} - ${gun.veri.kapanis}</td></tr>`;
                     } else {
-                        saatHTML += `<tr><td>${gun.ad}</td><td>Belirtilmemiş</td></tr>`;
+                        saatHTML += `<tr><td style="padding:8px 0;">${gun.ad}</td><td>Belirtilmemiş</td></tr>`;
                     }
                 });
-                
                 saatHTML += '</table>';
-            } else {
-                saatHTML = '<p style="color: var(--gri);">Çalışma saatleri belirtilmemiş.</p>';
             }
             
             return `
                 <section class="firma-baslik">
                     <div class="firma-logo-buyuk">${logoHtml}</div>
                     <h1>${data.firma_adi}</h1>
-                    <span class="kategori-badge">${data.kategori || 'Kategori yok'}</span>
+                    <span class="kategori-badge">${data.kategori || 'Kategori yok'}</span><br>
+                    <span class="durum-rozet ${durumRozet}">${durumIkon} ${durum.mesaj}</span>
+                    ${etiketlerHtml}
                 </section>
                 
                 <section class="icerik-bolumu">
-                    ${data.aciklama ? `
-                    <div class="bilgi-kart">
-                        <h3><i class="fas fa-info-circle"></i> Hakkında</h3>
-                        <p style="font-size: 14px; color: var(--gri);">${data.aciklama}</p>
-                    </div>` : ''}
+                    ${data.aciklama ? `<div class="bilgi-kart"><h3><i class="fas fa-info-circle"></i> Hakkında</h3><p style="font-size:14px;color:var(--gri);">${data.aciklama}</p></div>` : ''}
                     
                     <div class="bilgi-kart">
                         <h3><i class="fas fa-address-card"></i> İletişim Bilgileri</h3>
-                        
-                        ${!data.gizli_telefon && data.telefon ? `
-                        <div class="bilgi-satir">
-                            <div class="bilgi-ikon"><i class="fas fa-phone"></i></div>
-                            <div class="bilgi-icerik">
-                                <div class="bilgi-etiket">Telefon</div>
-                                <div class="bilgi-deger"><a href="tel:${data.telefon}">${data.telefon}</a></div>
-                            </div>
-                        </div>` : ''}
-                        
-                        ${!data.gizli_email && data.email ? `
-                        <div class="bilgi-satir">
-                            <div class="bilgi-ikon"><i class="fas fa-envelope"></i></div>
-                            <div class="bilgi-icerik">
-                                <div class="bilgi-etiket">E-posta</div>
-                                <div class="bilgi-deger"><a href="mailto:${data.email}">${data.email}</a></div>
-                            </div>
-                        </div>` : ''}
-                        
-                        ${!data.gizli_adres && (data.adres || data.il) ? `
-                        <div class="bilgi-satir">
-                            <div class="bilgi-ikon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="bilgi-icerik">
-                                <div class="bilgi-etiket">Adres</div>
-                                <div class="bilgi-deger">${[data.adres, data.ilce, data.il].filter(Boolean).join(', ')}</div>
-                            </div>
-                        </div>` : ''}
-                        
-                        ${data.web_sitesi ? `
-                        <div class="bilgi-satir">
-                            <div class="bilgi-ikon"><i class="fas fa-globe"></i></div>
-                            <div class="bilgi-icerik">
-                                <div class="bilgi-etiket">Web Sitesi</div>
-                                <div class="bilgi-deger"><a href="${data.web_sitesi}" target="_blank">${data.web_sitesi}</a></div>
-                            </div>
-                        </div>` : ''}
-                        
-                        ${sosyalLinkler ? `
-                        <div class="bilgi-satir">
-                            <div class="bilgi-ikon"><i class="fas fa-share-alt"></i></div>
-                            <div class="bilgi-icerik">
-                                <div class="bilgi-etiket">Sosyal Medya</div>
-                                <div class="sosyal-linkler">${sosyalLinkler}</div>
-                            </div>
-                        </div>` : ''}
+                        ${!data.gizli_telefon && data.telefon ? `<div class="bilgi-satir"><div class="bilgi-ikon"><i class="fas fa-phone"></i></div><div><div class="bilgi-etiket">Telefon</div><div class="bilgi-deger"><a href="tel:${data.telefon}">${data.telefon}</a></div></div></div>` : ''}
+                        ${!data.gizli_email && data.email ? `<div class="bilgi-satir"><div class="bilgi-ikon"><i class="fas fa-envelope"></i></div><div><div class="bilgi-etiket">E-posta</div><div class="bilgi-deger">${data.email}</div></div></div>` : ''}
+                        ${!data.gizli_adres && (data.adres || data.il) ? `<div class="bilgi-satir"><div class="bilgi-ikon"><i class="fas fa-map-marker-alt"></i></div><div><div class="bilgi-etiket">Adres</div><div class="bilgi-deger">${[data.adres, data.ilce, data.il].filter(Boolean).join(', ')}</div></div></div>` : ''}
+                        ${data.web_sitesi ? `<div class="bilgi-satir"><div class="bilgi-ikon"><i class="fas fa-globe"></i></div><div><div class="bilgi-etiket">Web Sitesi</div><div class="bilgi-deger"><a href="${data.web_sitesi}" target="_blank">${data.web_sitesi}</a></div></div></div>` : ''}
+                        ${sosyalLinkler ? `<div class="bilgi-satir"><div class="bilgi-ikon"><i class="fas fa-share-alt"></i></div><div><div class="bilgi-etiket">Sosyal Medya</div><div style="margin-top:10px;">${sosyalLinkler}</div></div></div>` : ''}
                     </div>
+                    
+                    ${galeriHtml ? `<div class="bilgi-kart"><h3><i class="fas fa-images"></i> Fotoğraflar</h3>${galeriHtml}</div>` : ''}
                     
                     <div class="bilgi-kart">
                         <h3><i class="fas fa-clock"></i> Çalışma Saatleri</h3>
                         ${saatHTML}
                     </div>
                     
-                    ${haritaAdres ? `
-                    <div class="bilgi-kart">
-                        <h3><i class="fas fa-map"></i> Konum</h3>
-                        <div class="harita-konteyner">
-                            <iframe src="${haritaURL}" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                        <button onclick="adresiKopyala()" style="margin-top: 15px; padding: 10px 20px; background: var(--gradient); color: white; border: none; border-radius: 10px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;">
-                            <i class="fas fa-copy"></i> Adresi Kopyala
-                        </button>
-                    </div>` : ''}
+                    ${haritaAdres ? `<div class="bilgi-kart"><h3><i class="fas fa-map"></i> Konum</h3><iframe src="${haritaURL}" style="width:100%;height:300px;border:none;border-radius:15px;" allowfullscreen loading="lazy"></iframe></div>` : ''}
+                    
+                    <div class="bilgi-kart" id="kampanyaBolumu">
+                        <h3><i class="fas fa-tags"></i> Kampanyalar</h3>
+                        <div id="kampanyaListesi"><p style="text-align:center;color:var(--gri);">Kampanya bulunmuyor.</p></div>
+                    </div>
+                    
+                    <div class="bilgi-kart" id="sssBolumu">
+                        <h3><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</h3>
+                        <div id="sssListesi"><p style="text-align:center;color:var(--gri);">SSS bulunmuyor.</p></div>
+                    </div>
                     
                     <div class="bilgi-kart">
                         <h3><i class="fas fa-comments"></i> Yorumlar</h3>
-                        <div id="yorumlarListesi">
-                            <div class="loading"><div class="spinner"></div></div>
-                        </div>
+                        <div id="yorumlarListesi"><div class="loading"><div class="spinner"></div></div></div>
                     </div>
                     
                     <div class="bilgi-kart">
@@ -910,112 +997,75 @@
                                 <i class="fas fa-star" onclick="puanSec(5)"></i>
                             </div>
                             <textarea id="yorumMetin" placeholder="Yorumunuzu yazın..."></textarea>
-                            <button class="yorum-btn" onclick="yorumYap()">
-                                <i class="fas fa-paper-plane"></i> Yorumu Gönder
-                            </button>
+                            <button class="yorum-btn" onclick="yorumYap()"><i class="fas fa-paper-plane"></i> Yorumu Gönder</button>
                         </div>
                     </div>
                 </section>
             `;
         }
 
-        // Adresi Kopyala
-        function adresiKopyala() {
-            const adres = firmaData ? [firmaData.adres, firmaData.ilce, firmaData.il].filter(Boolean).join(', ') : '';
+        async function yorumlariYukle() {
+            const yorumlarListesi = document.getElementById('yorumlarListesi');
             
-            if (adres) {
-                navigator.clipboard.writeText(adres).then(() => {
-                    bildirimGoster('Adres kopyalandı: ' + adres, 'basarili');
-                }).catch(() => {
-                    bildirimGoster('Adres kopyalanamadı.', 'hata');
+            try {
+                const snapshot = await db.collection('yorumlar')
+                    .where('firma_id', '==', firmaId)
+                    .get();
+                
+                const yorumlar = [];
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.durum === 'aktif') {
+                        yorumlar.push({ id: doc.id, data: data });
+                    }
                 });
+                
+                yorumlar.sort((a, b) => {
+                    const aTarih = a.data.tarih ? a.data.tarih.toDate() : new Date(0);
+                    const bTarih = b.data.tarih ? b.data.tarih.toDate() : new Date(0);
+                    return bTarih - aTarih;
+                });
+                
+                if (yorumlar.length === 0) {
+                    yorumlarListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Henüz yorum yapılmamış. İlk yorumu siz yazın!</p>';
+                    return;
+                }
+                
+                yorumlarListesi.innerHTML = '';
+                
+                yorumlar.forEach(yorum => {
+                    const data = yorum.data;
+                    const yorumKart = document.createElement('div');
+                    yorumKart.className = 'yorum-kart';
+                    
+                    let yildizlar = '';
+                    for (let i = 0; i < 5; i++) yildizlar += i < (data.puan || 0) ? '★' : '☆';
+                    
+                    const begeniSayisi = data.begeni_sayisi || 0;
+                    
+                    yorumKart.innerHTML = `
+    <div class="yorum-ust">
+        <span class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</span>
+        <span class="yorum-tarih">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</span>
+    </div>
+    <div class="yorum-puan">${yildizlar}</div>
+    <div class="yorum-metin">${data.yorum}</div>
+`;
+                    
+                    yorumlarListesi.appendChild(yorumKart);
+                });
+            } catch (error) {
+                console.error('Yorum yükleme hatası:', error);
+                yorumlarListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Yorum yüklenemedi.</p>';
             }
         }
 
-        // Yorumları Yükle
-async function yorumlariYukle() {
-    const yorumlarListesi = document.getElementById('yorumlarListesi');
-    
-    try {
-        const snapshot = await db.collection('yorumlar')
-            .where('firma_id', '==', firmaId)
-            .get();
-        
-        if (snapshot.empty) {
-            yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış. İlk yorumu siz yazın!</p>';
-            return;
-        }
-        
-        // Yorumları diziye al
-        const yorumlar = [];
-        snapshot.forEach(doc => {
-            const data = doc.data();
-            if (data.durum === 'aktif') {
-                yorumlar.push({
-                    id: doc.id,
-                    data: data
-                });
-            }
-        });
-        
-        // Tarihe göre sırala
-        yorumlar.sort((a, b) => {
-            const aTarih = a.data.tarih ? a.data.tarih.toDate() : new Date(0);
-            const bTarih = b.data.tarih ? b.data.tarih.toDate() : new Date(0);
-            return bTarih - aTarih;
-        });
-        
-        if (yorumlar.length === 0) {
-            yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış. İlk yorumu siz yazın!</p>';
-            return;
-        }
-        
-        yorumlarListesi.innerHTML = '';
-        
-        yorumlar.forEach(yorum => {
-            const data = yorum.data;
-            
-            const yorumKart = document.createElement('div');
-            yorumKart.className = 'yorum-kart';
-            
-            let yildizlar = '';
-            for (let i = 0; i < 5; i++) {
-                yildizlar += i < (data.puan || 0) ? '★' : '☆';
-            }
-            
-            const tarih = data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : '';
-            
-            yorumKart.innerHTML = `
-                <div class="yorum-ust">
-                    <span class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</span>
-                    <span class="yorum-tarih">${tarih}</span>
-                </div>
-                <div class="yorum-puan">${yildizlar}</div>
-                <div class="yorum-metin">${data.yorum}</div>
-            `;
-            
-            yorumlarListesi.appendChild(yorumKart);
-        });
-    } catch (error) {
-        console.error('Yorum yükleme hatası:', error);
-        yorumlarListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış.</p>';
-    }
-}
-
-        // Yorum Yap
         async function yorumYap() {
             const yorumAd = document.getElementById('yorumAd').value.trim();
             const yorumMetin = document.getElementById('yorumMetin').value.trim();
             
-            if (!yorumMetin) {
-                bildirimGoster('Lütfen yorum yazın.', 'hata');
-                return;
-            }
-            
-            if (secilenPuan === 0) {
-                bildirimGoster('Lütfen yıldız puanı seçin.', 'hata');
-                return;
-            }
+            if (!yorumMetin) { bildirimGoster('Lütfen yorum yazın.', 'hata'); return; }
+            if (secilenPuan === 0) { bildirimGoster('Lütfen yıldız seçin.', 'hata'); return; }
             
             try {
                 await db.collection('yorumlar').add({
@@ -1024,31 +1074,24 @@ async function yorumlariYukle() {
                     yorum: yorumMetin,
                     puan: secilenPuan,
                     durum: 'aktif',
+                    begeni_sayisi: 0,
                     tarih: firebase.firestore.FieldValue.serverTimestamp()
                 });
                 
-               // Yorum sayısını güncelle
-const yorumSayisi = await db.collection('yorumlar')
-    .where('firma_id', '==', firmaId)
-    .get();
-
-let toplamYorum = 0;
-yorumSayisi.forEach(doc => {
-    if (doc.data().durum === 'aktif') {
-        toplamYorum++;
-    }
-});
-
-await db.collection('firmalar').doc(firmaId).update({
-    yorum_sayisi: toplamYorum
-});
+                // Bildirim ekle
+                await db.collection('bildirimler').add({
+                    firma_id: firmaId,
+                    mesaj: `"${yorumMetin.substring(0, 50)}..." yeni yorum`,
+                    tip: 'yorum',
+                    okundu: false,
+                    tarih: firebase.firestore.FieldValue.serverTimestamp()
+                });
                 
-                // Formu temizle
+                bildirimGoster('Yorumunuz eklendi!', 'basarili');
                 document.getElementById('yorumAd').value = '';
                 document.getElementById('yorumMetin').value = '';
                 secilenPuan = 0;
                 document.querySelectorAll('.puan-secim i').forEach(y => y.classList.remove('secili'));
-                
                 yorumlariYukle();
                 
             } catch (error) {
@@ -1057,10 +1100,71 @@ await db.collection('firmalar').doc(firmaId).update({
             }
         }
 
-        // Sayfa Yüklendiğinde
-        document.addEventListener('DOMContentLoaded', () => {
-            firmaYukle();
-        });
+        async function kampanyalariYukle() {
+            const kampanyaListesi = document.getElementById('kampanyaListesi');
+            
+            try {
+                const snapshot = await db.collection('kampanyalar')
+                    .where('firma_id', '==', firmaId)
+                    .where('aktif', '==', true)
+                    .get();
+                
+                if (snapshot.empty) {
+                    kampanyaListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Kampanya bulunmuyor.</p>';
+                    return;
+                }
+                
+                kampanyaListesi.innerHTML = '';
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    kampanyaListesi.innerHTML += `
+                        <div class="kampanya-kutu">
+                            <h4>🎉 ${data.baslik}</h4>
+                            <p>${data.aciklama || ''}</p>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error('Kampanya yükleme hatası:', error);
+            }
+        }
+
+        async function sssYukle() {
+            const sssListesi = document.getElementById('sssListesi');
+            
+            try {
+                const snapshot = await db.collection('sss')
+                    .where('firma_id', '==', firmaId)
+                    .get();
+                
+                if (snapshot.empty) {
+                    sssListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">SSS bulunmuyor.</p>';
+                    return;
+                }
+                
+                sssListesi.innerHTML = '';
+                let index = 0;
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    sssListesi.innerHTML += `
+                        <div class="sss-item" id="sssItem${index}">
+                            <div class="sss-soru" onclick="document.getElementById('sssItem${index}').classList.toggle('acik')">
+                                ${data.soru}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="sss-cevap">${data.cevap}</div>
+                        </div>
+                    `;
+                    index++;
+                });
+            } catch (error) {
+                console.error('SSS yükleme hatası:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', firmaYukle);
     </script>
 </body>
 </html>
