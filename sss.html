@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <title>Sık Sorulan Sorular - e-Firmam | Firma Rehberi</title>
+    <meta name="description" content="e-Firmam hakkında sık sorulan sorular. Firma nasıl eklenir? Ücretli mi? Kim geliştirdi? Tüm cevaplar burada.">
+    <meta name="keywords" content="e-Firmam SSS, firma rehberi sorular, firma ekleme, Lokman Başboğa, Lokman Medya">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Lokman Başboğa">
+    
+    <meta property="og:title" content="Sık Sorulan Sorular - e-Firmam">
+    <meta property="og:description" content="e-Firmam hakkında merak edilen her şey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://efirmam.com/sss.html">
+    <meta property="og:site_name" content="e-Firmam">
+    <meta property="og:image" content="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <link rel="canonical" href="https://efirmam.com/sss.html">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ana-renk: #0f172a;
+            --vurgu-renk: #f97316;
+            --acik-renk: #f8fafc;
+            --beyaz: #ffffff;
+            --koyu: #1e293b;
+            --gri: #64748b;
+            --acik-gri: #e2e8f0;
+            --gradient: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--acik-renk);
+            color: var(--koyu);
+            line-height: 1.6;
+        }
+
+        .ust-menu {
+            background: rgba(15, 23, 42, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 45px; height: 45px; border-radius: 12px; border: 2px solid var(--vurgu-renk); }
+        .logo-ad { color: var(--beyaz); font-size: 24px; font-weight: 800; }
+        .logo-ad span { color: var(--vurgu-renk); }
+
+        .menu-linkler { display: flex; gap: 8px; align-items: center; }
+        .menu-linkler a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: all 0.3s; }
+        .menu-linkler a:hover { background: rgba(255,255,255,0.1); color: var(--beyaz); }
+        .firma-ekle-btn { background: var(--gradient); color: var(--beyaz) !important; border-radius: 50px !important; font-weight: 600 !important; }
+        .mobil-menu-btn { display: none; color: var(--beyaz); font-size: 24px; cursor: pointer; background: none; border: none; }
+
+        .sayfa-baslik {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .sayfa-baslik h1 { color: var(--beyaz); font-size: 40px; font-weight: 800; margin-bottom: 10px; }
+        .sayfa-baslik p { color: rgba(255,255,255,0.7); font-size: 16px; }
+
+        .icerik-bolumu {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sss-item {
+            background: var(--beyaz);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .sss-soru {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            color: var(--ana-renk);
+        }
+        .sss-soru i { color: var(--vurgu-renk); transition: transform 0.3s; }
+        .sss-item.acik .sss-soru i { transform: rotate(180deg); }
+        .sss-cevap {
+            padding: 0 25px 20px;
+            display: none;
+            font-size: 14px;
+            color: var(--gri);
+        }
+        .sss-item.acik .sss-cevap { display: block; }
+        .sss-cevap a { color: var(--vurgu-renk); text-decoration: none; font-weight: 600; }
+        .sss-cevap a:hover { text-decoration: underline; }
+
+        .footer {
+            background: var(--ana-renk);
+            color: var(--beyaz);
+            padding: 60px 20px 20px;
+        }
+        .footer-icerik {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-bolum h3 { color: var(--vurgu-renk); font-size: 16px; margin-bottom: 15px; }
+        .footer-bolum a { color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; font-size: 13px; }
+        .footer-bolum a:hover { color: var(--vurgu-renk); }
+        .footer-alt { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 768px) {
+            .mobil-menu-btn { display: block; }
+            .menu-linkler { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ana-renk); flex-direction: column; padding: 20px; gap: 10px; }
+            .menu-linkler.acik { display: flex; }
+            .sayfa-baslik h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="ust-menu">
+        <div class="menu-icerik">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="e-Firmam Logo">
+                <span class="logo-ad">e-<span>Firmam</span></span>
+            </a>
+            <button class="mobil-menu-btn" onclick="menuAcKapat()"><i class="fas fa-bars"></i></button>
+            <div class="menu-linkler" id="menuLinkler">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html" class="firma-ekle-btn"><i class="fas fa-plus"></i> Firmanı Ekle</a>
+                <a href="firma-giris.html">Firma Girişi</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="sayfa-baslik">
+        <h1>Sık Sorulan Sorular</h1>
+        <p>e-Firmam hakkında merak edilen her şey</p>
+    </section>
+
+    <section class="icerik-bolumu">
+        <div class="sss-item" onclick="sssToggle(0)">
+            <div class="sss-soru">e-Firmam nedir? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">e-Firmam, Türkiye genelindeki işletmeleri tek platformda toplayan ücretsiz bir firma rehberi sitesidir. İşletmeler burada kendilerini tanıtabilir, müşteriler de aradıkları firmayı kolayca bulabilir.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(1)">
+            <div class="sss-soru">Firma eklemek ücretli mi? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Hayır, e-Firmam'a firma eklemek tamamen <strong>ücretsizdir</strong>. Hiçbir gizli ücret yoktur.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(2)">
+            <div class="sss-soru">Firmamı nasıl eklerim? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Ana sayfadaki "Firmanı Ekle" butonuna tıklayarak kayıt formunu doldurun. Kayıt işlemi 5 dakikadan kısa sürer.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(3)">
+            <div class="sss-soru">e-Firmam'ı kim geliştirdi? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">e-Firmam, <a href="lokman-basboga.html"><strong>Lokman Başboğa</strong></a> tarafından <strong>Lokman Medya</strong> çatısı altında geliştirilmiştir.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(4)">
+            <div class="sss-soru">Yorum yapabilir miyim? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Evet, firma detay sayfasında yıldız puanı vererek yorum yazabilirsiniz.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(5)">
+            <div class="sss-soru">Yorumum neden silindi? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Küfür, hakaret, spam veya reklam içeren yorumlar admin tarafından kaldırılır. Yapıcı eleştiriler her zaman yayınlanır.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(6)">
+            <div class="sss-soru">Firma bilgilerimi nasıl güncellerim? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Firma girişi yaparak panelinizden tüm bilgilerinizi güncelleyebilirsiniz.</div>
+        </div>
+
+        <div class="sss-item" onclick="sssToggle(7)">
+            <div class="sss-soru">İletişim nasıl kurarım? <i class="fas fa-chevron-down"></i></div>
+            <div class="sss-cevap">Bize <a href="mailto:infoefirmam@gmail.com">infoefirmam@gmail.com</a> adresinden ulaşabilirsiniz.</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-icerik">
+            <div class="footer-bolum">
+                <h3>e-Firmam</h3>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="sss.html">SSS</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+            <div class="footer-bolum">
+                <h3>Keşfet</h3>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kategoriler.html">Kategoriler</a>
+                <a href="arama.html">Firma Ara</a>
+                <a href="firma-ekle.html">Firma Ekle</a>
+            </div>
+            <div class="footer-bolum">
+                <h3>Geliştirici</h3>
+                <a href="lokman-basboga.html">Lokman Başboğa</a>
+                <a href="https://www.instagram.com/efirmamcom/" target="_blank">Instagram</a>
+                <a href="mailto:infoefirmam@gmail.com">infoefirmam@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-alt">
+            <p>© 2026 e-Firmam.com - Tüm hakları saklıdır.</p>
+            <p style="margin-top:8px;">Lokman Başboğa | Lokman Medya</p>
+        </div>
+    </footer>
+
+    <script>
+        function menuAcKapat() { document.getElementById('menuLinkler').classList.toggle('acik'); }
+        function sssToggle(index) {
+            document.querySelectorAll('.sss-item')[index].classList.toggle('acik');
+        }
+    </script>
+</body>
+</html>
