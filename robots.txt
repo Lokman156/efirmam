@@ -1,4 +1,12 @@
+# e-Firmam robots.txt
+# https://efirmam.com
+
 User-agent: *
 Allow: /
+Disallow: /panel/
+Disallow: /admin/
+Disallow: /admin-giris.html
+Disallow: /firma-giris.html
 
+# Sitemap
 Sitemap: https://efirmam.com/sitemap.xml
