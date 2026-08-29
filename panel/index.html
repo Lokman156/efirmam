@@ -7,16 +7,9 @@
     <title>Firma Paneli - e-Firmam</title>
     <meta name="robots" content="noindex, nofollow">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/Pz11x68W/f-1.png">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -34,11 +27,7 @@
             --sari: #f59e0b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -64,28 +53,23 @@
             align-items: center;
         }
 
-        .logo {
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 40px; height: 40px; border-radius: 10px; border: 2px solid var(--vurgu-renk); }
+        .logo-ad { color: var(--beyaz); font-size: 20px; font-weight: 800; }
+        .logo-ad span { color: var(--vurgu-renk); }
+
+        .bildirim-rozet {
+            background: var(--kirmizi);
+            color: var(--beyaz);
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            border: 2px solid var(--vurgu-renk);
-        }
-
-        .logo-ad {
-            color: var(--beyaz);
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .logo-ad span {
-            color: var(--vurgu-renk);
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 5px;
         }
 
         .cikis-btn {
@@ -144,11 +128,11 @@
         }
 
         .sekme-btn {
-            padding: 12px 25px;
+            padding: 12px 20px;
             border: none;
             background: none;
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--gri);
             cursor: pointer;
@@ -160,15 +144,8 @@
             white-space: nowrap;
         }
 
-        .sekme-btn:hover {
-            background: var(--acik-renk);
-        }
-
-        .sekme-btn.aktif {
-            background: var(--gradient);
-            color: var(--beyaz);
-            box-shadow: 0 5px 15px rgba(249,115,22,0.3);
-        }
+        .sekme-btn:hover { background: var(--acik-renk); }
+        .sekme-btn.aktif { background: var(--gradient); color: var(--beyaz); }
 
         .sekme-icerik {
             display: none;
@@ -178,9 +155,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        .sekme-icerik.aktif {
-            display: block;
-        }
+        .sekme-icerik.aktif { display: block; }
 
         .istatistik-grid {
             display: grid;
@@ -207,115 +182,18 @@
             font-size: 22px;
         }
 
-        .istatistik-sayi {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--ana-renk);
-        }
-
-        .istatistik-etiket {
-            font-size: 13px;
-            color: var(--gri);
-            margin-top: 5px;
-        }
+        .istatistik-sayi { font-size: 28px; font-weight: 800; color: var(--ana-renk); }
+        .istatistik-etiket { font-size: 13px; color: var(--gri); margin-top: 5px; }
 
         .ikon-turuncu { background: rgba(249,115,22,0.15); color: var(--vurgu-renk); }
         .ikon-yesil { background: rgba(16,185,129,0.15); color: var(--yesil); }
         .ikon-mavi { background: rgba(59,130,246,0.15); color: #3b82f6; }
         .ikon-sari { background: rgba(245,158,11,0.15); color: var(--sari); }
+        .ikon-kirmizi { background: rgba(239,68,68,0.15); color: var(--kirmizi); }
 
-        .yorum-item {
-            background: var(--acik-renk);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .yorum-sol {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .yorum-yazar {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--ana-renk);
-        }
-
-        .yorum-puan {
-            color: var(--sari);
-            font-size: 14px;
-            margin: 5px 0;
-        }
-
-        .yorum-metin {
-            font-size: 14px;
-        }
-
-        .yorum-tarih {
-            font-size: 12px;
-            color: var(--gri);
-            margin-top: 5px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-itiraz {
-            background: rgba(239,68,68,0.1);
-            color: var(--kirmizi);
-            border: 1px solid rgba(239,68,68,0.3);
-        }
-
-        .itiraz-item {
-            background: var(--acik-renk);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-
-        .itiraz-durum {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .durum-beklemede { background: rgba(245,158,11,0.15); color: #d97706; }
-        .durum-onaylandi { background: rgba(16,185,129,0.15); color: #065f46; }
-        .durum-reddedildi { background: rgba(239,68,68,0.15); color: #991b1b; }
-
-        .form-grup {
-            margin-bottom: 20px;
-        }
-
-        .form-grup label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .form-grup input,
-        .form-grup select,
-        .form-grup textarea {
+        .form-grup { margin-bottom: 20px; }
+        .form-grup label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .form-grup input, .form-grup select, .form-grup textarea {
             width: 100%;
             padding: 12px 16px;
             border: 2px solid var(--acik-gri);
@@ -324,29 +202,42 @@
             font-size: 14px;
             outline: none;
         }
-
-        .form-grup input:focus,
-        .form-grup select:focus,
-        .form-grup textarea:focus {
-            border-color: var(--vurgu-renk);
-        }
-
-        .form-satir {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+        .form-grup input:focus, .form-grup select:focus, .form-grup textarea:focus { border-color: var(--vurgu-renk); }
+        .form-satir { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
         .kaydet-btn {
             background: var(--gradient);
             color: var(--beyaz);
             border: none;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-sil { background: rgba(239,68,68,0.1); color: var(--kirmizi); border: 1px solid rgba(239,68,68,0.3); }
+        .btn-itiraz { background: rgba(239,68,68,0.1); color: var(--kirmizi); border: 1px solid rgba(239,68,68,0.3); }
+
+        .liste-item {
+            background: var(--acik-renk);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
         }
 
         .bildirim {
@@ -356,101 +247,74 @@
             font-weight: 500;
             display: none;
         }
+        .bildirim.hata { background: #fee2e2; color: #991b1b; display: block; }
+        .bildirim.basarili { background: #d1fae5; color: #065f46; display: block; }
 
-        .bildirim.hata {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #fca5a5;
-            display: block;
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
         }
-
-        .bildirim.basarili {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid #6ee7b7;
-            display: block;
+        .galeri-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1;
         }
-
-        .loading {
-            text-align: center;
-            padding: 50px;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--acik-gri);
-            border-top: 5px solid var(--vurgu-renk);
+        .galeri-item img { width: 100%; height: 100%; object-fit: cover; }
+        .galeri-sil {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--kirmizi);
+            color: white;
+            border: none;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.acik {
-            display: flex;
-        }
-
-        .modal-icerik {
-            background: var(--beyaz);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-baslik {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--ana-renk);
-            margin-bottom: 20px;
-        }
-
-        .modal-kapat {
-            float: right;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
-            font-size: 24px;
-            color: var(--gri);
+            font-size: 12px;
+        }
+
+        .etiket-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .etiket-chip {
+            background: rgba(249,115,22,0.1);
+            color: var(--vurgu-renk);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .etiket-chip button {
             background: none;
             border: none;
+            color: var(--vurgu-renk);
+            cursor: pointer;
+            font-size: 14px;
         }
 
+        .bildirim-item {
+            background: var(--acik-renk);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .bildirim-item.okunmadi { border-left: 4px solid var(--vurgu-renk); }
+
         @media (max-width: 768px) {
-            .sekme-btn {
-                padding: 10px 15px;
-                font-size: 12px;
-            }
-
-            .sekme-icerik {
-                padding: 20px;
-            }
-
-            .form-satir {
-                grid-template-columns: 1fr;
-            }
-
-            .panel-baslik h1 {
-                font-size: 22px;
-            }
+            .sekme-btn { padding: 8px 12px; font-size: 11px; }
+            .sekme-icerik { padding: 20px; }
+            .form-satir { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -462,9 +326,12 @@
                 <img src="https://i.ibb.co/Pz11x68W/f-1.png" alt="Logo">
                 <span class="logo-ad">e-<span>Firmam</span> Panel</span>
             </a>
-            <button class="cikis-btn" onclick="cikisYap()">
-                <i class="fas fa-sign-out-alt"></i> Çıkış
-            </button>
+            <div style="display:flex;align-items:center;gap:15px;">
+                <button class="btn" style="background:rgba(59,130,246,0.2);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);" onclick="sekmeDegistir('bildirimler')">
+                    <i class="fas fa-bell"></i> <span id="bildirimSayisi">0</span>
+                </button>
+                <button class="cikis-btn" onclick="cikisYap()"><i class="fas fa-sign-out-alt"></i> Çıkış</button>
+            </div>
         </div>
     </nav>
 
@@ -479,61 +346,71 @@
         </div>
 
         <div class="sekmeler">
-            <button class="sekme-btn aktif" onclick="sekmeDegistir('genel')"><i class="fas fa-home"></i> Genel Bakış</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('istatistik')"><i class="fas fa-chart-bar"></i> İstatistikler</button>
+            <button class="sekme-btn aktif" onclick="sekmeDegistir('genel')"><i class="fas fa-home"></i> Genel</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('istatistik')"><i class="fas fa-chart-bar"></i> İstatistik</button>
             <button class="sekme-btn" onclick="sekmeDegistir('yorumlar')"><i class="fas fa-comments"></i> Yorumlar</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('itirazlar')"><i class="fas fa-flag"></i> İtirazlarım</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('duzenle')"><i class="fas fa-edit"></i> Firma Düzenle</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('itirazlar')"><i class="fas fa-flag"></i> İtirazlar</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('fotograflar')"><i class="fas fa-images"></i> Fotoğraflar</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('kampanyalar')"><i class="fas fa-tags"></i> Kampanyalar</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('sss')"><i class="fas fa-question-circle"></i> SSS</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('bildirimler')"><i class="fas fa-bell"></i> Bildirimler</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('duzenle')"><i class="fas fa-edit"></i> Düzenle</button>
         </div>
 
         <div class="sekme-icerik aktif" id="sekme-genel">
-            <div class="istatistik-grid" id="genelIstatistik">
-                <div class="loading"><div class="spinner"></div></div>
-            </div>
+            <div class="istatistik-grid" id="genelIstatistik"></div>
         </div>
 
         <div class="sekme-icerik" id="sekme-istatistik">
-            <h3 style="margin-bottom: 20px; color: var(--ana-renk);"><i class="fas fa-chart-line" style="color: var(--vurgu-renk);"></i> İstatistikler</h3>
-            <div class="grafik-konteyner"><canvas id="grafikCanvas"></canvas></div>
-            <div class="istatistik-grid" id="istatistikDetay" style="margin-top: 30px;"></div>
+            <h3 style="margin-bottom:20px;"><i class="fas fa-chart-line" style="color:var(--vurgu-renk);"></i> İstatistikler</h3>
+            <div style="max-width:100%;"><canvas id="grafikCanvas"></canvas></div>
+            <div class="istatistik-grid" id="istatistikDetay" style="margin-top:30px;"></div>
         </div>
 
         <div class="sekme-icerik" id="sekme-yorumlar">
-            <h3 style="margin-bottom: 20px; color: var(--ana-renk);"><i class="fas fa-comments" style="color: var(--vurgu-renk);"></i> Gelen Yorumlar</h3>
-            <div id="yorumListesi"><div class="loading"><div class="spinner"></div></div></div>
+            <h3 style="margin-bottom:20px;"><i class="fas fa-comments" style="color:var(--vurgu-renk);"></i> Gelen Yorumlar</h3>
+            <div id="yorumListesi"></div>
         </div>
 
         <div class="sekme-icerik" id="sekme-itirazlar">
-            <h3 style="margin-bottom: 20px; color: var(--ana-renk);"><i class="fas fa-flag" style="color: var(--vurgu-renk);"></i> İtirazlarım</h3>
-            <div id="itirazListesi"><div class="loading"><div class="spinner"></div></div></div>
+            <h3 style="margin-bottom:20px;"><i class="fas fa-flag" style="color:var(--vurgu-renk);"></i> İtirazlarım</h3>
+            <div id="itirazListesi"></div>
+        </div>
+
+        <div class="sekme-icerik" id="sekme-fotograflar">
+            <h3 style="margin-bottom:20px;"><i class="fas fa-images" style="color:var(--vurgu-renk);"></i> Fotoğraf Galerisi</h3>
+            <div class="form-grup">
+                <label>Yeni Fotoğraf Ekle</label>
+                <input type="file" id="fotoInput" accept="image/*" multiple>
+            </div>
+            <button class="kaydet-btn" onclick="fotografYukle()"><i class="fas fa-upload"></i> Fotoğrafları Yükle</button>
+            <div id="galeriListesi" style="margin-top:30px;"></div>
+        </div>
+
+        <div class="sekme-icerik" id="sekme-kampanyalar">
+            <h3 style="margin-bottom:20px;"><i class="fas fa-tags" style="color:var(--vurgu-renk);"></i> Kampanyalar</h3>
+            <div class="form-grup"><label>Kampanya Başlığı</label><input type="text" id="kampanyaBaslik" placeholder="Örn: Yaza Özel %20 İndirim"></div>
+            <div class="form-grup"><label>Açıklama</label><textarea id="kampanyaAciklama" style="min-height:80px;" placeholder="Kampanya detayları..."></textarea></div>
+            <button class="kaydet-btn" onclick="kampanyaEkle()"><i class="fas fa-plus"></i> Kampanya Ekle</button>
+            <div id="kampanyaListesi" style="margin-top:30px;"></div>
+        </div>
+
+        <div class="sekme-icerik" id="sekme-sss">
+            <h3 style="margin-bottom:20px;"><i class="fas fa-question-circle" style="color:var(--vurgu-renk);"></i> Sık Sorulan Sorular</h3>
+            <div class="form-grup"><label>Soru</label><input type="text" id="sssSoru" placeholder="Örn: Kredi kartı geçiyor mu?"></div>
+            <div class="form-grup"><label>Cevap</label><textarea id="sssCevap" style="min-height:80px;" placeholder="Cevabı yazın..."></textarea></div>
+            <button class="kaydet-btn" onclick="sssEkle()"><i class="fas fa-plus"></i> SSS Ekle</button>
+            <div id="sssListesi" style="margin-top:30px;"></div>
+        </div>
+
+        <div class="sekme-icerik" id="sekme-bildirimler">
+            <h3 style="margin-bottom:20px;"><i class="fas fa-bell" style="color:var(--vurgu-renk);"></i> Bildirimler</h3>
+            <div id="bildirimListesi"></div>
         </div>
 
         <div class="sekme-icerik" id="sekme-duzenle">
-            <h3 style="margin-bottom: 20px; color: var(--ana-renk);"><i class="fas fa-edit" style="color: var(--vurgu-renk);"></i> Firma Bilgilerini Düzenle</h3>
-            <div id="duzenleForm"><div class="loading"><div class="spinner"></div></div></div>
-        </div>
-    </div>
-
-    <div class="modal" id="itirazModal">
-        <div class="modal-icerik">
-            <button class="modal-kapat" onclick="modalKapat()">&times;</button>
-            <h3 class="modal-baslik">Yorum İtirazı</h3>
-            <div class="form-grup">
-                <label>İtiraz Sebebi</label>
-                <select id="itirazSebebi">
-                    <option value="Sahte yorum">Sahte yorum</option>
-                    <option value="Hakaret / Küfür">Hakaret / Küfür</option>
-                    <option value="Reklam / Spam">Reklam / Spam</option>
-                    <option value="Yanlış firmaya yazılmış">Yanlış firmaya yazılmış</option>
-                    <option value="Kişisel bilgi ifşa">Kişisel bilgi ifşa</option>
-                    <option value="Diğer">Diğer</option>
-                </select>
-            </div>
-            <div class="form-grup">
-                <label>Açıklama (Opsiyonel)</label>
-                <textarea id="itirazAciklama" style="min-height: 80px;" placeholder="İtirazınızı açıklayın..."></textarea>
-            </div>
-            <button class="kaydet-btn" onclick="itirazGonder()"><i class="fas fa-paper-plane"></i> İtirazı Gönder</button>
+            <h3 style="margin-bottom:20px;"><i class="fas fa-edit" style="color:var(--vurgu-renk);"></i> Firma Bilgilerini Düzenle</h3>
+            <div id="duzenleForm"></div>
         </div>
     </div>
 
@@ -556,11 +433,11 @@
         const db = firebase.firestore();
         const auth = firebase.auth();
 
+        const IMGBB_API_KEY = 'e2f110ca9201dd4015ec0ccf0c6dbda1';
+
         let mevcutKullanici = null;
         let mevcutFirma = null;
         let mevcutFirmaId = null;
-        let itirazYorumId = null;
-        let duzLogoDosya = null;
         let grafik = null;
 
         function sekmeDegistir(sekme) {
@@ -572,16 +449,11 @@
             if (sekme === 'istatistik') istatistikYukle();
             if (sekme === 'yorumlar') yorumlariYukle();
             if (sekme === 'itirazlar') itirazlariYukle();
+            if (sekme === 'fotograflar') fotograflariYukle();
+            if (sekme === 'kampanyalar') kampanyalariYukle();
+            if (sekme === 'sss') sssYukle();
+            if (sekme === 'bildirimler') bildirimleriYukle();
             if (sekme === 'duzenle') duzenleFormYukle();
-        }
-
-        function modalAc(yorumId) {
-            itirazYorumId = yorumId;
-            document.getElementById('itirazModal').classList.add('acik');
-        }
-
-        function modalKapat() {
-            document.getElementById('itirazModal').classList.remove('acik');
         }
 
         function bildirimGoster(mesaj, tip) {
@@ -592,9 +464,7 @@
         }
 
         function cikisYap() {
-            auth.signOut().then(() => {
-                window.location.href = '../firma-giris.html';
-            });
+            auth.signOut().then(() => window.location.href = '../firma-giris.html');
         }
 
         async function firmaBilgiYukle() {
@@ -608,14 +478,10 @@
                     const doc = firmaSnapshot.docs[0];
                     mevcutFirma = doc.data();
                     mevcutFirmaId = doc.id;
-                    
                     document.getElementById('firmaAdiBaslik').textContent = mevcutFirma.firma_adi;
-                    
-                    if (mevcutFirma.logo_url) {
-                        document.getElementById('firmaLogoBaslik').src = mevcutFirma.logo_url;
-                    }
-                    
+                    if (mevcutFirma.logo_url) document.getElementById('firmaLogoBaslik').src = mevcutFirma.logo_url;
                     genelBakisiYukle();
+                    bildirimSayisiniGuncelle();
                 }
             } catch (error) {
                 console.error('Firma bilgi hatası:', error);
@@ -624,208 +490,399 @@
 
         function genelBakisiYukle() {
             const genelIstatistik = document.getElementById('genelIstatistik');
-            
             genelIstatistik.innerHTML = `
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-turuncu"><i class="fas fa-eye"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.goruntulenme || 0}</div>
-                    <div class="istatistik-etiket">Görüntülenme</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-yesil"><i class="fas fa-phone"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.telefon_tiklama || 0}</div>
-                    <div class="istatistik-etiket">Telefon Tıklama</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-mavi"><i class="fab fa-whatsapp"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.whatsapp_tiklama || 0}</div>
-                    <div class="istatistik-etiket">WhatsApp Tıklama</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-sari"><i class="fas fa-comments"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.yorum_sayisi || 0}</div>
-                    <div class="istatistik-etiket">Yorum</div>
-                </div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-turuncu"><i class="fas fa-eye"></i></div><div class="istatistik-sayi">${mevcutFirma.goruntulenme || 0}</div><div class="istatistik-etiket">Görüntülenme</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-sari"><i class="fas fa-comments"></i></div><div class="istatistik-sayi">${mevcutFirma.yorum_sayisi || 0}</div><div class="istatistik-etiket">Yorum</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-yesil"><i class="fas fa-star"></i></div><div class="istatistik-sayi">${mevcutFirma.ortalama_puan || 0}</div><div class="istatistik-etiket">Ortalama Puan</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-mavi"><i class="fas fa-images"></i></div><div class="istatistik-sayi">${(mevcutFirma.fotograflar || []).length}</div><div class="istatistik-etiket">Fotoğraf</div></div>
             `;
         }
 
         function istatistikYukle() {
             const istatistikDetay = document.getElementById('istatistikDetay');
-            
             istatistikDetay.innerHTML = `
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-turuncu"><i class="fas fa-eye"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.goruntulenme || 0}</div>
-                    <div class="istatistik-etiket">Toplam Görüntülenme</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-yesil"><i class="fas fa-phone"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.telefon_tiklama || 0}</div>
-                    <div class="istatistik-etiket">Telefon Tıklama</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-mavi"><i class="fab fa-whatsapp"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.whatsapp_tiklama || 0}</div>
-                    <div class="istatistik-etiket">WhatsApp Tıklama</div>
-                </div>
-                <div class="istatistik-kart">
-                    <div class="istatistik-ikon ikon-sari"><i class="fas fa-star"></i></div>
-                    <div class="istatistik-sayi">${mevcutFirma.ortalama_puan || 0}</div>
-                    <div class="istatistik-etiket">Ortalama Puan</div>
-                </div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-turuncu"><i class="fas fa-eye"></i></div><div class="istatistik-sayi">${mevcutFirma.goruntulenme || 0}</div><div class="istatistik-etiket">Görüntülenme</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-sari"><i class="fas fa-comments"></i></div><div class="istatistik-sayi">${mevcutFirma.yorum_sayisi || 0}</div><div class="istatistik-etiket">Yorum</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-yesil"><i class="fas fa-star"></i></div><div class="istatistik-sayi">${mevcutFirma.ortalama_puan || 0}</div><div class="istatistik-etiket">Ortalama Puan</div></div>
+                <div class="istatistik-kart"><div class="istatistik-ikon ikon-mavi"><i class="fas fa-thumbs-up"></i></div><div class="istatistik-sayi">${mevcutFirma.begeni_sayisi || 0}</div><div class="istatistik-etiket">Beğeni</div></div>
             `;
             
-            // Eski grafiği temizle
-            if (grafik) {
-                grafik.destroy();
-            }
-            
+            if (grafik) grafik.destroy();
             const ctx = document.getElementById('grafikCanvas').getContext('2d');
-            
             grafik = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Görüntülenme', 'Telefon', 'WhatsApp', 'Web Tıklama'],
+                    labels: ['Görüntülenme', 'Yorum', 'Fotoğraf'],
                     datasets: [{
                         label: 'İstatistikler',
                         data: [
                             mevcutFirma.goruntulenme || 0,
-                            mevcutFirma.telefon_tiklama || 0,
-                            mevcutFirma.whatsapp_tiklama || 0,
-                            mevcutFirma.web_tiklama || 0
+                            mevcutFirma.yorum_sayisi || 0,
+                            (mevcutFirma.fotograflar || []).length
                         ],
-                        backgroundColor: ['#f97316', '#10b981', '#3b82f6', '#f59e0b'],
+                        backgroundColor: ['#f97316', '#10b981', '#3b82f6'],
                         borderRadius: 10
                     }]
                 },
-                options: {
-                    responsive: true,
-                    scales: { y: { beginAtZero: true } }
-                }
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
             });
         }
 
         async function yorumlariYukle() {
             const yorumListesi = document.getElementById('yorumListesi');
-            
             try {
-                const snapshot = await db.collection('yorumlar')
-                    .where('firma_id', '==', mevcutFirmaId)
-                    .get();
-                
+                const snapshot = await db.collection('yorumlar').where('firma_id', '==', mevcutFirmaId).get();
                 if (snapshot.empty) {
-                    yorumListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış.</p>';
+                    yorumListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Henüz yorum yapılmamış.</p>';
                     return;
                 }
-                
                 yorumListesi.innerHTML = '';
-                
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    
                     if (data.durum === 'kaldirildi') return;
-                    
-                    const yorumItem = document.createElement('div');
-                    yorumItem.className = 'yorum-item';
-                    
                     let yildizlar = '';
-                    for (let i = 0; i < 5; i++) {
-                        yildizlar += i < (data.puan || 0) ? '★' : '☆';
-                    }
-                    
-                    yorumItem.innerHTML = `
-                        <div class="yorum-sol">
-                            <div class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</div>
-                            <div class="yorum-puan">${yildizlar}</div>
-                            <div class="yorum-metin">${data.yorum}</div>
-                            <div class="yorum-tarih">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</div>
-                        </div>
-                        <div class="yorum-aksiyonlar">
-                            <button class="btn btn-itiraz" onclick="modalAc('${doc.id}')"><i class="fas fa-flag"></i> İtiraz Et</button>
+                    for (let i = 0; i < 5; i++) yildizlar += i < (data.puan || 0) ? '★' : '☆';
+                    yorumListesi.innerHTML += `
+                        <div class="liste-item">
+                            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                                <div>
+                                    <strong>${data.yorumcu_adi || 'Anonim'}</strong>
+                                    <div style="color:var(--sari);">${yildizlar}</div>
+                                    <p style="font-size:14px;">${data.yorum}</p>
+                                    <small style="color:var(--gri);">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</small>
+                                </div>
+                                <button class="btn btn-itiraz" onclick="itirazEt('${doc.id}')"><i class="fas fa-flag"></i> İtiraz Et</button>
+                            </div>
                         </div>
                     `;
-                    
-                    yorumListesi.appendChild(yorumItem);
                 });
             } catch (error) {
-                console.error('Yorum yükleme hatası:', error);
-                yorumListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz yorum yapılmamış.</p>';
+                yorumListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Yorum yüklenemedi.</p>';
+            }
+        }
+
+        async function itirazEt(yorumId) {
+            const sebep = prompt('İtiraz sebebiniz nedir?\n1: Sahte yorum\n2: Hakaret\n3: Spam\n4: Yanlış firma\n5: Diğer');
+            if (!sebep) return;
+            
+            try {
+                await db.collection('itirazlar').add({
+                    yorum_id: yorumId,
+                    firma_id: mevcutFirmaId,
+                    itiraz_sebebi: sebep,
+                    durum: 'beklemede',
+                    tarih: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                bildirimGoster('İtirazınız admin\'e gönderildi.', 'basarili');
+            } catch (error) {
+                bildirimGoster('İtiraz gönderilemedi.', 'hata');
             }
         }
 
         async function itirazlariYukle() {
             const itirazListesi = document.getElementById('itirazListesi');
-            
             try {
-                const snapshot = await db.collection('itirazlar')
-                    .where('firma_id', '==', mevcutFirmaId)
-                    .get();
-                
+                const snapshot = await db.collection('itirazlar').where('firma_id', '==', mevcutFirmaId).get();
                 if (snapshot.empty) {
-                    itirazListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz itiraz yapılmamış.</p>';
+                    itirazListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Henüz itiraz yapılmamış.</p>';
                     return;
                 }
-                
                 itirazListesi.innerHTML = '';
-                
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    const itirazItem = document.createElement('div');
-                    itirazItem.className = 'itiraz-item';
-                    
-                    let durumClass = 'durum-beklemede';
-                    let durumText = 'Beklemede';
-                    
-                    if (data.durum === 'onaylandi') {
-                        durumClass = 'durum-onaylandi';
-                        durumText = 'Onaylandı - Yorum Kaldırıldı';
-                    } else if (data.durum === 'reddedildi') {
-                        durumClass = 'durum-reddedildi';
-                        durumText = 'Reddedildi - Yorum Kaldı';
-                    }
-                    
-                    itirazItem.innerHTML = `
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
-                            <strong>${data.itiraz_sebebi}</strong>
-                            <span class="itiraz-durum ${durumClass}">${durumText}</span>
+                    let durum = 'Beklemede';
+                    let renk = 'var(--sari)';
+                    if (data.durum === 'onaylandi') { durum = 'Onaylandı'; renk = 'var(--yesil)'; }
+                    if (data.durum === 'reddedildi') { durum = 'Reddedildi'; renk = 'var(--kirmizi)'; }
+                    itirazListesi.innerHTML += `
+                        <div class="liste-item">
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <strong>${data.itiraz_sebebi}</strong>
+                                <span style="color:${renk};font-weight:600;">${durum}</span>
+                            </div>
+                            <small style="color:var(--gri);">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</small>
                         </div>
-                        ${data.aciklama ? `<p style="font-size: 14px; color: var(--gri); margin-bottom: 10px;">${data.aciklama}</p>` : ''}
-                        <small style="color: var(--gri);">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</small>
                     `;
-                    
-                    itirazListesi.appendChild(itirazItem);
                 });
             } catch (error) {
-                console.error('İtiraz yükleme hatası:', error);
-                itirazListesi.innerHTML = '<p style="text-align: center; color: var(--gri);">Henüz itiraz yapılmamış.</p>';
+                itirazListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">İtiraz yüklenemedi.</p>';
             }
         }
 
-        async function itirazGonder() {
-            const sebep = document.getElementById('itirazSebebi').value;
-            const aciklama = document.getElementById('itirazAciklama').value.trim();
+        async function fotograflariYukle() {
+            const galeriListesi = document.getElementById('galeriListesi');
+            const fotograflar = mevcutFirma.fotograflar || [];
             
-            if (!itirazYorumId) {
-                bildirimGoster('İtiraz edilecek yorum bulunamadı.', 'hata');
+            if (fotograflar.length === 0) {
+                galeriListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Henüz fotoğraf eklenmemiş.</p>';
+                return;
+            }
+            
+            galeriListesi.innerHTML = '<div class="galeri-grid">';
+            fotograflar.forEach((foto, index) => {
+                galeriListesi.innerHTML += `
+                    <div class="galeri-item">
+                        <img src="${foto}" alt="Fotoğraf">
+                        <button class="galeri-sil" onclick="fotoSil(${index})"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+            });
+            galeriListesi.innerHTML += '</div>';
+        }
+
+        async function fotografYukle() {
+            const fotoInput = document.getElementById('fotoInput');
+            const dosyalar = fotoInput.files;
+            
+            if (dosyalar.length === 0) {
+                bildirimGoster('Lütfen fotoğraf seçin.', 'hata');
+                return;
+            }
+            
+            const mevcutFotograflar = mevcutFirma.fotograflar || [];
+            
+            for (const dosya of dosyalar) {
+                try {
+                    const formData = new FormData();
+                    formData.append('image', dosya);
+                    formData.append('key', IMGBB_API_KEY);
+                    
+                    const response = await fetch('https://api.imgbb.com/1/upload', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        mevcutFotograflar.push(data.data.url);
+                    }
+                } catch (error) {
+                    console.error('Fotoğraf yükleme hatası:', error);
+                }
+            }
+            
+            try {
+                await db.collection('firmalar').doc(mevcutFirmaId).update({
+                    fotograflar: mevcutFotograflar
+                });
+                bildirimGoster(dosyalar.length + ' fotoğraf yüklendi!', 'basarili');
+                fotoInput.value = '';
+                firmaBilgiYukle();
+                fotograflariYukle();
+            } catch (error) {
+                bildirimGoster('Fotoğraf kaydedilemedi.', 'hata');
+            }
+        }
+
+        async function fotoSil(index) {
+            if (!confirm('Bu fotoğrafı silmek istiyor musunuz?')) return;
+            
+            const fotograflar = mevcutFirma.fotograflar || [];
+            fotograflar.splice(index, 1);
+            
+            try {
+                await db.collection('firmalar').doc(mevcutFirmaId).update({
+                    fotograflar: fotograflar
+                });
+                bildirimGoster('Fotoğraf silindi.', 'basarili');
+                firmaBilgiYukle();
+                fotograflariYukle();
+            } catch (error) {
+                bildirimGoster('Fotoğraf silinemedi.', 'hata');
+            }
+        }
+
+        async function kampanyalariYukle() {
+            const kampanyaListesi = document.getElementById('kampanyaListesi');
+            try {
+                const snapshot = await db.collection('kampanyalar').where('firma_id', '==', mevcutFirmaId).get();
+                if (snapshot.empty) {
+                    kampanyaListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Kampanya bulunmuyor.</p>';
+                    return;
+                }
+                kampanyaListesi.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    kampanyaListesi.innerHTML += `
+                        <div class="liste-item">
+                            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                                <div>
+                                    <strong>${data.baslik}</strong>
+                                    <p style="font-size:14px;color:var(--gri);">${data.aciklama || ''}</p>
+                                    <small>${data.aktif ? '✅ Aktif' : '❌ Pasif'}</small>
+                                </div>
+                                <button class="btn btn-sil" onclick="kampanyaSil('${doc.id}')"><i class="fas fa-trash"></i> Sil</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                kampanyaListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Kampanya yüklenemedi.</p>';
+            }
+        }
+
+        async function kampanyaEkle() {
+            const baslik = document.getElementById('kampanyaBaslik').value.trim();
+            const aciklama = document.getElementById('kampanyaAciklama').value.trim();
+            
+            if (!baslik) {
+                bildirimGoster('Kampanya başlığı girin.', 'hata');
                 return;
             }
             
             try {
-                await db.collection('itirazlar').add({
-                    yorum_id: itirazYorumId,
+                await db.collection('kampanyalar').add({
                     firma_id: mevcutFirmaId,
-                    itiraz_sebebi: sebep,
+                    baslik: baslik,
                     aciklama: aciklama,
-                    durum: 'beklemede',
+                    aktif: true,
                     tarih: firebase.firestore.FieldValue.serverTimestamp()
                 });
-                
-                bildirimGoster('İtirazınız admin\'e gönderildi.', 'basarili');
-                modalKapat();
-                document.getElementById('itirazAciklama').value = '';
+                bildirimGoster('Kampanya eklendi!', 'basarili');
+                document.getElementById('kampanyaBaslik').value = '';
+                document.getElementById('kampanyaAciklama').value = '';
+                kampanyalariYukle();
             } catch (error) {
-                console.error('İtiraz hatası:', error);
-                bildirimGoster('İtiraz gönderilirken hata oluştu.', 'hata');
+                bildirimGoster('Kampanya eklenemedi.', 'hata');
+            }
+        }
+
+        async function kampanyaSil(id) {
+            if (!confirm('Kampanyayı silmek istiyor musunuz?')) return;
+            try {
+                await db.collection('kampanyalar').doc(id).delete();
+                bildirimGoster('Kampanya silindi.', 'basarili');
+                kampanyalariYukle();
+            } catch (error) {
+                bildirimGoster('Kampanya silinemedi.', 'hata');
+            }
+        }
+
+        async function sssYukle() {
+            const sssListesi = document.getElementById('sssListesi');
+            try {
+                const snapshot = await db.collection('sss').where('firma_id', '==', mevcutFirmaId).get();
+                if (snapshot.empty) {
+                    sssListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">SSS bulunmuyor.</p>';
+                    return;
+                }
+                sssListesi.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    sssListesi.innerHTML += `
+                        <div class="liste-item">
+                            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                                <div>
+                                    <strong>${data.soru}</strong>
+                                    <p style="font-size:14px;color:var(--gri);">${data.cevap}</p>
+                                </div>
+                                <button class="btn btn-sil" onclick="sssSil('${doc.id}')"><i class="fas fa-trash"></i> Sil</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                sssListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">SSS yüklenemedi.</p>';
+            }
+        }
+
+        async function sssEkle() {
+            const soru = document.getElementById('sssSoru').value.trim();
+            const cevap = document.getElementById('sssCevap').value.trim();
+            
+            if (!soru || !cevap) {
+                bildirimGoster('Soru ve cevap girin.', 'hata');
+                return;
+            }
+            
+            try {
+                await db.collection('sss').add({
+                    firma_id: mevcutFirmaId,
+                    soru: soru,
+                    cevap: cevap,
+                    tarih: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                bildirimGoster('SSS eklendi!', 'basarili');
+                document.getElementById('sssSoru').value = '';
+                document.getElementById('sssCevap').value = '';
+                sssYukle();
+            } catch (error) {
+                bildirimGoster('SSS eklenemedi.', 'hata');
+            }
+        }
+
+        async function sssSil(id) {
+            if (!confirm('SSS silinsin mi?')) return;
+            try {
+                await db.collection('sss').doc(id).delete();
+                bildirimGoster('SSS silindi.', 'basarili');
+                sssYukle();
+            } catch (error) {
+                bildirimGoster('SSS silinemedi.', 'hata');
+            }
+        }
+
+        async function bildirimleriYukle() {
+            const bildirimListesi = document.getElementById('bildirimListesi');
+            try {
+                const snapshot = await db.collection('bildirimler')
+                    .where('firma_id', '==', mevcutFirmaId)
+                    .get();
+                
+                if (snapshot.empty) {
+                    bildirimListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Bildirim bulunmuyor.</p>';
+                    return;
+                }
+                
+                bildirimListesi.innerHTML = '';
+                
+                const bildirimler = [];
+                snapshot.forEach(doc => {
+                    bildirimler.push({ id: doc.id, data: doc.data() });
+                });
+                
+                bildirimler.sort((a, b) => {
+                    const aTarih = a.data.tarih ? a.data.tarih.toDate() : new Date(0);
+                    const bTarih = b.data.tarih ? b.data.tarih.toDate() : new Date(0);
+                    return bTarih - aTarih;
+                });
+                
+                bildirimler.forEach(b => {
+                    const data = b.data;
+                    bildirimListesi.innerHTML += `
+                        <div class="bildirim-item ${!data.okundu ? 'okunmadi' : ''}" onclick="bildirimOkundu('${b.id}')">
+                            <div>
+                                <strong>${data.mesaj}</strong>
+                                <small style="display:block;color:var(--gri);">${data.tarih ? new Date(data.tarih.toDate()).toLocaleString('tr-TR') : ''}</small>
+                            </div>
+                            ${!data.okundu ? '<span style="background:var(--vurgu-renk);color:white;padding:3px 10px;border-radius:50px;font-size:11px;">Yeni</span>' : ''}
+                        </div>
+                    `;
+                });
+                
+                // Tümünü okundu yap
+                bildirimler.forEach(async b => {
+                    if (!b.data.okundu) {
+                        await db.collection('bildirimler').doc(b.id).update({ okundu: true });
+                    }
+                });
+                
+                bildirimSayisiniGuncelle();
+            } catch (error) {
+                bildirimListesi.innerHTML = '<p style="text-align:center;color:var(--gri);">Bildirim yüklenemedi.</p>';
+            }
+        }
+
+        async function bildirimSayisiniGuncelle() {
+            try {
+                const snapshot = await db.collection('bildirimler')
+                    .where('firma_id', '==', mevcutFirmaId)
+                    .where('okundu', '==', false)
+                    .get();
+                document.getElementById('bildirimSayisi').textContent = snapshot.size;
+            } catch (error) {
+                console.error('Bildirim sayı hatası:', error);
             }
         }
 
@@ -833,116 +890,48 @@
             const duzenleForm = document.getElementById('duzenleForm');
             const sm = mevcutFirma.sosyal_medya || {};
             const logoHtml = mevcutFirma.logo_url 
-                ? `<img src="${mevcutFirma.logo_url}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">` 
+                ? `<img src="${mevcutFirma.logo_url}" alt="Logo" style="width:100%;height:100%;object-fit:cover;">` 
                 : '<i class="fas fa-building"></i>';
+            const etiketler = (mevcutFirma.etiketler || []).join(', ');
             
             duzenleForm.innerHTML = `
                 <div class="form-grup">
                     <label>Firma Logosu</label>
-                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap;">
-                        <div id="duzLogoOnizleme" style="width: 100px; height: 100px; border-radius: 15px; border: 2px dashed var(--acik-gri); display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--acik-renk); font-size: 40px; color: var(--acik-gri);">
-                            ${logoHtml}
+                    <div style="display:flex;align-items:center;gap:20px;margin-bottom:10px;flex-wrap:wrap;">
+                        <div id="duzLogoOnizleme" style="width:100px;height:100px;border-radius:15px;border:2px dashed var(--acik-gri);display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--acik-renk);font-size:40px;color:var(--acik-gri);">${logoHtml}</div>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <button class="kaydet-btn" onclick="document.getElementById('duzLogoInput').click()"><i class="fas fa-upload"></i> Logo Değiştir</button>
+                            ${mevcutFirma.logo_url ? `<button class="btn btn-sil" onclick="logoSil()"><i class="fas fa-trash"></i> Logo Sil</button>` : ''}
                         </div>
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <button class="btn" style="background: var(--gradient); color: white; border: none;" onclick="document.getElementById('duzLogoInput').click()">
-                                <i class="fas fa-upload"></i> Logo Değiştir
-                            </button>
-                            ${mevcutFirma.logo_url ? `
-                            <button class="btn btn-itiraz" onclick="logoSil()">
-                                <i class="fas fa-trash"></i> Logo Sil
-                            </button>` : ''}
-                        </div>
-                        <input type="file" id="duzLogoInput" accept="image/*" style="display: none;" onchange="duzLogoOnizle(this)">
+                        <input type="file" id="duzLogoInput" accept="image/*" style="display:none;" onchange="duzLogoOnizle(this)">
                     </div>
                 </div>
-                
-                <div class="form-grup">
-                    <label>Firma Adı</label>
-                    <input type="text" id="duzFirmaAdi" value="${mevcutFirma.firma_adi || ''}">
-                </div>
-                
+                <div class="form-grup"><label>Firma Adı</label><input type="text" id="duzFirmaAdi" value="${mevcutFirma.firma_adi || ''}"></div>
                 <div class="form-satir">
-                    <div class="form-grup">
-                        <label>Telefon</label>
-                        <input type="tel" id="duzTelefon" value="${mevcutFirma.telefon || ''}">
-                    </div>
-                    <div class="form-grup">
-                        <label>E-posta</label>
-                        <input type="email" id="duzEmail" value="${mevcutFirma.email || ''}">
-                    </div>
+                    <div class="form-grup"><label>Telefon</label><input type="tel" id="duzTelefon" value="${mevcutFirma.telefon || ''}"></div>
+                    <div class="form-grup"><label>E-posta</label><input type="email" id="duzEmail" value="${mevcutFirma.email || ''}"></div>
                 </div>
-                
-                <div class="form-grup">
-                    <label>Açıklama</label>
-                    <textarea id="duzAciklama" style="min-height: 80px;">${mevcutFirma.aciklama || ''}</textarea>
-                </div>
-                
+                <div class="form-grup"><label>Açıklama</label><textarea id="duzAciklama" style="min-height:80px;">${mevcutFirma.aciklama || ''}</textarea></div>
                 <div class="form-satir">
-                    <div class="form-grup">
-                        <label>İl</label>
-                        <select id="duzIl" onchange="duzIlceleriYukle()">
-                            <option value="">İl Seçin</option>
-                        </select>
-                    </div>
-                    <div class="form-grup">
-                        <label>İlçe</label>
-                        <select id="duzIlce">
-                            <option value="">İlçe Seçin</option>
-                        </select>
-                    </div>
+                    <div class="form-grup"><label>İl</label><select id="duzIl" onchange="duzIlceleriYukle()"><option value="">İl Seçin</option></select></div>
+                    <div class="form-grup"><label>İlçe</label><select id="duzIlce"><option value="">İlçe Seçin</option></select></div>
                 </div>
-                
-                <div class="form-grup">
-                    <label>Adres</label>
-                    <textarea id="duzAdres" style="min-height: 60px;">${mevcutFirma.adres || ''}</textarea>
-                </div>
-                
-                <div class="form-grup">
-                    <label>Web Sitesi</label>
-                    <input type="url" id="duzWeb" value="${mevcutFirma.web_sitesi || ''}">
-                </div>
-                
-                <div class="form-grup">
-                    <label>Sosyal Medya</label>
+                <div class="form-grup"><label>Adres</label><textarea id="duzAdres" style="min-height:60px;">${mevcutFirma.adres || ''}</textarea></div>
+                <div class="form-grup"><label>Web Sitesi</label><input type="url" id="duzWeb" value="${mevcutFirma.web_sitesi || ''}"></div>
+                <div class="form-grup"><label>Etiketler (virgülle ayırın)</label><input type="text" id="duzEtiketler" value="${etiketler}" placeholder="ucuz, kaliteli, güvenilir"></div>
+                <div class="form-grup"><label>Sosyal Medya</label>
                     <div class="form-satir">
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">Facebook</label>
-                            <input type="url" id="duzFacebook" value="${sm.facebook || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">Instagram</label>
-                            <input type="url" id="duzInstagram" value="${sm.instagram || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">X (Twitter)</label>
-                            <input type="url" id="duzTwitter" value="${sm.twitter || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">YouTube</label>
-                            <input type="url" id="duzYoutube" value="${sm.youtube || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">LinkedIn</label>
-                            <input type="url" id="duzLinkedin" value="${sm.linkedin || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">TikTok</label>
-                            <input type="url" id="duzTiktok" value="${sm.tiktok || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">WhatsApp</label>
-                            <input type="tel" id="duzWhatsapp" value="${sm.whatsapp || ''}">
-                        </div>
-                        <div class="form-grup">
-                            <label style="font-size: 12px;">Telegram</label>
-                            <input type="url" id="duzTelegram" value="${sm.telegram || ''}">
-                        </div>
+                        <div class="form-grup"><label style="font-size:12px;">Facebook</label><input type="url" id="duzFacebook" value="${sm.facebook || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">Instagram</label><input type="url" id="duzInstagram" value="${sm.instagram || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">X</label><input type="url" id="duzTwitter" value="${sm.twitter || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">YouTube</label><input type="url" id="duzYoutube" value="${sm.youtube || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">LinkedIn</label><input type="url" id="duzLinkedin" value="${sm.linkedin || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">TikTok</label><input type="url" id="duzTiktok" value="${sm.tiktok || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">WhatsApp</label><input type="tel" id="duzWhatsapp" value="${sm.whatsapp || ''}"></div>
+                        <div class="form-grup"><label style="font-size:12px;">Telegram</label><input type="url" id="duzTelegram" value="${sm.telegram || ''}"></div>
                     </div>
                 </div>
-                
-                <button class="kaydet-btn" onclick="firmaGuncelle()">
-                    <i class="fas fa-save"></i> Kaydet
-                </button>
+                <button class="kaydet-btn" onclick="firmaGuncelle()"><i class="fas fa-save"></i> Kaydet</button>
             `;
             
             duzenleIlleriYukle();
@@ -950,30 +939,19 @@
 
         async function duzenleIlleriYukle() {
             const duzIl = document.getElementById('duzIl');
-            
             try {
                 const snapshot = await db.collection('iller').get();
-                
                 const iller = [];
-                snapshot.forEach(doc => {
-                    iller.push(doc.data().ad);
-                });
-                
+                snapshot.forEach(doc => iller.push(doc.data().ad));
                 iller.sort();
-                
                 iller.forEach(il => {
                     const option = document.createElement('option');
                     option.value = il;
                     option.textContent = il;
-                    if (il === mevcutFirma.il) {
-                        option.selected = true;
-                    }
+                    if (il === mevcutFirma.il) option.selected = true;
                     duzIl.appendChild(option);
                 });
-                
-                if (mevcutFirma.il) {
-                    await duzIlceleriYukle();
-                }
+                if (mevcutFirma.il) await duzIlceleriYukle();
             } catch (error) {
                 console.error('İl yükleme hatası:', error);
             }
@@ -982,40 +960,22 @@
         async function duzIlceleriYukle() {
             const il = document.getElementById('duzIl').value;
             const duzIlce = document.getElementById('duzIlce');
-            
-            duzIlce.innerHTML = '<option value="">İlçe Yükleniyor...</option>';
-            
-            if (!il) {
-                duzIlce.innerHTML = '<option value="">Önce İl Seçin</option>';
-                return;
-            }
-            
+            duzIlce.innerHTML = '<option value="">İlçe Seçin</option>';
+            if (!il) return;
             try {
-                const snapshot = await db.collection('ilceler')
-                    .where('il', '==', il)
-                    .get();
-                
-                duzIlce.innerHTML = '<option value="">İlçe Seçin (Opsiyonel)</option>';
-                
+                const snapshot = await db.collection('ilceler').where('il', '==', il).get();
                 const ilceler = [];
-                snapshot.forEach(doc => {
-                    ilceler.push(doc.data().ad);
-                });
-                
+                snapshot.forEach(doc => ilceler.push(doc.data().ad));
                 ilceler.sort();
-                
                 ilceler.forEach(ilce => {
                     const option = document.createElement('option');
                     option.value = ilce;
                     option.textContent = ilce;
-                    if (ilce === mevcutFirma.ilce) {
-                        option.selected = true;
-                    }
+                    if (ilce === mevcutFirma.ilce) option.selected = true;
                     duzIlce.appendChild(option);
                 });
             } catch (error) {
                 console.error('İlçe yükleme hatası:', error);
-                duzIlce.innerHTML = '<option value="">İlçe yüklenemedi</option>';
             }
         }
 
@@ -1025,25 +985,20 @@
                 duzLogoDosya = dosya;
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const onizleme = document.getElementById('duzLogoOnizleme');
-                    onizleme.innerHTML = `<img src="${e.target.result}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">`;
+                    document.getElementById('duzLogoOnizleme').innerHTML = `<img src="${e.target.result}" alt="Logo" style="width:100%;height:100%;object-fit:cover;">`;
                 };
                 reader.readAsDataURL(dosya);
             }
         }
 
         async function logoSil() {
-            if (confirm('Logoyu silmek istediğinize emin misiniz?')) {
-                try {
-                    await db.collection('firmalar').doc(mevcutFirmaId).update({
-                        logo_url: ''
-                    });
-                    bildirimGoster('Logo silindi.', 'basarili');
-                    firmaBilgiYukle();
-                } catch (error) {
-                    console.error('Logo silme hatası:', error);
-                    bildirimGoster('Logo silinirken hata oluştu.', 'hata');
-                }
+            if (!confirm('Logoyu silmek istiyor musunuz?')) return;
+            try {
+                await db.collection('firmalar').doc(mevcutFirmaId).update({ logo_url: '' });
+                bildirimGoster('Logo silindi.', 'basarili');
+                firmaBilgiYukle();
+            } catch (error) {
+                bildirimGoster('Logo silinemedi.', 'hata');
             }
         }
 
@@ -1052,25 +1007,16 @@
                 let logoURL = mevcutFirma.logo_url || '';
                 
                 if (duzLogoDosya) {
-                    try {
-                        const formData = new FormData();
-                        formData.append('image', duzLogoDosya);
-                        formData.append('key', 'e2f110ca9201dd4015ec0ccf0c6dbda1');
-                        
-                        const response = await fetch('https://api.imgbb.com/1/upload', {
-                            method: 'POST',
-                            body: formData
-                        });
-                        
-                        const data = await response.json();
-                        
-                        if (data.success) {
-                            logoURL = data.data.url;
-                        }
-                    } catch (error) {
-                        console.error('Logo yükleme hatası:', error);
-                    }
+                    const formData = new FormData();
+                    formData.append('image', duzLogoDosya);
+                    formData.append('key', IMGBB_API_KEY);
+                    const response = await fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: formData });
+                    const data = await response.json();
+                    if (data.success) logoURL = data.data.url;
                 }
+                
+                const etiketlerText = document.getElementById('duzEtiketler').value.trim();
+                const etiketler = etiketlerText ? etiketlerText.split(',').map(e => e.trim()).filter(e => e) : [];
                 
                 await db.collection('firmalar').doc(mevcutFirmaId).update({
                     firma_adi: document.getElementById('duzFirmaAdi').value.trim(),
@@ -1082,6 +1028,7 @@
                     adres: document.getElementById('duzAdres').value.trim(),
                     web_sitesi: document.getElementById('duzWeb').value.trim(),
                     logo_url: logoURL,
+                    etiketler: etiketler,
                     sosyal_medya: {
                         facebook: document.getElementById('duzFacebook').value.trim(),
                         instagram: document.getElementById('duzInstagram').value.trim(),
@@ -1098,7 +1045,6 @@
                 duzLogoDosya = null;
                 firmaBilgiYukle();
             } catch (error) {
-                console.error('Güncelleme hatası:', error);
                 bildirimGoster('Güncelleme sırasında hata oluştu.', 'hata');
             }
         }
@@ -1106,23 +1052,22 @@
         auth.onAuthStateChanged(async user => {
             if (user) {
                 mevcutKullanici = user;
-                
                 try {
                     const userDoc = await db.collection('kullanicilar').doc(user.uid).get();
-                    
                     if (userDoc.exists && userDoc.data().rol === 'admin') {
                         window.location.href = '../admin/index.html';
                     } else {
                         firmaBilgiYukle();
                     }
                 } catch (error) {
-                    console.error('Rol kontrol hatası:', error);
                     firmaBilgiYukle();
                 }
             } else {
                 window.location.href = '../firma-giris.html';
             }
         });
+
+        let duzLogoDosya = null;
     </script>
 </body>
 </html>
