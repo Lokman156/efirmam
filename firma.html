@@ -173,7 +173,6 @@
             margin-bottom: 15px;
         }
 
-        /* AÇIK/KAPALI ROZETİ */
         .durum-rozet {
             display: inline-block;
             padding: 8px 20px;
@@ -195,7 +194,6 @@
             border: 1px solid rgba(239,68,68,0.4);
         }
 
-        /* ETİKETLER */
         .etiketler {
             display: flex;
             gap: 8px;
@@ -284,7 +282,6 @@
 
         .bilgi-deger a { color: var(--vurgu-renk); text-decoration: none; }
 
-        /* FOTOĞRAF GALERİSİ */
         .galeri-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -307,7 +304,6 @@
 
         .galeri-item:hover img { transform: scale(1.1); }
 
-        /* KAMPANYA KUTUSU */
         .kampanya-kutu {
             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             border-radius: 15px;
@@ -327,7 +323,6 @@
             opacity: 0.9;
         }
 
-        /* SSS */
         .sss-item {
             border: 1px solid var(--acik-gri);
             border-radius: 10px;
@@ -356,7 +351,6 @@
         .sss-item.acik .sss-cevap { display: block; }
         .sss-item.acik .sss-soru i { transform: rotate(180deg); }
 
-        /* YORUMLAR */
         .yorum-kart {
             background: var(--acik-renk);
             border-radius: 15px;
@@ -377,22 +371,6 @@
         .yorum-puan { color: var(--sari); font-size: 14px; margin-bottom: 10px; }
         .yorum-metin { font-size: 14px; }
 
-        .begeni-btn {
-            background: none;
-            border: 1px solid var(--acik-gri);
-            border-radius: 50px;
-            padding: 5px 15px;
-            cursor: pointer;
-            font-size: 12px;
-            color: var(--gri);
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-
-        .begeni-btn:hover { background: var(--acik-renk); }
-        .begeni-btn.begenildi { color: #3b82f6; border-color: #3b82f6; }
-
-        /* YORUM FORMU */
         .yorum-form { display: grid; gap: 15px; }
 
         .yorum-form input,
@@ -462,174 +440,153 @@
             100% { transform: rotate(360deg); }
         }
 
-       /* ============ FOOTER ============ */
-.footer {
-    background: #0f172a;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
-}
+        .footer {
+            background: #0f172a;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #f97316, #ea580c, #f97316);
-}
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f97316, #ea580c, #f97316);
+        }
 
-.footer-ust {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
+        .footer-ust {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
 
-.footer-bolum h3 {
-    color: #f97316;
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
+        .footer-bolum h3 {
+            color: #f97316;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
 
-.footer-bolum h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: #f97316;
-    border-radius: 3px;
-}
+        .footer-bolum h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #f97316;
+            border-radius: 3px;
+        }
 
-.footer-bolum p {
-    color: rgba(255,255,255,0.7);
-    font-size: 13px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
+        .footer-bolum p {
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
 
-.footer-bolum a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    font-size: 13px;
-    transition: all 0.3s;
-}
+        .footer-bolum a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
 
-.footer-bolum a:hover {
-    color: #f97316;
-    padding-left: 5px;
-}
+        .footer-bolum a:hover {
+            color: #f97316;
+            padding-left: 5px;
+        }
 
-.footer-bolum a i {
-    font-size: 10px;
-    color: #f97316;
-}
+        .footer-bolum a i {
+            font-size: 10px;
+            color: #f97316;
+        }
 
-/* Sosyal Medya Butonları */
-.footer-sosyal {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
+        .footer-sosyal {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-.footer-sosyal a {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        .footer-sosyal a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
-.footer-sosyal a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
+        .footer-sosyal a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
 
-.footer-sosyal-instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
+        .footer-sosyal-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
 
-.footer-sosyal-youtube {
-    background: #ff0000;
-}
+        .footer-sosyal-youtube { background: #ff0000; }
 
-.footer-sosyal-tiktok {
-    background: #000000;
-    border: 1px solid rgba(255,255,255,0.3);
-}
+        .footer-sosyal-tiktok {
+            background: #000000;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
-.footer-sosyal-linkedin {
-    background: #0a66c2;
-}
+        .footer-sosyal-linkedin { background: #0a66c2; }
+        .footer-sosyal-mail { background: #f97316; }
 
-.footer-sosyal-mail {
-    background: #f97316;
-}
+        .footer-iletisim-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+        }
 
-/* İletişim Bilgi Kutuları */
-.footer-iletisim-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    color: rgba(255,255,255,0.7);
-    font-size: 13px;
-}
+        .footer-iletisim-item i {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            background: rgba(249,115,22,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f97316;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
 
-.footer-iletisim-item i {
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
-    background: rgba(249,115,22,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #f97316;
-    font-size: 15px;
-    flex-shrink: 0;
-}
+        .footer-alt {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            text-align: center;
+        }
 
-/* Alt Bar */
-.footer-alt {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 20px;
-    text-align: center;
-}
+        .footer-alt p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 5px;
+        }
 
-.footer-alt p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 5px;
-}
+        .footer-alt strong { color: #f97316; }
 
-.footer-alt strong {
-    color: #f97316;
-}
-
-/* Mobil Uyum */
-@media (max-width: 768px) {
-    .footer-ust {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 40px 20px 20px;
-    }
-}
         @media (max-width: 768px) {
             .mobil-menu-btn { display: block; }
 
@@ -650,6 +607,12 @@
             .firma-baslik h1 { font-size: 24px; }
             .bilgi-kart { padding: 20px; }
             .galeri-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+
+            .footer-ust {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 20px 20px;
+            }
         }
     </style>
 </head>
@@ -680,7 +643,6 @@
     <footer class="footer">
     <div class="footer-ust">
         
-        <!-- BÖLÜM 1: Hakkında + Sosyal Medya -->
         <div class="footer-bolum">
             <h3>e-Firmam</h3>
             <p>Türkiye'nin ücretsiz firma rehberi platformu. İşletmenizi ekleyin, müşterilerinize ulaşın. Binlerce firma tek platformda.</p>
@@ -713,7 +675,6 @@
             </div>
         </div>
 
-        <!-- BÖLÜM 2: Hızlı Linkler -->
         <div class="footer-bolum">
             <h3>Hızlı Linkler</h3>
             <a href="index.html"><i class="fas fa-chevron-right"></i> Ana Sayfa</a>
@@ -723,7 +684,6 @@
             <a href="firma-giris.html"><i class="fas fa-chevron-right"></i> Firma Girişi</a>
         </div>
 
-        <!-- BÖLÜM 3: Kurumsal -->
         <div class="footer-bolum">
             <h3>Kurumsal</h3>
             <a href="hakkimizda.html"><i class="fas fa-chevron-right"></i> Hakkımızda</a>
@@ -732,7 +692,6 @@
             <a href="iletisim.html"><i class="fas fa-chevron-right"></i> İletişim</a>
         </div>
 
-        <!-- BÖLÜM 4: İletişim -->
         <div class="footer-bolum">
             <h3>İletişim</h3>
             <div class="footer-iletisim-item">
@@ -799,14 +758,101 @@
             });
         }
 
+        // SEO GÜNCELLE - Profesyonel
         function seoGuncelle(data) {
-            document.title = data.firma_adi + ' - Telefon, Adres, Yorumlar | e-Firmam';
-            document.querySelector('meta[name="description"]').content = data.firma_adi + ' ' + (data.il || '') + ' ' + (data.ilce || '') + ' adresinde. İletişim ve yorumlar e-Firmam\'da.';
+            const firmaAdi = data.firma_adi || 'Firma';
+            const il = data.il || '';
+            const ilce = data.ilce || '';
+            const kategori = data.kategori || '';
+            const telefon = data.telefon || '';
+            
+            // Title - Firma adı + Şehir + Kategori
+            document.title = firmaAdi + ' - ' + (ilce ? ilce + ', ' : '') + il + ' | ' + kategori + ' - e-Firmam';
+            
+            // Description
+            const desc = firmaAdi + ' - ' + kategori + (ilce ? ' - ' + ilce : '') + (il ? ', ' + il : '') + '. ' + (telefon ? 'Telefon: ' + telefon + '. ' : '') + 'e-Firmam firma rehberi.';
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = desc;
+            
+            // Keywords
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+            if (metaKeywords) metaKeywords.content = firmaAdi + ', ' + kategori + ', ' + il + ', ' + ilce + ', firma rehberi, e-Firmam';
+            
+            // Open Graph
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.content = firmaAdi + ' - ' + kategori + ' | e-Firmam';
+            
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.content = desc;
+            
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl) ogUrl.content = 'https://efirmam.com/firma.html?id=' + data.id;
+            
+            const ogImage = document.querySelector('meta[property="og:image"]');
+            if (ogImage && data.logo_url) ogImage.content = data.logo_url;
+            
+            // Canonical
+            const canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) canonical.href = 'https://efirmam.com/firma.html?id=' + data.id;
+        }
+
+        // SCHEMA.ORG EKLE - Google için firma bilgileri
+        function schemaEkle(data) {
+            // Eski schema varsa sil
+            const eskiSchema = document.getElementById('firmaSchema');
+            if (eskiSchema) eskiSchema.remove();
+            
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": data.firma_adi || "",
+                "description": data.aciklama || (data.firma_adi + ' - ' + (data.kategori || '') + (data.il ? ' - ' + data.il : '')),
+                "image": data.logo_url || "https://i.ibb.co/Pz11x68W/f-1.png",
+                "url": "https://efirmam.com/firma.html?id=" + data.id,
+                "telephone": data.gizli_telefon ? "" : (data.telefon || ""),
+                "email": data.gizli_email ? "" : (data.email || ""),
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": data.adres || "",
+                    "addressLocality": data.ilce || "",
+                    "addressRegion": data.il || "",
+                    "addressCountry": "TR"
+                },
+                "priceRange": "₺₺"
+            };
+            
+            // Çalışma saatleri
+            if (data.calisma_saatleri) {
+                const saatler = data.calisma_saatleri;
+                const gunler = ['pazartesi', 'sali', 'carsamba', 'persembe', 'cuma', 'cumartesi', 'pazar'];
+                const gunKodlari = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+                let openingHours = [];
+                
+                gunler.forEach((gun, index) => {
+                    const veri = saatler[gun];
+                    if (veri && !veri.kapali && veri.acilis && veri.kapanis) {
+                        openingHours.push(gunKodlari[index] + ' ' + veri.acilis + '-' + veri.kapanis);
+                    }
+                });
+                
+                if (openingHours.length > 0) {
+                    schema.openingHours = openingHours;
+                }
+            }
+            
+            // Script etiketi oluştur
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'firmaSchema';
+            script.textContent = JSON.stringify(schema);
+            document.head.appendChild(script);
+            
+            console.log('Schema.org eklendi:', schema);
         }
 
         function acikKapaliDurumu(saatler) {
             const now = new Date();
-            const gun = now.getDay(); // 0=Pazar, 1=Pazartesi...
+            const gun = now.getDay();
             const saat = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
             
             const gunler = ['pazar', 'pazartesi', 'sali', 'carsamba', 'persembe', 'cuma', 'cumartesi'];
@@ -825,21 +871,6 @@
             document.querySelectorAll('.sss-item')[index].classList.toggle('acik');
         }
 
-        async function yorumBegen(yorumId, button) {
-            const yorumRef = db.collection('yorumlar').doc(yorumId);
-            
-            try {
-                await db.collection('yorumlar').doc(yorumId).update({
-                    begeni_sayisi: firebase.firestore.FieldValue.increment(1)
-                });
-                button.classList.add('begenildi');
-                button.innerHTML = '👍 ' + (parseInt(button.dataset.begeni) + 1) + ' Beğeni';
-                button.dataset.begeni = parseInt(button.dataset.begeni) + 1;
-            } catch (error) {
-                console.error('Beğeni hatası:', error);
-            }
-        }
-
         async function firmaYukle() {
             firmaId = getFirmaId();
             if (!firmaId) {
@@ -856,7 +887,12 @@
                 
                 firmaData = doc.data();
                 firmaData.id = doc.id;
+                
+                // SEO Güncelle
                 seoGuncelle(firmaData);
+                
+                // Schema.org Ekle ✅
+                schemaEkle(firmaData);
                 
                 await db.collection('firmalar').doc(firmaId).update({
                     goruntulenme: firebase.firestore.FieldValue.increment(1)
@@ -876,12 +912,10 @@
         function firmaHTMLOlustur(data) {
             const logoHtml = data.logo_url ? `<img src="${data.logo_url}" alt="${data.firma_adi}">` : data.firma_adi.charAt(0).toUpperCase();
             
-            // Açık/Kapalı
             const durum = acikKapaliDurumu(data.calisma_saatleri);
             const durumRozet = durum.acik ? 'durum-acik' : 'durum-kapali';
             const durumIkon = durum.acik ? '🟢' : '🔴';
             
-            // Etiketler
             let etiketlerHtml = '';
             if (data.etiketler && data.etiketler.length > 0) {
                 etiketlerHtml = '<div class="etiketler">';
@@ -891,17 +925,15 @@
                 etiketlerHtml += '</div>';
             }
             
-            // Fotoğraf galerisi
             let galeriHtml = '';
             if (data.fotograflar && data.fotograflar.length > 0) {
                 galeriHtml = '<div class="galeri-grid">';
                 data.fotograflar.forEach(foto => {
-                    galeriHtml += `<div class="galeri-item"><img src="${foto}" alt="Firma fotoğrafı" onclick="window.open('${foto}', '_blank')"></div>`;
+                    galeriHtml += `<div class="galeri-item"><img src="${foto}" alt="${data.firma_adi} fotoğrafı" onclick="window.open('${foto}', '_blank')"></div>`;
                 });
                 galeriHtml += '</div>';
             }
             
-            // Sosyal medya
             let sosyalLinkler = '';
             const sm = data.sosyal_medya || {};
             if (sm.facebook) sosyalLinkler += `<a href="${sm.facebook}" target="_blank" style="margin-right:10px;"><i class="fab fa-facebook" style="font-size:24px;color:#1877f2;"></i></a>`;
@@ -909,11 +941,9 @@
             if (sm.youtube) sosyalLinkler += `<a href="${sm.youtube}" target="_blank" style="margin-right:10px;"><i class="fab fa-youtube" style="font-size:24px;color:#ff0000;"></i></a>`;
             if (sm.whatsapp) sosyalLinkler += `<a href="https://wa.me/${sm.whatsapp.replace(/\D/g,'')}" target="_blank" style="margin-right:10px;"><i class="fab fa-whatsapp" style="font-size:24px;color:#25d366;"></i></a>`;
             
-            // Harita
             const haritaAdres = [data.adres, data.ilce, data.il].filter(Boolean).join(', ');
             const haritaURL = haritaAdres ? 'https://www.google.com/maps?q=' + encodeURIComponent(haritaAdres) + '&output=embed' : '';
             
-            // Çalışma saatleri
             let saatHTML = '<p style="color: var(--gri);">Çalışma saatleri belirtilmemiş.</p>';
             if (data.calisma_saatleri) {
                 const saatler = data.calisma_saatleri;
@@ -1041,16 +1071,14 @@
                     let yildizlar = '';
                     for (let i = 0; i < 5; i++) yildizlar += i < (data.puan || 0) ? '★' : '☆';
                     
-                    const begeniSayisi = data.begeni_sayisi || 0;
-                    
                     yorumKart.innerHTML = `
-    <div class="yorum-ust">
-        <span class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</span>
-        <span class="yorum-tarih">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</span>
-    </div>
-    <div class="yorum-puan">${yildizlar}</div>
-    <div class="yorum-metin">${data.yorum}</div>
-`;
+                        <div class="yorum-ust">
+                            <span class="yorum-yazar">${data.yorumcu_adi || 'Anonim'}</span>
+                            <span class="yorum-tarih">${data.tarih ? new Date(data.tarih.toDate()).toLocaleDateString('tr-TR') : ''}</span>
+                        </div>
+                        <div class="yorum-puan">${yildizlar}</div>
+                        <div class="yorum-metin">${data.yorum}</div>
+                    `;
                     
                     yorumlarListesi.appendChild(yorumKart);
                 });
@@ -1078,7 +1106,6 @@
                     tarih: firebase.firestore.FieldValue.serverTimestamp()
                 });
                 
-                // Bildirim ekle
                 await db.collection('bildirimler').add({
                     firma_id: firmaId,
                     mesaj: `"${yorumMetin.substring(0, 50)}..." yeni yorum`,
